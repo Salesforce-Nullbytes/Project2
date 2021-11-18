@@ -1,0 +1,48 @@
+TEAM MEMBERS
+  - Jim
+    - (SCRUM master)
+    - Domain of authority = Control layer
+  - Zach
+    - (Team lead)
+    - Domain of authority = (overlap between Model and Control)
+  - Becky
+    - Domain of authority = View layer
+  - Mike
+    - Domain of authority = (overlap between View and Control)
+  - Joe
+    - Domain of authority = Model layer
+
+SCRUM CEREMONIES
+  - Product Backlog
+    - Maintain on Kanban Board (KB) in Git Repo
+    - Each team member reviews prior to standups
+    - Jim manages and updates KB
+  - Daily Standup
+    - Jim makes sure we all meet and stay on topic
+    - Zach facilitates, guides, manages, and motivates
+    - Jim ensures all attend
+    - Discuss results, roadblocks, and plans
+    - Zach reports summary to Jared afterward
+  - Backlog Refinement
+    - Each team member uses the KB correctly
+    - Jim enforces correct usage (one-person, one-card @ a time)
+    - Jim makes any updates/changes
+  - Review/Retrospective
+    - At end of each sprint (weekly)
+    - Duties: Review the sprint, what we did, roadblocks
+    - Calculate velocity 
+    - Discuss user stories/story points/plans for next sprint
+
+PROJECT 0
+  - Will be individual projects
+  - Serve as foundation of part 2 & 3, and of project 1
+  - Choose a business process you understand
+  - Focus should be on customer (but may also be employees)
+  - Front-end web page (no data or back end)
+
+FUTURE PLANS
+  - Group project with service technician theme (e.g. AT&T)
+  - Specific enough, yet extensible enough to provide good foundation
+  - Possibly integrate with Geographical data (e.g. Google Maps)
+  - Extra functionality with other business departments
+  - Not an immediate priority
