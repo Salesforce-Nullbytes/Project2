@@ -1,0 +1,25 @@
+TEAM MEMBERS
+  - All Members were present
+
+AGENDA
+  - Discuss problems
+  - Review lecture review from prior day
+  - Discuss Project 0 Phase 1
+
+PROBLEMS
+  - Members discussed the challenges
+    - Some minor js issues resolved via screenshare
+  - Git repo access
+    - Zach was having problems pushing meeting notes to repo
+    - Issue was reolved during meeting
+
+REVIEW LECTURE NOTES
+  - Each member went over outline in discord.
+  - No problems with understanding material came up
+
+DISCUSS PROJECT
+  - Not discussed; project meeting was cut short
+  - Breakout for cohort meeting with Kevin Burch
+
+NEXT STEPS
+  - Invite Jared to Group Repo
