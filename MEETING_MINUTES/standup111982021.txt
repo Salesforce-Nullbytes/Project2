@@ -1,0 +1,80 @@
+TEAM MEMBERS
+  - All Members were present
+
+AGENDA
+  - Individual standups
+  - Finalize GitHub operating procedures
+  - General review & QC
+  - Discuss Project 0 Phase 1
+
+INDIVIDUAL STANDUPS
+  - Jim
+    - Accomplished
+      - Finished project 0 wireframe
+      - Began working on Project 0 components
+    - Roadblocks
+      - Still figuring out LWC framework
+    - Next Steps
+      - Learn Bootstrap, and apply to project
+  - Becky
+    - Accomplished
+      - Finished project 0 wireframe
+      - Began brainstorming Project 0 components
+    - Roadblocks
+      - Issue connecting webcomponents.dev to repo
+    - Next Steps
+      - Begin coding Project 0 components
+  - Mike
+    - Accomplished
+      - Finished project 0 wireframe
+    - Roadblocks
+      - Error setting up LWC and following trailhead
+    - Next Steps
+      - Follow better LWC tutorial (found one on YouTube)
+  - Joe
+    - Accomplished
+      - Some progress on project 0 wireframe
+    - Roadblocks
+      - No issues encountered yet
+    - Next Steps
+      - Continue with wireframing, and work on Challenges
+  - Zach
+    - Accomplished
+      - Finished project 0 wireframe
+      - Set up Node/LWC and completed Trailhead tutorial
+    - Roadblocks
+      - Figma issue: could not make more than 3 pages
+        (Becky showed him a workaround)
+    - Next Steps
+      - Complete LWC Challenges
+      - Design and implement Project 0 LWC components
+
+FINALIZE GITHUB PROCEDURES
+  - Jim set up shared Kanban Board
+  - Team decided to use shared Kanban board on Project 0 Repo
+    - Practice coordinating multiple member cards on single board
+    - Each card must be clearly labelled to team member
+    - Placed on project Repo to start clean slate w/ each project
+  - Repo branches/pushing
+    - Each member has their own branches:
+      - (name)-working
+      - (name)-main
+
+GENERAL REVIEW & QC
+  - Discussed what content will be on Monday QC
+  - Decided to study for each QC on weekends
+  - Addressed role of Challenges in QC
+
+DISCUSS PROJECT
+  - No team-wide discussions necessary
+
+NEXT STEPS
+  - Each member must upload KB cards for Project 0 this weekends
+    - Using simple card structure, doesn't have to be fully detailed.
+  - Study for QC over weekends
+  - Keep working on Project 0
+
+REVIEW & RETROSPECTIVE - Afterthoughts
+  - Improvements were made during first week.
+    - Procedures and standards for KB/Repo set
+    - Daily Standup structure established
