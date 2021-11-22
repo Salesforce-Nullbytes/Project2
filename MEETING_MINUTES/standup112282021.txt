@@ -1,0 +1,77 @@
+TEAM MEMBERS
+  - All Members were present
+
+AGENDA
+  - Sprint Backlog
+  - Individual standups
+  - Discuss Project 0 Phase 1
+
+SPRINT BACKLOG
+  - All members must complete Project 0
+  - Remaining members must create their KB cards
+
+INDIVIDUAL STANDUPS
+  - Jim
+    - Accomplished
+      - Got LWC installed and functioning
+      - Started working on LWC trailhead
+    - Roadblocks
+      - Could not get LWC components working
+    - Next Steps
+      - Finish LWC Trailhead (Comnferencing app)
+  - Becky
+    - Accomplished
+      - Review for QC and testing
+    - Roadblocks
+      - No issues reported
+    - Next Steps
+      - Get LWC set up and working
+  - Mike
+    - Accomplished
+      - Studied for QC
+      - Worked on LWC for Project 0
+    - Roadblocks
+      - Exhaustion
+    - Next Steps
+      - Set up Kanban Board cards
+      - Put together Project 0 LWC components
+      - Research SLDS
+  - Joe
+    - Accomplished
+      - Worked with LWC
+    - Roadblocks
+      - Finding time (busy w/ outside project)
+    - Next Steps
+      - Continue with wireframing
+  - Zach
+    - Accomplished
+      - Completed LWC challenges
+      - Reviewed for QC
+    - Roadblocks
+      - Struggled with parent/child communication in LWC
+        (Resolved through researching docs)
+    - Next Steps
+      - Build component structure for project 0
+      - Research SLDS
+
+FINALIZE GITHUB PROCEDURES
+  - Jim set up shared Kanban Board
+  - Team decided to use shared Kanban board on Project 0 Repo
+    - Practice coordinating multiple member cards on single board
+    - Each card must be clearly labelled to team member
+    - Placed on project Repo to start clean slate w/ each project
+  - Repo branches/pushing
+    - Each member has their own branches:
+      - (name)-working
+      - (name)-main
+
+DISCUSS PROJECT
+  - No team-wide discussions necessary
+
+TROUBLESHOOTING
+  - After standup, Zach and Jim engaged in pair programming to
+    resolve issues in his LWC confrencing app
+
+NEXT STEPS
+  - Utilize kanban board for project 0
+  - Finish Project 0
