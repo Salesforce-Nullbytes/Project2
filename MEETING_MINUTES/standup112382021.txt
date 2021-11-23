@@ -1,0 +1,49 @@
+TEAM MEMBERS
+  - All Members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 0 Phase 1
+
+INDIVIDUAL STANDUPS
+  - Jim
+    - Accomplished
+      - Built shopping cart app in LWC
+    - Roadblocks
+      - Issue pushing LWC app to repo
+    - Next Steps
+      - Think about how to setup Project 0 components
+  - Becky
+    - Accomplished
+      - Got LWC working in VS code
+    - Roadblocks
+      - Computer/permissions issue, and Git issues
+    - Next Steps
+      - Build components for Project 0
+  - Mike
+    - Accomplished
+      - Progress on VS LWC web components
+    - Roadblocks
+      - SLDS not working
+    - Next Steps
+      - Potentially switch over to webcomponents.dev
+        (Becky said webcomponents.dev also has limitations)
+  - Joe
+    - Accomplished
+      - Still on Project 0 wireframe
+    - Roadblocks
+      - No reported issues
+    - Next Steps
+      - Continue with wireframing
+  - Zach
+    - Accomplished
+      - Began and completed some Project 0 components
+    - Roadblocks
+      - Some isses with pushing repo to a subfolder of another repo
+        (Resolved by deleting .git and .gitignore files in subrepo)
+    - Next Steps
+      - Continue completing Project 0 LWC components
+      - Work on component design w/ CSS
+
+DISCUSS PROJECT
+  - No team-wide discussions necessary
