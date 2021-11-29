@@ -1,0 +1,54 @@
+TEAM MEMBERS
+  - All Members except Joe were present
+
+AGENDA
+  - Sprint Backlog
+  - Individual standups
+  - Discuss Project 0 Phase 2
+
+SPRINT BACKLOG
+  - Create Kanban Board for Phase 2 of project 0
+  - Each member create Kanban cards for Phase 2
+  - Complete Phase 2 (Salesforce Admin + ERD)
+
+INDIVIDUAL STANDUPS
+  - Jim
+    - Accomplished
+      - Finished Phase 1 project
+    - Roadblocks
+      - Could not get LWC working, so used std HTML/CSS/JS
+      - Could not get user input working
+    - Next Steps
+      - SF Admin and Phase 2
+  - Becky
+    - Accomplished
+      - Finished Project 0 Phase 1
+      - Recreated project as informational page
+    - Roadblocks
+      - Trouble with conditional rendering (resolved)
+    - Next Steps
+      - SF Admin and Phase 2
+  - Mike
+    - Accomplished
+      - Figured out LWC
+      - Put together basic Phase 1 project
+    - Roadblocks
+      - Felt that site was not well-styled
+      - Ran out of time w/ thanksgiving holiday
+    - Next Steps
+      - SF Admin and Phase 2
+  - Joe
+    - (Absent)
+  - Zach
+    - Accomplished
+      - Completed Phase 1 project
+    - Roadblocks
+      - Complexity of site grew a lot as pages were integrated
+      - Short on time with holidays
+    - Next Steps
+      - SF Admin and Phase 2
+      - Study standard objects further
+
+DISCUSS PROJECT
+  - Each member briefly demo'd their Phase 1 site
+  - Discussed review/questions of last week material
