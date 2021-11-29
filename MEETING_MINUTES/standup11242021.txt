@@ -1,0 +1,45 @@
+TEAM MEMBERS
+  - All Members except Joe were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 0 Phase 1
+
+INDIVIDUAL STANDUPS
+  - Jim
+    - Accomplished
+      - Created header component for project 0
+    - Roadblocks
+      - NPM issues: must uninstall/reinstall nodeJS for every project
+    - Next Steps
+      - Continue making Project 0 components
+  - Becky
+    - Accomplished
+      - Created header/footer for project 0
+      - Began about 5 more components
+    - Roadblocks
+      - General JS issues -> resolved
+    - Next Steps
+      - Finish Project 0 components
+  - Mike
+    - Accomplished
+      - Made progress on Project 0 components
+    - Roadblocks
+      - NodeJS issues (must remember to restart when files are added)
+    - Next Steps
+      - Continute with Project 0 components
+      - Work on new Challenges
+  - Joe
+    - (Absent)
+  - Zach
+    - Accomplished
+      - Built several more Porject 0 components
+    - Roadblocks
+      - Could not get index working on template iterator (foreach worked)
+      - Struggled with sibling component communication (resolved)
+    - Next Steps
+      - Complete Project 0 phase 1
+      - Work on SF Admin challenges
+
+DISCUSS PROJECT
+  - No team-wide discussions necessary
