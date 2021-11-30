@@ -1,0 +1,47 @@
+REVIEW & RETROSPECTIVE
+  - Agenda
+    - Sprint timing and scope
+    - Velocity Calculation
+    - Sprint backlog &  new story points
+    - Done well
+    - Learning Lessons
+    - Goals for improvement
+
+SPRINT TIMING AND SCOPE
+  - Last retrospective was 11-19 (11 days ago)
+  - Last week was 3-day week (not enough content for full Retro.)
+  - Added Monday to scope of sprint (and this Retro on Tuesday)
+  - Next retrospective planned for Friday or weekend.
+
+VELOCITY
+  - Story points completed by:
+    - Jim: 24
+    - Becky: 40
+    - Mike: 26
+    - Zach: 34
+  - Total: 124
+
+UPCOMING STORY POINTS
+  - Story points were then assigned for Phase 2
+    - Entire phase 2 considered to be in this sprint
+
+DONE WELL
+  - Use of Kanban Board
+  - Structure and execution of standups
+  - Learned a lot
+    - CSS
+    - LWC
+
+LEARNING LESSONS
+  - Research is neccessary
+    - Documentation sites
+    - Google/StackOverflow
+    - Youtube
+  - Plan early and often
+  - Break tasks into simple pieces
+
+GOALS FOR IMPROVEMENT
+  - Refine Interview/Presentation skills
+  - Improve Time Management
+  - Lean on Team Members for Help
+  - Prepare better for QC's

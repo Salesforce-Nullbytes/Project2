@@ -1,0 +1,49 @@
+TEAM MEMBERS
+  - All Members except Joe were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 0 Phase 2
+
+INDIVIDUAL STANDUPS
+  - Jim
+    - Accomplished
+      - Set up initial ERD and Kanban Cards
+    - Roadblocks
+      - Will send ERD to Jared for assessment/feedback
+    - Next Steps
+      - Submit ERD to Jared and plan out role hierarchies
+  - Becky
+    - Accomplished
+      - ERD finished and sent to Jared
+    - Roadblocks
+      - Working through feedback on ERD from Jared
+    - Next Steps
+      - Make the SF Org
+  - Mike
+    - Accomplished
+      - Finished ERD
+      - Progress on 'Admin Basics' in Trailhead
+    - Roadblocks
+      - Issue with Lookup relationships working backward
+        (resolved: Add rel. field to child, not parent)
+    - Next Steps
+      - Get feedback from Jared on ERD
+      - Continue trailhead
+      - Get object relationships set up correctly
+  - Joe
+    - (Absent)
+  - Zach
+    - Accomplished
+      - Set up ERD and got feedback from Jared
+      - Planned out object fields and relationships
+      - Opened new Org for Phase 2
+    - Roadblocks
+      - Time is short to study for quizzes and complete Phase 2
+    - Next Steps
+      - Continue setting up fields and relationships
+
+DISCUSS PROJECT
+  - Progressed to retrospective on phase 0
+  - Set up Kanban Cards and compared story points
+  - Discussed material for upcoming test
