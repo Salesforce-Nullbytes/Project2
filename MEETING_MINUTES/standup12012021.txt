@@ -1,0 +1,54 @@
+TEAM MEMBERS
+  - All Members except Joe were present
+
+AGENDA
+  - Individual standups
+  - Discuss Admin Exams
+  - Discuss Project 0 Phase 2
+
+INDIVIDUAL STANDUPS
+  - Jim
+    - Accomplished
+      - Created a study sheet for exam
+      - Integrated Jared's feedback into ERD
+    - Roadblocks
+      - Dedicating enough time to thoroughly learn content
+    - Next Steps
+      - Study more on material that wasn't clear
+      - Create objects/relationships for Phase 2
+  - Becky
+    - Accomplished
+      - Studied for exams
+      - Integrated Jared's feedback into ERD
+    - Roadblocks
+      - Needed to review certain topics more
+    - Next Steps
+      - Review Admin content
+      - Work on Phase 2 Org
+  - Mike
+    - Accomplished
+      - Studied (w/ focus on high-level security)
+      - Integrated Jared's feedback into ERD
+    - Roadblocks
+      - Need to memorize GUI processes for setting up security
+    - Next Steps
+      - Finish object creation and security for Phase 2
+  - Joe
+    - (Absent)
+  - Zach
+    - Accomplished
+      - Studied for exams
+      - Thought through security layers for Phase 2
+    - Roadblocks
+      - Time short for Project when studying exam content
+    - Next Steps
+      - Finish setting up objects, fields, and relationships
+      - Set up user profiles, hierarchies, and security
+
+DISCUSS ADMIN EXAMS
+  - Each member identified areas of focus for review
+  - Went over some of the missed questions, and why
+
+DISCUSS PROJECT 0 PHASE 2
+  - Everybody feels comfortable with ERDs
+  - Most members still uncertain on users/security setup
