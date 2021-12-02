@@ -1,0 +1,49 @@
+TEAM MEMBERS
+  - All Members except Joe were present
+  - Joe will officially be removed from the quorum going forward.
+
+AGENDA
+  - Individual standups
+  - Discuss Project 0 Phase 2
+
+INDIVIDUAL STANDUPS
+  - Jim
+    - Accomplished
+      - Created objects, started setting up role hierarchy
+    - Roadblocks
+      - Navigating through menus
+      - Thinking through fields & Junciton Objects
+      - Which record types to set up
+    - Next Steps
+      - Try to get through remainder of Phase 2
+  - Becky
+    - Accomplished
+      - Made App, custom objects, and progress on field creation
+    - Roadblocks
+      - No problems reported
+    - Next Steps
+      - Finish setting up users and security
+  - Mike
+    - Accomplished
+      - Created users, set up profiles and permission sets
+    - Roadblocks
+      - Wrong license on user profiles (knows how to resolve)
+    - Next Steps
+      - Set up the App
+  - Zach
+    - Accomplished
+      - Finished setting up users/profiles/role hierarchy
+      - Began generating dummy-data records
+    - Roadblocks
+      - Difficulty setting up permission sets (Mike helped resolve)
+      - General restrictions on standard objects (spending a lot of time in docs)
+      - Properly restricting security (Org and Object level are okay)
+    - Next Steps
+      - Finish generating dummy-data
+      - Create app with object tabs, and cleaner page layouts (+ dynamic form)
+      - Open record-level sharing where neccesary, and restrict field security
+
+DISCUSS PROJECT 0 PHASE 2
+  - Everybody feels not enough info yet to make wise schema choices
+  - May struggle to complete Phase 2 tonight-- likely take over weekend
+  - Probably need to revise data models through phase 3
