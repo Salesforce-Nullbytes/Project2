@@ -1,0 +1,59 @@
+REVIEW & RETROSPECTIVE
+  - Agenda
+    - Sprint timing and scope
+    - Velocity Calculation
+    - Sprint backlog &  new story points
+    - Done well
+    - Learning Lessons
+    - Goals for improvement
+
+SPRINT TIMING AND SCOPE
+  - Last retrospective was 11-30 (3 days ago)
+  - Completing now to get back on Friday schedule.
+  - Next retrospective planned for Friday Dec. 10.
+
+VELOCITY
+  - Story points completed by:
+    - Jim: 19
+    - Becky: 34
+    - Mike: 35
+    - Zach: 36
+  - Total: 124
+
+UPCOMING STORY POINTS
+  - Story points were then assigned for Phase 3
+    - Entire phase 3 considered to be in this sprint
+    - Some points may remain from Phase 2
+
+DONE WELL
+  - Time management was very successful for most
+    - Struggled a little early in week, but kept on track
+  - Leaned on team for help
+    - Many team members sought out help from team
+    - Discussed challenges as they came up
+  - Learned a lot
+    - SF Admin general topics
+    - Designing a SF Org
+
+LEARNING LESSONS
+  - Don't bend Salesforce against its preferences
+    - Use standard objects as they are intended
+    - Structure Org how Salesforce wants
+  - Learn to navigate a new systems early on
+    - Use documentation
+    - Explore the interface
+    - Get comfortable before trying things out
+  - Break tasks into simple pieces
+    - Still true from last week
+  - Rely on Trailhead
+    - Awesome resource.
+
+GOALS FOR IMPROVEMENT
+  - Topics from last week that haven't come up yet
+    - Refine Interview/Presentation skills
+    - Prepare better for QC's
+  - Study earlier on Project topics
+  - Limit scope of research
+    - One things at a time
+    - Prioritize
+  - Focus on project requirements
