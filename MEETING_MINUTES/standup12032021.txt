@@ -1,0 +1,56 @@
+TEAM MEMBERS
+  - All Members except Joe were present
+  - Joe will officially be removed from the quorum going forward.
+
+AGENDA
+  - Individual standups
+  - When to hold retrospective
+  - Discuss Project 0 Phase 2
+
+INDIVIDUAL STANDUPS
+  - Jim
+    - Accomplished
+      - Created Users/Roles/Security for Phase 2
+    - Roadblocks
+      - Learning and navigating the UI
+    - Next Steps
+      - Set up Record Types and Dyanmic Form
+  - Becky
+    - Accomplished
+      - Majority of Phase 2 completed
+    - Roadblocks
+      - Time constraints
+    - Next Steps
+      - Set up security and finish UI
+  - Mike
+    - Accomplished
+      - Went through Security modules on Trailhead
+    - Roadblocks
+      - Memorizing and mastering the material
+    - Next Steps
+      - Go through security and make minor adjustments
+      - Begin process automation features
+  - Zach
+    - Accomplished
+      - Finished basic requirements for Phase 2
+      - Set up Kanban Cards for phase 3
+    - Roadblocks
+      - Sharing doesn't work at desired granularity (simplified and resolved)
+      - Can't show parent fields on Page Layouts Dynamic Forms (possible w/ Apex)
+      - Just now getting aquainted w/ documentation and how everything fits together
+    - Next Steps
+      - Trailheads on Admin content
+      - Generate more dummy-data for different data scenarios
+      - Begin phase 3 (start w/ process automation)
+      - Prepare for Phase 2 1-on-1 presentation
+
+PLAN FOR RETROSPECTIVE
+  - Hold during project time this afternoon, if available
+  - Otherwise, directly after lecture if released early
+  - Use this schedule for all retrospectives going forward
+  - If this doesn't work one week, we will meet Saturday or over weekend
+
+DISCUSS PROJECT 0 PHASE 2
+  - All members feel that there isn't enough time in evenings
+  - Much easier to work on projects over weekend, when possible
+  - No concerns over final features for Phase 2
