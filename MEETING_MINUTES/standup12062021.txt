@@ -1,0 +1,53 @@
+TEAM MEMBERS
+  - All Members except Joe were present
+
+AGENDA
+  - Individual standups
+  - Discuss Exams and QC
+  - Discuss Project 0 Phase 2
+
+INDIVIDUAL STANDUPS
+  - Jim
+    - Accomplished
+      - Finished Phase 2
+    - Roadblocks
+      - Time with family affairs going on
+    - Next Steps
+      - Study. Then: Automation, Kanban Cards
+  - Becky
+    - Accomplished
+      - Worked on Project
+    - Roadblocks
+      - List views weren'e working for other users
+        (needed to use 'All' filter, not 'My' filter)
+    - Next Steps
+      - Study for exams. Then: Phase 3
+  - Mike
+    - Accomplished
+      - Studied
+      - Went over project
+    - Roadblocks
+      - Very tired
+      - Pushing too hard, not enough sleep, or not managing stress
+    - Next Steps
+      - Study for exams
+  - Zach
+    - Accomplished
+      - Went through Admin trailheads
+      - Studied lecture content
+    - Roadblocks
+      - Tired, and not enough time
+      - Need to make various changes to phase 2 for phase 3
+    - Next Steps
+      - Study for exams/ QC
+      - Hopefully begin implementing automation
+
+DISCUSS EXAMS AND QC
+  - There is a lot of content to cover
+  - Not seeing the exams listed in RevaturePro
+  - Spending all of today studying
+
+DISCUSS PROJECT 0 PHASE 2 & 3
+  - All members concerned with time shortage
+  - Discussed when we will be presenting phase 2
+  - What we need for phase 3 (no serious problems aside from time)
