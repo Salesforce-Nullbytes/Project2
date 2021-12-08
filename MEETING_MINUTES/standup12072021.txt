@@ -1,0 +1,44 @@
+TEAM MEMBERS
+  - All Members except Joe were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 0 Phase 2
+
+INDIVIDUAL STANDUPS
+  - Jim
+    - Accomplished
+      - Studied for exams//QC
+      - Created a study guide (1-2 pages)
+    - Roadblocks
+      - Not sure what to focus on
+    - Next Steps
+      - Get back to phase 3
+  - Becky
+    - Accomplished
+      - Studied for exams//QC
+    - Roadblocks
+      - Studying so much material was difficult
+    - Next Steps
+      - Work on project
+  - Mike
+    - Accomplished
+      - Studied for exams//QC
+    - Roadblocks
+      - Nervous about QC and exams
+    - Next Steps
+      - Work on Phase 3
+      - Figure out how to do recording
+  - Zach
+    - Accomplished
+      - Studied for exams//QC
+      - Planning for some of Phase 3 requirements
+    - Roadblocks
+      - Finding all the material needed 
+        (not all topics have lecture notes)
+    - Next Steps
+      - Implement process automation features
+
+DISCUSS PROJECT 0 PHASE 2 & 3
+  - Ambiguity on exactly what to implement and how
+  - Feel that time is very scarce
