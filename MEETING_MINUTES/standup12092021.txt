@@ -1,0 +1,46 @@
+TEAM MEMBERS
+  - All Members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 0 Phase 2
+
+INDIVIDUAL STANDUPS
+  - Jim
+    - Accomplished
+      - Reviewed most of missed lecture
+      - Went to doctor, got antibiotics
+    - Roadblocks
+      - Was out sick
+    - Next Steps
+      - Create approval processes, flows, etc.
+      - Make video recording
+  - Becky
+    - Accomplished
+      - Starting to implement rules
+    - Roadblocks
+      - Regex syntax error in email validation rule
+    - Next Steps
+      - Finish rules
+      - Make video recording
+  - Mike
+    - Accomplished
+      - Finsihed everything except flows
+      - Tested and verified OBS Software (Studio version)
+    - Roadblocks
+      - Wondering if processes are not complex enough
+    - Next Steps
+      - Finish Flows
+      - Start recording
+  - Zach
+    - Accomplished
+      - Finished more process automation features
+    - Roadblocks
+      - Working through field references in flows
+    - Next Steps
+      - Implement flows (already planned out)
+      - Decide upon second process automation feature
+      - Set up and make recording
+
+DISCUSS PROJECT 0 PHASE 3
+  - Team members feel on track to finish phase 3
