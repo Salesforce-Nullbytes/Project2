@@ -1,0 +1,40 @@
+TEAM MEMBERS
+  - All Members except Jim were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 0 Phase 2
+
+INDIVIDUAL STANDUPS
+  - Jim
+    - Not present
+  - Becky
+    - Accomplished
+      - Finished phase 2 of project
+      - BRainstormed process automation features
+    - Roadblocks
+      - None reported
+    - Next Steps
+      - Start completing process automation
+      - Set up recording software
+  - Mike
+    - Accomplished
+      - Started setting up process automation
+      - Downloaded OBS software
+      - Set up Service Cloud, 1 approval process, and few others
+    - Roadblocks
+      - Testing-> not enough dummy-data
+    - Next Steps
+      - Test and make sure process automation is working
+  - Zach
+    - Accomplished
+      - Set up Sales cloud features
+      - Completed 1 Approval Process, and paths
+    - Roadblocks
+      - Working through field references in process automation
+    - Next Steps
+      - Choose very simple tasks for process automation
+      - Set up recording software
+
+DISCUSS PROJECT 0 PHASE 3
+  - Team members are making progress and have a good idea of what's next
