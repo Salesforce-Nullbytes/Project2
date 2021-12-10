@@ -1,0 +1,45 @@
+REVIEW & RETROSPECTIVE
+  - Agenda
+    - Sprint timing and scope
+    - Velocity Calculation
+    - Sprint backlog &  new story points
+    - Done well
+    - Learning Lessons
+    - Goals for improvement
+
+SPRINT TIMING AND SCOPE
+  - Last retrospective was 12-03 (7 days ago)
+  - Next retrospective planned for Friday Dec. 10.
+
+VELOCITY
+  - MVP: Mike
+  - Story points completed by:
+    - Jim: 34
+    - Becky: 33
+    - Mike: 60
+    - Zach: 36
+  - Total: 163
+
+UPCOMING STORY POINTS
+  - Story points were then assigned for next sprint
+    - Presentation of Project 0 (phase 1-3) to QC
+
+DONE WELL
+  - Continued to improve with Time Management
+  - Continued to help each other & rely on team
+  - Great imporvement in interview skills/QC
+
+LEARNING LESSONS
+  - SF archictecture is very difficult to master
+  - Repitition is crucial
+    - Don't worry about perfection at first
+    - Try to practice to completion each time
+    - Finish a simpler version, then build upon it for next time
+
+GOALS FOR IMPROVEMENT
+  - Continue evolving Interview/Presentation skills
+  - Use weekend more for getting ahead
+    - Last weekend was focused on project mostly
+  - More practice with note-taking and writing
+    - Each team member will spend one day next week
+    - Take notes, upload draft minutes to Github
