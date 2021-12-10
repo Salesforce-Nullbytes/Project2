@@ -1,0 +1,44 @@
+TEAM MEMBERS
+  - All Members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 0 Phase 2
+
+INDIVIDUAL STANDUPS
+  - Jim
+    - Accomplished
+      - Got OBS working
+    - Roadblocks
+      - Getting components to fit together correctly
+      - Using standard Pyament type (resolved w/ custom obj)
+    - Next Steps
+      - Make video recording
+  - Becky
+    - Accomplished
+      - Finished everything except last flow
+    - Roadblocks
+      - None reported
+    - Next Steps
+      - Make video recording
+  - Mike
+    - Accomplished
+      - Finished last flow
+    - Roadblocks
+      - Getting OBS software to add video capture layer
+        (Resolved w/ Becky's help)
+    - Next Steps
+      - Record project
+  - Zach
+    - Accomplished
+      - Finished Phase 2 requirements
+      - Apex challenges
+    - Roadblocks
+      - Getting screen flow to close automatically at end
+        (Jared said to use quick action, still struggled)
+    - Next Steps
+      - Record project
+
+DISCUSS PROJECT 0 PHASE 3
+  - All members are on track to finish by Friday evening
+  - We discussed options for uploading (Youtube, unlisted but shareable)   
