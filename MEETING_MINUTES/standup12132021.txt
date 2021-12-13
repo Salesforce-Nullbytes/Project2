@@ -1,0 +1,54 @@
+TEAM MEMBERS
+  - All Members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 0 Phase 2
+
+INDIVIDUAL STANDUPS
+  - Jim
+    - Accomplished
+      - Studied
+      - Attempted Apex challenges
+      - Finished recording
+    - Roadblocks
+      - Setting up triggers (use of trigger.old v. trigger.new)
+      - Could not get one of approval processes to work correctly
+    - Next Steps
+      - Research Apex classes & triggers more
+      - Prepare for presentation
+  - Becky
+    - Accomplished
+      - Studied for and took Apex tests
+      - Finished recording
+    - Roadblocks
+      - None reported
+    - Next Steps
+      - Prepare for presentation
+  - Mike
+    - Accomplished
+      - Studied for exams
+      - Worked on PowerPoint presentation
+      - Finished recording
+    - Roadblocks
+      - Sister and newphew caught Covid, and needed to help them
+    - Next Steps
+      - Go over trigger whiteboard questions during Jared's office hours
+      - Prepare for presentation
+  - Zach
+    - Accomplished
+      - Finished recording
+      - Started planning for presentation (what in PPT, what in live-demo)
+    - Roadblocks
+      - Exhaustion
+      - Family obligations during weekend
+    - Next Steps
+      - Prepare for presentation
+
+DISCUSS PROJECT 0
+  - Ambiguity on 5m time limit for PPT only versus combined (w/ demo)
+  - Ambiguity on whether our recoding also had a 5m time limit
+  - Discussed presentation planning
+    - Break 5 minutes into appropriate chunks
+    - Prioritize certain aspects
+    - Choosing what to cover in slide versus live
