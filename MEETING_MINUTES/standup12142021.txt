@@ -1,0 +1,48 @@
+TEAM MEMBERS
+  - All Members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 0 Phase 2
+
+INDIVIDUAL STANDUPS
+  - Jim
+    - Accomplished
+      - Practiced triggers and Apex challenges
+      - Finished Powerpoint (lost afterward)
+    - Roadblocks
+      - Forgot to save slides in Slidesgo
+    - Next Steps
+      - Recreate Powerpoint
+  - Becky
+    - Accomplished
+      - Worked on PowerPoint (almost done)
+      - Reviewed last week's material
+    - Roadblocks
+      - Tired
+    - Next Steps
+      - Finish PowerPoint
+      - Practice presentation
+  - Mike
+    - Accomplished
+      - Worked on triggers in Trailhead
+      - Worked on PowerPoint
+    - Roadblocks
+      - Tired
+    - Next Steps
+      - Prepare Demo
+      - Work on Trailhead & Challenges
+  - Zach
+    - Accomplished
+      - Set agenda for presentation
+      - Planned out Demo content
+      - Some of PowerPoint
+    - Roadblocks
+      - None reported
+    - Next Steps
+      - Complete PowerPoint
+      - Practice runs for presentation
+
+DISCUSS PROJECT 0
+  - Some members are still feeling uncertain on use of Apex triggers
+  - Questions about PowerPoint visual variety
