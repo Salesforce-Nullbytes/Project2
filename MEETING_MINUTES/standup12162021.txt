@@ -1,0 +1,41 @@
+TEAM MEMBERS
+  - Jim has been removed from the quorum going forward.
+  - Becky will take his place as SCRUM Master
+  - All remaining members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 1
+
+INDIVIDUAL STANDUPS
+  - Becky
+    - Accomplished
+      - Reviewed past content
+    - Roadblocks
+      - Busy with personal obligations
+    - Next Steps
+      - Review this week's material more
+      - Work on project
+  - Mike
+    - Accomplished
+      - Worked on apex challenges
+      - Studied notes for QC
+    - Roadblocks
+      - None reported
+    - Next Steps
+      - Start project 1
+  - Zach
+    - Accomplished
+      - Made decision to keep P0 business model for P1
+      - Researched Apex docs
+    - Roadblocks
+      - None reported
+    - Next Steps
+      - Research Platform LWC Docs
+      - Continue solidifying apex knowledge
+      - Work on challenges
+
+DISCUSS PROJECT 1
+  - Members would like to get early start ot Project
+  - Feeling the need to understand Apex and LWC better
+  - Initial look at Experience Cloud

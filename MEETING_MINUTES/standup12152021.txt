@@ -1,0 +1,37 @@
+TEAM MEMBERS
+  - Jim has been removed from the quorum going forward.
+  - Becky will take his place as SCRUM Master
+  - All remaining members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 0 Phase 2
+
+INDIVIDUAL STANDUPS
+  - Becky
+    - Accomplished
+      - Finished Powerpoint
+      - Practiced presentation
+    - Roadblocks
+      - None reported
+    - Next Steps
+      - Give presentation
+  - Mike
+    - Accomplished
+      - Finished Powerpoint
+      - Practiced presentation
+    - Roadblocks
+      - None reported
+    - Next Steps
+      - Give presentation
+  - Zach
+    - Accomplished
+      - Finished Powerpoint
+      - Practiced presentation
+    - Roadblocks
+      - None reported
+    - Next Steps
+      - Give presentation
+
+DISCUSS PROJECT 0
+  - Members rehearsed presentations and gave advice on minor adjustments
