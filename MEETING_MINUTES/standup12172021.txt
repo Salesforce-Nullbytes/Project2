@@ -1,0 +1,37 @@
+TEAM MEMBERS
+  - All members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 1
+
+INDIVIDUAL STANDUPS
+  - Becky
+    - Accomplished
+      - Reviewed past content
+      - Studied for QCs
+    - Roadblocks
+      - A lot of content covered since last QC
+    - Next Steps
+      - Plan triggers for project
+  - Mike
+    - Accomplished
+      - Studied notes for QC
+    - Roadblocks
+      - None reported
+    - Next Steps
+      - Study for exams/QC
+  - Zach
+    - Accomplished
+      - Finished studying Apex
+      - Looking into LWC
+    - Roadblocks
+      - None reported
+    - Next Steps
+      - Research Platform LWC Docs
+      - Study LWC (Messaging service, wires, testing)
+      - Work on challenges
+
+DISCUSS PROJECT 1
+  - Feeling the need to understand Apex and LWC better
+  - Initial look at Experience Cloud
