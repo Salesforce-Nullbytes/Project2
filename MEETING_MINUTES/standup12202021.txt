@@ -1,0 +1,36 @@
+TEAM MEMBERS
+  - All members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 1
+
+INDIVIDUAL STANDUPS
+  - Becky
+    - Accomplished
+      - Studied for exams & QCs
+    - Roadblocks
+      - Too much material to cover
+    - Next Steps
+      - Prepare for QCs
+      - Work on Project 1
+  - Mike
+    - Accomplished
+      - Studied notes for QC
+    - Roadblocks
+      - Fatigue
+    - Next Steps
+      - Study for QC
+      - Work on Project 1
+  - Zach
+    - Accomplished
+      - Finished studying Apex/LWC/SOQL/SOSL/Testing fundamentals
+      - Completed some more challenges
+    - Roadblocks
+      - A lot of basics to get familiar with
+      - Not a lot of time for Project 1
+    - Next Steps
+      - Prepare for QC
+
+DISCUSS PROJECT 1
+  - Main focus is tomorrow's QCs
