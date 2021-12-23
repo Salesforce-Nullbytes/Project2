@@ -1,0 +1,34 @@
+TEAM MEMBERS
+  - All members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 1
+
+INDIVIDUAL STANDUPS
+  - Becky
+    - Accomplished
+      - Studied for QCs
+    - Roadblocks
+      - A lot of material
+    - Next Steps
+      - Work on Project 1
+  - Mike
+    - Accomplished
+      - Studied for QCs
+    - Roadblocks
+      - Focus
+    - Next Steps
+      - Work on Project 1
+  - Zach
+    - Accomplished
+      - Studied for QCs
+    - Roadblocks
+      - Time is scarce
+    - Next Steps
+      - Project 1 & Challenges
+
+DISCUSS PROJECT 1
+  - Main focus now that QC out of the way
+  - Worked together on issues
+  - All members will rewatch 12-14 lectures on PBD
