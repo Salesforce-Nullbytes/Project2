@@ -1,0 +1,41 @@
+TEAM MEMBERS
+  - All members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 1
+
+INDIVIDUAL STANDUPS
+  - Becky
+    - Accomplished
+      - Rewatched PBD lectures, followed along
+      - Pushed to scratch org
+    - Roadblocks
+      - Trailhead site was down
+    - Next Steps
+      - Work on Project 1
+      - Try to get component working in Exp site
+  - Mike
+    - Accomplished
+      - Rewatched PBD lectures, followed along
+    - Roadblocks
+      - Anxiety over poor performance in QCs
+    - Next Steps
+      - Get static image resources working in Exp site
+  - Zach
+    - Accomplished
+      - Worked on Challenges
+      - More advanced PBD comprehesion
+    - Roadblocks
+      - Family obligations
+      - forceignore file not working (profiles)
+    - Next Steps
+      - Continue with Challenges/Project 1 fundamentals
+
+DISCUSS PROJECT 1
+  - Worked together on issues
+  - Mike discussed setting up experience site
+  - Becky set up site with Mike's guidance
+    - Showed how to pull to vs code
+    - Also having issues with profiles in forceignore
+  - Zach showed example of creating component for app builder site
