@@ -1,0 +1,41 @@
+TEAM MEMBERS
+  - All members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 1
+
+INDIVIDUAL STANDUPS
+  - Becky
+    - Accomplished
+      - Studied
+      - Tried redownloading Node (along with other installs)
+    - Roadblocks
+      - Still can't get local development server setup for LWC
+    - Next Steps
+      - Study for QC
+      - Work on project 1
+  - Mike
+    - Accomplished
+      - Studied a bit
+      - Completed an Apex challenge
+    - Roadblocks
+      - Busy with family
+      - Got sick
+    - Next Steps
+      - Ask Jared for help on deployment issue
+  - Zach
+    - Accomplished
+      - Studied some
+      - Finished planning/structuring P1
+    - Roadblocks
+      - Too busy with holidays
+      - Family problems
+    - Next Steps
+      - Study for QC
+      - Work on portfolio
+      - Project 1
+
+DISCUSS PROJECT 1
+  - Worked together on issues
+  - All members are a little overwhelmed

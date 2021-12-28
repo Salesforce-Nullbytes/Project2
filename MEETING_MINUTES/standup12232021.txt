@@ -1,0 +1,38 @@
+TEAM MEMBERS
+  - All members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 1
+
+INDIVIDUAL STANDUPS
+  - Becky
+    - Accomplished
+      - Looked into components
+    - Roadblocks
+      - Stuck on developer tools (for local server in VS Code)
+    - Next Steps
+      - Study for exams
+      - Make progress on project
+  - Mike
+    - Accomplished
+      - Tried various ways to get images into Experience site
+    - Roadblocks
+      - Still can't get image in site (link/VisualForce comp./static resource)
+      - Not seeing SFDX commands in VS Code
+    - Next Steps
+      - Try to resolve the roadblocks
+  - Zach
+    - Accomplished
+      - Learned a lot about types of experience sites/how to set up
+      - Resolved issue with .forceignore
+      - Figured out how to upload LWC into Experience site
+    - Roadblocks
+      - Family obligations
+    - Next Steps
+      - Build Project 1 org
+
+DISCUSS PROJECT 1
+  - Worked together on issues
+  - Figuring out what tools becky needs installed
+  - Reviewing how to add an image from static resource to LWC component
