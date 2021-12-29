@@ -1,0 +1,40 @@
+TEAM MEMBERS
+  - All members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 1
+
+INDIVIDUAL STANDUPS
+  - Becky
+    - Accomplished
+      - Studied for QCs
+      - Planned and made progress on P1
+    - Roadblocks
+      - Still can't get local development server setup for LWC
+    - Next Steps
+      - Work on project 1
+  - Mike
+    - Accomplished
+      - Made progress on project 1
+      - Got static images displaying
+    - Roadblocks
+      - Getting button to run Apex code
+    - Next Steps
+      - Study for QCs
+      - Work on project 1
+  - Zach
+    - Accomplished
+      - Set up portfolio Phase 1 (except for project 1)
+      - Set up new Repo for team
+      - Planned for project 1
+    - Roadblocks
+      - Feeling a little sick
+      - Family problems
+    - Next Steps
+      - Work on project 1
+
+DISCUSS PROJECT 1
+  - Worked together on issues
+  - Reviewed how to call apex code from LWC
+  - Discussed whether flows can be launched from Apex
