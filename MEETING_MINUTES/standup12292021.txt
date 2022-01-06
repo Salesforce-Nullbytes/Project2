@@ -1,0 +1,34 @@
+TEAM MEMBERS
+  - All members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 1
+
+INDIVIDUAL STANDUPS
+  - Becky
+    - Accomplished
+      - Worked on Project, set up local development server
+      - Figured out how to override CSS in Exp Site
+    - Roadblocks
+      - None Reported
+    - Next Steps
+      - Continue with Project 1
+  - Mike
+    - Accomplished
+      - Made progress on project 1
+      - Studied
+    - Roadblocks
+      - Time and energy
+    - Next Steps
+      - Work on project 1
+  - Zach
+    - Accomplished
+      - Set up Project 1 triggers/classes to manage group membership
+    - Roadblocks
+      - Feeling a little sick
+    - Next Steps
+      - Add more Project 1 features
+
+DISCUSS PROJECT 1
+  - Worked together on issues

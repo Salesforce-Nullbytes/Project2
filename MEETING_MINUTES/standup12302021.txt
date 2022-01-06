@@ -1,0 +1,32 @@
+TEAM MEMBERS
+  - All members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 1
+
+INDIVIDUAL STANDUPS
+  - Becky
+    - Accomplished
+      - Worked on Project
+    - Roadblocks
+      - Too much to do
+    - Next Steps
+      - Look into sales and service cloud for project
+  - Mike
+    - Accomplished
+      - Worked on project
+    - Roadblocks
+      - Errors/warnings when pushing to scratch org
+    - Next Steps
+      - Resolve issue with imperative apex call
+  - Zach
+    - Accomplished
+      - Set up foundation of Experience site package
+    - Roadblocks
+      - Managing dependencies
+    - Next Steps
+      - Add more LWC components to experience site
+
+DISCUSS PROJECT 1
+  - Worked together on issues

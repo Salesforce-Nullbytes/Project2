@@ -1,0 +1,34 @@
+TEAM MEMBERS
+  - All members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 1
+
+INDIVIDUAL STANDUPS
+  - Becky
+    - Accomplished
+      - Finished Project 1 and presentation
+    - Roadblocks
+      - Exhausted
+    - Next Steps
+      - Look into sales and service cloud for project
+  - Mike
+    - Accomplished
+      - Finished Project 1 and presentation
+    - Roadblocks
+      - None reported
+    - Next Steps
+      - Resolve issue with imperative apex call
+  - Zach
+    - Accomplished
+      - Finished Project 1 and presentation
+    - Roadblocks
+      - Havent started getting better from being sick
+      - Balancing everything
+    - Next Steps
+      - Challenges and look into Project 2 Data model/Aura Experience
+
+DISCUSS PROJECT 2
+  - Came up with business model (horticulture shop)
+  - Discussed basic functionality

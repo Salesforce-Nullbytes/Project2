@@ -1,0 +1,37 @@
+TEAM MEMBERS
+  - All members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 1
+
+INDIVIDUAL STANDUPS
+  - Becky
+    - Accomplished
+      - Built some wireframes for Project 2
+    - Roadblocks
+      - What functionality is needed
+    - Next Steps
+      - Look into Aura framework
+  - Mike
+    - Accomplished
+      - Worked on VisualForce challenges
+    - Roadblocks
+      - JS scripting on a VF page
+    - Next Steps
+      - Continue with VisualForce Challenges
+      - Review and practice with Aura components
+  - Zach
+    - Accomplished
+      - Took deeper look into P2 functionality/data model
+    - Roadblocks
+      - Sick but starting to get better
+    - Next Steps
+      - VisualForce Challenges
+      - Look into Aura Experience (Authentication & dependencies)
+
+DISCUSS PROJECT 2
+  - Came up with business model (horticulture shop)
+  - Feature 1 Shopping cart
+  - Feature 2 Quizzes (plant personality/suggested purchases)
+  - Feature 3 Plant discussion forum
