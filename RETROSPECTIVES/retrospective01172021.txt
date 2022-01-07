@@ -1,0 +1,56 @@
+REVIEW & RETROSPECTIVE
+  - Agenda
+    - Sprint timing and scope
+    - Velocity Calculation
+    - Sprint backlog &  new story points
+    - Done well
+    - Learning Lessons
+    - Goals for improvement
+
+SPRINT TIMING AND SCOPE
+  - Last retrospective was 12-17 (21 days ago)
+    - The past 2 weeks were partial weeks for holidays
+    - Members were busy with Project 1 and/or sick
+  - Next retrospective planned for Friday 1/14.
+
+VELOCITY
+  - MVP: Zach
+  - Story points completed by:
+    - Becky: 90
+    - Mike: 65
+    - Zach: 85
+  - Total: 240 = 80/week
+    - Some weeks short due to holidays
+    - Combined with a ton of new lecture material
+
+UPCOMING STORY POINTS
+  - Story points were then assigned for Project 2
+    - This sprint includes main content of P2
+    - Product Backlog contains presentation & items for next week
+
+DONE WELL
+  - Study sheets and maintaining pace with the lecture content
+    - A lot of new material was covered.
+  - Relying on team
+    - We became much more cohesive
+    - Shared troubles/responsibilities
+    - Helped distribute tasks and review them together
+
+LEARNING LESSONS
+  - Don't get burnt out, do not panic
+    - Holidays can be stressful
+    - Must account for potential problems like getting sick
+  - Place reasonable goals
+    - Divide big things into smaller things, and simplify!
+  - Know when to step back
+    - Some things just don't work
+    - Don't spend too much time on a single issue
+    - Seek out advice earlier when needed
+
+GOALS FOR IMPROVEMENT
+  - Get back into more consistent retrospectives
+  - Move responsibiltiies like minutes to others when struggling to keep up
+  - Structure projects earlier
+    - Planning makes perfect
+  - Don't stress to much with presentation
+    - Keep calm, and carry on

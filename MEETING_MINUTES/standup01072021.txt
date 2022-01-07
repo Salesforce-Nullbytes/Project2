@@ -1,0 +1,37 @@
+TEAM MEMBERS
+  - All members were present
+
+AGENDA
+  - Individual standups
+  - Visualforce discussion
+  - Discuss Project 1
+
+INDIVIDUAL STANDUPS
+  - Becky
+    - Accomplished
+      - Visualforce Challenges and Project 2 design
+    - Roadblocks
+      - None reported
+    - Next Steps
+      - LWC Component for Project 2
+  - Mike
+    - Accomplished
+      - Visualforce Challenges and Project 2 planning
+    - Roadblocks
+      - Getting stuck on Challenges
+    - Next Steps
+      - LWC Component for Project 2
+  - Zach
+    - Accomplished
+      - Visualforce Challenges and Project 2 Data Model
+    - Roadblocks
+      - None reported
+    - Next Steps
+      - LWC Component for Project 2
+
+VISUALFORCE STANDUP
+  - Worked together on challenges/ roadblocks
+
+PROJECT 2 STANDUP
+  - Reviewed Aura Experience (versus LWR)
+  - Assigned Components to each team member
