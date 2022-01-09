@@ -29,6 +29,9 @@ public class DataFactory {
             entry.Pricebook2Id = pb.id;
             entry.Product2Id = prod.id;
             entry.UnitPrice = infoMap.get(prod.ProductCode).price;
+            //entry.UseStandardPrice = true;
+
+            pbEntries.add(entry);
         }
         Insert pbEntries;
     }
@@ -235,7 +238,7 @@ public class DataFactory {
                 LightLevel.LOW)
         };
         for (ProductInfo info : details) {
-            infoMap.put(info.toProductCode(), info);
+            infoMap.put(info.code, info);
         }
         return infoMap;
     }
@@ -253,7 +256,7 @@ public class DataFactory {
         public Boolean flowers;
         public Boolean colors;
         public LightLevel light;
-
+        public String code;
 
         public ProductInfo(String name, Decimal price, PlantSize size, Difficulty difficulty, Boolean hasVarieties, 
             String subVariety, Boolean petFriendly, Boolean flowers, Boolean colors, LightLevel light
@@ -268,13 +271,15 @@ public class DataFactory {
             this.petFriendly = petFriendly;
             this.flowers = flowers;
             this.colors = colors;
+
+            this.code = this.newProductCode();
         }
 
         public Product2 ToProduct() {
             Product2 p = new Product2();
             p.name = this.name;
-            p.ProductCode = this.toProductCode();
-            p.StockKeepingUnit = this.toProductCode();
+            p.ProductCode = this.code;
+            p.StockKeepingUnit = this.code;
             p.IsActive = true;
 
             // Custom Product Details
@@ -307,7 +312,7 @@ public class DataFactory {
 
             return p;
         }
-        public String toProductCode() {
+        public String newProductCode() {
             String sizeCode;
             String diffCode;
             String lightCode;
