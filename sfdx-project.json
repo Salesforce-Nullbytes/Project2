@@ -5,7 +5,20 @@
             "package": "base-pkg",
             "versionName": "ver 0.1",
             "versionNumber": "0.1.0.NEXT",
-            "default": true
+            "default": false
+        },
+        {
+            "path": "exp-pkg",
+            "package": "exp-pkg",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT",
+            "default": true,
+            "dependencies": [ 
+              {
+                 "package": "base-pkg",
+                 "versionNumber": "0.1.0.LATEST"
+              }
+           ]
         }
     ],
     "name": "Project2",
@@ -13,6 +26,8 @@
     "sfdcLoginUrl": "https://resourceful-fox-j4ixfh-dev-ed.my.salesforce.com/",
     "sourceApiVersion": "52.0",
     "packageAliases": {
-        "base-pkg": "0Ho5f000000XZmkCAG"
+        "base-pkg": "0Ho5f000000XZmkCAG",
+        "base-pkg@0.1.0-1": "04t5f000000aK69AAE",
+        "exp-pkg": "0Ho5f000000XZmpCAG"
     }
 }
