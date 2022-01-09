@@ -1,0 +1,18 @@
+{
+    "packageDirectories": [
+        {
+            "path": "base-pkg",
+            "package": "base-pkg",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT",
+            "default": true
+        }
+    ],
+    "name": "Project2",
+    "namespace": "",
+    "sfdcLoginUrl": "https://resourceful-fox-j4ixfh-dev-ed.my.salesforce.com/",
+    "sourceApiVersion": "52.0",
+    "packageAliases": {
+        "base-pkg": "0Ho5f000000XZmkCAG"
+    }
+}
