@@ -1,13 +1,22 @@
 {
-  "orgName": "Demo company",
+  "orgName": "Plant People",
   "edition": "Developer",
-  "features": ["EnableSetPasswordInApi"],
+  "features": [
+    "EnableSetPasswordInApi",
+    "COMMUNITIES"
+  ],
   "settings": {
     "lightningExperienceSettings": {
       "enableS1DesktopEnabled": true
     },
     "mobileSettings": {
       "enableS1EncryptedStoragePref2": false
+    },
+    "experienceBundleSettings": {
+      "enableExperienceBundleMetadata": true
+    },
+    "communitiesSettings": {
+        "enableNetworksEnabled": true
     }
   }
 }
