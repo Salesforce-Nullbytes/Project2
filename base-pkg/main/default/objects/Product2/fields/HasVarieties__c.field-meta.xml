@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HasVarieties__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If several subtypes are for sale for this plant.</description>
+    <externalId>false</externalId>
+    <label>Has Varieties?</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

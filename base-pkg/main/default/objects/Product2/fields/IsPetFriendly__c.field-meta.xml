@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsPetFriendly__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Is this plant safe to pets, or is it toxic?</description>
+    <externalId>false</externalId>
+    <label>Is Pet-Friendly?</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>
