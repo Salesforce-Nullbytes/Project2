@@ -338,4 +338,45 @@ public class DataFactory {
             return 'P' + counter++ + sizeCode + diffCode + lightCode;
         }
     }
+
+    public static void AccountSetup() {
+        final Integer NUM_ACCOUNTS = 7;
+        
+        List<Account> accts = new List<Account>();
+        for (Integer i = 1; i <= NUM_ACCOUNTS; i++) {
+            accts.add(new Account(name=('Account ' + i)));
+        }
+        Insert accts;
+
+        Pricebook2 pb = [SELECT id, name FROM Pricebook2 WHERE name = 'Standard Price Book' LIMIT 1];
+
+        List<Order> orders = new List<Order>();
+        for (Account a : accts) {
+            Order o = new Order();
+            o.AccountId = a.id;
+            o.Pricebook2Id = pb.id;
+            o.EffectiveDate = System.today();
+            o.Status = 'Draft';
+
+            orders.add(o);
+        }
+        Insert orders;
+
+        List<PricebookEntry> products = [SELECT id, Product2Id, UnitPrice FROM PricebookEntry WHERE IsActive = true];
+
+        List<OrderItem> items = new List<OrderItem>();
+        for (Integer i = 0; i < products.size(); i++) {
+            Integer orderId = Math.mod(i, NUM_ACCOUNTS);
+            Integer quantity = Integer.valueof((Math.random() * 5)) + 1;
+
+            OrderItem item = new OrderItem();
+            item.product2id = products[i].Product2Id;
+            item.pricebookEntryId = products[i].id;
+            item.UnitPrice = products[i].UnitPrice;
+            item.orderid = orders[orderId].id;
+
+            items.add(item);
+        }
+        Insert items;
+    }
 }
