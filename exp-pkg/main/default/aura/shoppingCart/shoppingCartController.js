@@ -31,5 +31,13 @@
 
     HandleRemove : function(component, event, helper) {
         console.log("herd a removal");
+        let target = event.target;
+        console.log(target);
+        console.log(event);
+    },
+    
+    HandleChangeQuantity : function(component, event, helper) {
+        console.log(event.getParam('data'));
+        
     }
 })

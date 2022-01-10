@@ -6,7 +6,7 @@
     
 
     <aura:iteration items="{!v.items}" var="item" indexVar="index">
-        <c:productCard onremove="{!c.HandleRemove}"></c:productCard>
+        <c:productCard onremove="{!c.HandleRemove}" onchangequantity="{!c.HandleChangeQuantity}" access-id="{index}"></c:productCard>
     </aura:iteration>
 
 </aura:component>	
