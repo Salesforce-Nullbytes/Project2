@@ -1,0 +1,13 @@
+.selected {
+    border: 3px solid black;
+}
+
+button {
+    background-color: #E5E5E5;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    border-radius: 25%;
+  }
