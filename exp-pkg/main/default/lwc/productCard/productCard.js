@@ -4,6 +4,8 @@ import { LightningElement, api } from 'lwc';
 import productImage from '@salesforce/resourceUrl/productimage';
 
 export default class ProductCard extends LightningElement {
+    needUpdate = false;
+    qtyHolder = 0;
     //@api
     isCartItem = true;
     @api
@@ -45,7 +47,7 @@ export default class ProductCard extends LightningElement {
         Product2Id: 'mockProduct2Id',
         PricebookEntryId: 'mockPrickbookEntryId',
         Quantity: 3,
-        UnitPrice: 25.00,
+        UnitPrice: 23.00,
     };
 
     // Data Bindings
@@ -84,8 +86,30 @@ export default class ProductCard extends LightningElement {
         return 'No Charge';
     }
 
+    // Interactivity
+    qtyChange(event) {
+        this.needUpdate = true;
+        this.qtyHolder = event.target.value;
+    }
+
+    // Events
+    clickUpdate(event) {
+        this.dispatchEvent(new CustomEvent('changequantity', {
+            detail: this.qtyHolder,  // HTML input floors at zero!
+        }));
+    }
+    clickRemove(event) {
+        this.dispatchEvent(new CustomEvent('remove'));
+    }
+    clickToggle(event) {
+        this.dispatchEvent(new CustomEvent('remove'));
+    }
+
     // Class calculation
     get cssClass() {
         return this.cartItem ? 'product cart' : 'product';
+    }
+    get changeClass() {
+        return this.needUpdate ? 'must-update' : 'in-sync';
     }
 }
