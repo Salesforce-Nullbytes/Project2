@@ -362,7 +362,11 @@ public class DataFactory {
         }
         Insert orders;
 
-        List<PricebookEntry> products = [SELECT id, Product2Id, UnitPrice FROM PricebookEntry WHERE IsActive = true];
+        List<PricebookEntry> products = [
+            SELECT id, Product2Id, UnitPrice 
+            FROM PricebookEntry 
+            WHERE IsActive = true AND ProductCode != null
+        ];
 
         List<OrderItem> items = new List<OrderItem>();
         for (Integer i = 0; i < products.size(); i++) {
@@ -374,6 +378,7 @@ public class DataFactory {
             item.pricebookEntryId = products[i].id;
             item.UnitPrice = products[i].UnitPrice;
             item.orderid = orders[orderId].id;
+            item.quantity = quantity;
 
             items.add(item);
         }
