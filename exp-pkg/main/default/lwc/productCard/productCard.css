@@ -40,7 +40,6 @@
 }
 .cart-total {
     font-size: 1.1rem;
-    background-color: white;
     margin-left: 1.5rem;
 }
 .product-image img {
@@ -48,4 +47,10 @@
 }
 .cart-image img {
     height: 8rem;
+}
+.in-sync {
+    background-color: rgb(140, 255, 169);
+}
+.must-update {
+    background-color: rgb(255, 140, 140);
 }

@@ -5,6 +5,8 @@
 package.xml
 
 # **/profiles
+**/profiles/Plant People Experience Profile.profile-meta.xml
+**/appMenus
 
 # LWC configuration files
 **/jsconfig.json
