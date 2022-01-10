@@ -1,0 +1,18 @@
+<template>
+
+    <div class="iteration-holder">
+        <ul>
+          <template for:each={myAnswers} for:item="answer" for:index="index">
+  
+            <div class="info-holder" key={answer.name}>
+                <div class="info">
+                    <div class="info" data-index={index} onclick={handleAnswerSelect}>{answer.name}</div>
+                </div>
+            </div>
+          </template>
+        </ul>
+    </div><br/>
+
+    <button type="button" onclick={passToParent}>Next</button>
+
+</template>
