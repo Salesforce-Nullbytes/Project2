@@ -1,0 +1,41 @@
+<template>
+    <div class={cssClass}>
+        <template if:false={isCartItem}>
+            <div class="product-image">
+                <img src={image.link} alt={image.alt} />
+            </div>
+            <p class="shop-name">{itemName}</p>
+            <p class="shop-variant">{variantName}</p>
+            <div class="shop-price">
+                <p>{unitPrice}</p>
+                <button>Add</button>
+            </div>
+        </template>
+        <template if:true={isCartItem}>
+            <div class="cart-contents">
+                <div class="cart-image">
+                    <img src={image.link} alt={image.alt} />
+                </div>
+                <div class="cart-detail">
+                    <div class="cart-detail-hor">
+                        <div class="cart-detail-ver">
+                            <p class="cart-name">{fullName}</p>
+                            <p class="cart-price">{unitPrice}</p>
+                        </div>
+                        <div class="cart-detail-ver">
+                            Quantity: {cartQuantity}
+                        </div>
+                    </div>
+                    <div class="cart-detail-hor">
+                        <div class="cart-detail-ver">
+                            <p class="cart-total">{cartTotal}</p>
+                        </div>
+                        <div class="cart-detail-ver">
+                            <button>Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

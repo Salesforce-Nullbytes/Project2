@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "f1777fcc-edf1-47f9-915c-da59035cfb58",
+  "appPageId" : "10f111a7-8f77-4495-9f59-b87617c7951a",
+  "configurationTags" : [ ],
+  "id" : "779dc8e4-867d-4d7a-99ab-70f51221e12d",
+  "label" : "Record List",
+  "pageAccess" : "UseParent",
+  "routeType" : "list",
+  "type" : "route",
+  "urlPrefix" : "recordlist"
+}
