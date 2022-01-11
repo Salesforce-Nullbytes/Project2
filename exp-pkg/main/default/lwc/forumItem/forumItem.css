@@ -1,0 +1,40 @@
+p {
+    color:tomato;
+}
+
+
+
+.forum-item{
+    border:1px solid black;
+    min-height: 5rem;
+    overflow: hidden;
+    padding: 1rem;
+}
+
+.cropped{
+    max-height: 5rem;
+    /* background:linear-gradient(to bottom,transparent, white); */
+}
+
+.fade {
+    position: absolute;
+    z-index: 1;
+    top: 2.5rem;
+    height:2.5rem;
+    width: 100%;
+    background: linear-gradient(transparent, white 100%);
+}
+
+.column-one{
+    width: 80%;
+    float: left;
+}
+
+.column-two {
+   
+    float: right;
+ }
+
+ /* .column-two * {
+     float: right;
+ } */
