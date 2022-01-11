@@ -1,0 +1,35 @@
+<template>
+    <div class={itemClass}>
+        
+        <template if:true={headerOnly}>
+            <div class="column-one">
+                <div class="forum-title">{myTitle}</div>
+            <div class="forum-details">{myDetails}</div>
+            </div>
+            <div class="column-two">
+                <div class="num-comments">{numComments}</div>
+            <div class="num-likes">{numLikes}</div>
+            </div>
+            
+        </template>
+        <template if:false={headerOnly}>
+            <div class="column-one" style="position:relative;">
+                <template if:false={expanded}>
+                    <div class="fade"></div>
+                </template>
+                <div class="forum-title">{myTitle}</div>
+            <div class="forum-details">{myDetails}</div>
+            </div>
+            <div class="column-two">
+                
+                <div class="num-comments">{numComments}</div>
+                <div class="num-likes">{numLikes}</div>
+                <button class="btn" onclick={clickExpand}>Expand +</button>
+            </div>
+
+            
+            
+        </template>
+
+    </div>
+</template>
