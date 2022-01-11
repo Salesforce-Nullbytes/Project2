@@ -26,4 +26,12 @@ export default class ForumItem extends LightningElement {
         this.expanded = !this.expanded;
     }
 
+    addLike() {
+        this.numLikes += 1;
+    }
+
+    addComment() {
+        this.numComments +=1;
+    }
+
 }
