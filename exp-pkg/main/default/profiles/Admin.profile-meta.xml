@@ -122,6 +122,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Forum_Item__c.Poster__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Forum_Item__c.Top__c</field>
         <readable>true</readable>
     </fieldPermissions>
