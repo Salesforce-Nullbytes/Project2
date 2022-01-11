@@ -1,3 +1,15 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" controller="AuraForumController">
-
+    <div class='title-bar'>
+        <!-- Consider a 'search' type, with list attribute for suggetsed values -->
+        <input type="text" placeholder="Search for terms or topics here..." />
+    </div>
+    <div class="forum-body">
+        <div class="forum-display">
+            <!-- Iterate over retrived items... -->
+        </div>
+        <div class="forum-interact">
+            <textarea rows="4" />
+            <button>Post</button>
+        </div>
+    </div>
 </aura:component>	

@@ -1,2 +1,15 @@
 .THIS {
+    background-color: rgb(219, 255, 219);
+    border: 4px solid rgb(228, 168, 56);
+    padding: 1rem;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.THIS .forum-display {
+    background-color: white;;
+    border: 2px solid black;
+    margin:  0 0 0.5rem;
+}
+.THIS .forum-interact textarea {
+    width: 100%;
 }
