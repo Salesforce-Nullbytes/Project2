@@ -1,6 +1,11 @@
 import { LightningElement, api } from 'lwc';
+import starUnliked from '@salesforce/resourceUrl/starUnliked';
+import starLiked from '@salesforce/resourceUrl/starLiked';
 
 export default class ForumItem extends LightningElement {
+    starUnliked = starUnliked;
+    starLiked = starLiked;
+
     @api
     headerOnly = false;
 
@@ -21,6 +26,9 @@ export default class ForumItem extends LightningElement {
     
     @api
     isSelected = false;
+
+    @api
+    accessId = -1;
 
     
     expanded = false;
@@ -47,7 +55,7 @@ export default class ForumItem extends LightningElement {
     handleSelect() {
         if (!this.isSelected) {
             const event = new CustomEvent('choose', {
-                //detail: this.option.result,
+                detail: { id: this.accessId, },
             });
     
             this.dispatchEvent(event);
