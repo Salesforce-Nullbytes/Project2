@@ -2,6 +2,20 @@ public class DataFactory {
     enum PlantSize { SMALL, MEDIUM, LARGE }
     enum Difficulty { EASY, REGULAR, HARD }
     enum LightLevel { LOW, INDIRECT, BRIGHT, ANY_LIGHT }
+    final static String[] SAMPLE_TOPICS = new String[]{
+        'Plant Care',
+        'Pest Control',
+        'Lightning',
+        'Wilting',
+        'Equipment',
+        'Cacti',
+        'Repotting',
+        'Favorite Plants',
+        'Fertilizer',
+        'Propagation',
+        'Light Bulbs',
+        'Troubleshooting'
+    };
 
     private static Integer counter = 101; // For assigning uinque product codes
 
@@ -383,5 +397,107 @@ public class DataFactory {
             items.add(item);
         }
         Insert items;
+    }
+
+    public static void ForumSetup() {
+        final Integer NUM_POSTS = 15;
+        
+        Account[] accts = [SELECT id, name FROM Account LIMIT 5];
+        final Integer NUM_ACCOUNTS = accts.size();
+
+        List<Forum_Item__c> posts = new List<Forum_Item__c>();
+        for (Integer i = 0; i < NUM_POSTS; i++) {
+            Account poster = accts[Math.mod(i, NUM_ACCOUNTS)];
+            posts.add(
+                makePost( poster.id, 0,
+                    'Test title for post ' + i, 
+                    getLongContent(), 
+                    getForumTopics(i)
+                )
+            );
+        }
+        Insert posts;
+
+        // Arbitrary comment and like generation
+        Post_Like__c[] likes = new Post_Like__c[]{};
+        List<Forum_Item__c> comments = new List<Forum_Item__c>();
+        Boolean toggler = false;
+        for (Integer i = 0; i < posts.size(); i++) {
+            for (Integer j = 0; j < NUM_ACCOUNTS; j++) {
+                if (Math.mod( posts.size()-i, j+1) == 0) {
+                    if (toggler) {
+                        Post_Like__c liked = new Post_Like__c();
+                        liked.Account__c = accts[j].id;
+                        liked.Forum_Item__c = posts[i].id;
+                        likes.add(liked);
+                    } else {
+                        Integer postSeed = NUM_POSTS  * 2 + i;
+                        Forum_Item__c comment = makePost(accts[j].id, 1,
+                            'Test comment ' + i + ' on ' + j, 
+                            getLongContent(), 
+                            getForumTopics(postSeed)
+                        );
+                        comment.Parent__c = posts[i].id;
+                        comment.Top__c = posts[i].id;
+
+                        comments.add(comment);
+                    }
+                    toggler = !toggler;
+                }
+            }
+        }
+        Integer num_comments = comments.size();
+        for (Integer i = 0; i < num_comments; i++) {
+            Account poster = accts[Math.mod(i, NUM_ACCOUNTS)];
+
+            Integer postSeed = num_comments - i;
+            Forum_Item__c comment = makePost(poster.id, 2,
+                'Test subcomment ' + i, 
+                getLongContent(), 
+                getForumTopics(postSeed)
+            );
+            comment.Parent__c = comments[i].id;
+            comment.Top__c = comments[i].Top__c;
+
+            comments.add(comment);
+        }
+        Insert comments;
+        Insert likes;
+    }
+
+    // Helper methods for arbitrary post generation
+    private static String getForumTopics(Integer seed) {
+        final Integer NUM_TOPICS = SAMPLE_TOPICS.size();
+        String output = '';
+
+        for (Integer i = 0; i < NUM_TOPICS; i++) {
+            Boolean test = false;
+            if (Math.mod(seed, (i+1)) == 0) {
+                test = true;
+            }
+            if (test) { output += ';' + SAMPLE_TOPICS[i]; }
+        }
+        return output;
+    }
+    private static string getLongContent() {
+        String output = '';
+        for (Integer i = 0; i < 80; i++) {
+            output += 'some more words';
+            output += Math.mod(i,2) == 0 ? ' and' : ' or';
+            output += Math.mod(i,9) == 0 ? '. ' : '';
+        }
+        return output;
+    }
+    private static Forum_Item__c makePost(ID acctID, Integer depth, 
+            String title, String content, String topics) {
+        Forum_Item__c post = new Forum_Item__c();
+
+        post.Poster__c = acctID;
+        post.Title__c = title;
+        post.Content__c = content;
+        post.Depth__c = depth;
+        post.Topics__c = topics;
+
+        return post;
     }
 }
