@@ -1,0 +1,37 @@
+TEAM MEMBERS
+  - All members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 2
+
+INDIVIDUAL STANDUPS
+  - Becky
+    - Accomplished
+      - Worked on Question LWC component for Project 2
+    - Roadblocks
+      - A few errors to resolve on pushing LWC component
+    - Next Steps
+      - Start the Shopping cart Aura component for project 2
+  - Mike
+    - Accomplished
+      - Took care of mental health
+    - Roadblocks
+      - Suffering panic attack
+    - Next Steps
+      - Begin working on Forum Item LWC component for Project 2
+  - Zach
+    - Accomplished
+      - Completed Shop Item LWC prototype for Project 2
+      - Set up base package with product customizations
+      - Created Data factory for Project 2 products/Sales cloud
+      - Studied Process Automation for PD1
+    - Roadblocks
+      - CSS for LWC component
+    - Next Steps
+      - Work on Forum Aura Component for Project 2
+
+PROJECT 2 STANDUP
+  - Went over the errors Becky was facing
+  - Set each user up for Dev Hub environment & github collaboration
+  - Worked with Mike on getting him started on LWC
