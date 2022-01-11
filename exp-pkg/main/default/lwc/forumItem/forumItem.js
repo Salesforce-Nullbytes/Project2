@@ -19,11 +19,16 @@ export default class ForumItem extends LightningElement {
     @api
     userLiked = false;
     
+    @api
+    isSelected = false;
 
     
     expanded = false;
 
     get itemClass(){
+        let output = "forum-item";
+        if (this.expanded) { output += " cropped";} 
+        if (this.isSelected) { output += " selected";} 
         return this.expanded ? 'forum-item' : 'forum-item cropped';
     }
 
@@ -37,6 +42,16 @@ export default class ForumItem extends LightningElement {
 
     addComment() {
         this.numComments +=1;
+    }
+
+    handleSelect() {
+        if (!this.isSelected) {
+            const event = new CustomEvent('choose', {
+                //detail: this.option.result,
+            });
+    
+            this.dispatchEvent(event);
+        }
     }
 
 }

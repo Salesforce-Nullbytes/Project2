@@ -3,12 +3,15 @@ p {
 }
 
 
-
 .forum-item{
     border:1px solid black;
     min-height: 5rem;
     overflow: hidden;
     padding: 1rem;
+}
+
+.selected {
+    border: 5px solid green;
 }
 
 .cropped{

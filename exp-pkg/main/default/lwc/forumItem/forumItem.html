@@ -1,7 +1,7 @@
 <template>
-    <div class={itemClass}>
+    <div class={itemClass} onclick={handleSelect}>
         
-        <template if:true={headerOnly}>
+        <!-- <template if:true={headerOnly}>
             <div class="column-one">
                 <div class="forum-title">{myTitle}</div>
             <div class="forum-details">{myDetails}</div>
@@ -11,27 +11,38 @@
             <div class="num-likes">{numLikes}</div>
             </div>
             
-        </template>
-        <template if:false={headerOnly}>
+        </template> -->
+   
             <div class="column-one" style="position:relative;">
-                <template if:false={expanded}>
+
+                <template if:false={headerOnly}>
                     <div class="fade"></div>
                 </template>
+
                 <div class="forum-title">{myTitle}</div>
-            <div class="forum-details">{myDetails}</div>
+
+                <template if:false={headerOnly}>
+                    <div class="forum-details">{myDetails}</div>
+                </template>
+        
             </div>
+
             <div class="column-two">
                 
                 <div class="num-comments">{numComments}</div>
                 <div class="num-likes">{numLikes}</div>
                 <button onclick={addComment}>Comment</button>
                 <button onclick={toggleLike}>Like</button>
-                <button class="btn" onclick={clickExpand}>Expand +</button>
+
+                <template if:false={headerOnly}>
+                    <button class="btn" onclick={clickExpand}>Expand +</button>
+                </template>
+
             </div>
 
             
             
-        </template>
+   
 
     </div>
 </template>
