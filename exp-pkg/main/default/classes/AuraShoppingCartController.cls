@@ -1,4 +1,5 @@
 public without sharing class AuraShoppingCartController {
+
     @AuraEnabled
     public static List<orderItem> GetCartItems() {
         id acctID = getAccountID();
@@ -20,4 +21,5 @@ public without sharing class AuraShoppingCartController {
     private static id getAccountID() {
         return [SELECT id FROM Account WHERE name = 'Joe Randy']?.id;
     }
+    
 }
