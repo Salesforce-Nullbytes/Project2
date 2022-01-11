@@ -1,10 +1,22 @@
 <template>
     <div class="center">
-        <h3>{Question1}</h3>
-        <p>Question {QuestionNumber}</p><br/>
-        <c-answers onchild={handleChild}></c-answers>
+        <h3>{question.prompt}</h3>
+        <p>Question {questionNumber}</p><br/>
         
-
+        <div class="iteration-holder">
+            <ul>
+                <template for:each={optionList} for:item="option" for:index="index">
+                    <c-answers key={option.text} 
+                        option={option}
+                        is-selected={option.selected}
+                        onchoose={handleSelectEvent} 
+                        data-index={index}>
+                    </c-answers>
+                </template>
+            </ul>
+        </div>
+        <br>
+        <button type="button" onclick={passToParent}>Next</button>
     </div>
 
 </template>

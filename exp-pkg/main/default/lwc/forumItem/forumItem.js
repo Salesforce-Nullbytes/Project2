@@ -15,6 +15,11 @@ export default class ForumItem extends LightningElement {
 
     @api
     numLikes = 0;
+
+    @api
+    userLiked = false;
+    
+
     
     expanded = false;
 
@@ -26,7 +31,7 @@ export default class ForumItem extends LightningElement {
         this.expanded = !this.expanded;
     }
 
-    addLike() {
+    toggleLike() {
         this.numLikes += 1;
     }
 
