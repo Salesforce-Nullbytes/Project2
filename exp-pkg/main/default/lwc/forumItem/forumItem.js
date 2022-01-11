@@ -29,9 +29,16 @@ export default class ForumItem extends LightningElement {
 
     @api
     accessId = -1;
-
     
     expanded = false;
+
+    get updateLikeIcon(){
+        if (this.userLiked == false) {
+            return ("{starUnliked}");
+        } else {
+            return ("{starLiked}");
+        }
+    }
 
     get itemClass(){
         let output = "forum-item";
@@ -61,5 +68,6 @@ export default class ForumItem extends LightningElement {
             this.dispatchEvent(event);
         }
     }
+
 
 }
