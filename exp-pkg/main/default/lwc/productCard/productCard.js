@@ -33,9 +33,9 @@ export default class ProductCard extends LightningElement {
         if (!this.itemData) { return null; }
         switch (type) {
             case "product":
-                if (!this.itemData.hasOwnProperty("product2")) { return null; }
-                if (!this.itemData.product2.hasOwnProperty(property)) { return null; }
-                return this.itemData.product2[property];
+                if (!this.itemData.hasOwnProperty("Product2")) { return null; }
+                if (!this.itemData.Product2.hasOwnProperty(property)) { return null; }
+                return this.itemData.Product2[property];
             case "order":
                 if (!this.itemData.hasOwnProperty(property)) { return null; }
                 return this.itemData[property];
@@ -73,14 +73,14 @@ export default class ProductCard extends LightningElement {
 
     // Data Bindings
     get fullName() {
-        let name = this.productField('name') || 'Basic Product';
+        let name = this.productField('Name') || 'Basic Product';
         if (this.productField('HasVarieties__c')) {
             name += ': ' + this.productField('SubVariety__c');
         }
         return name;
     }
     get itemName() {
-        return this.productField('name') || 'Basic Product';
+        return this.productField('Name') || 'Basic Product';
     }
     get variantName() {
         return this.productField('SubVariety__c') || '';
