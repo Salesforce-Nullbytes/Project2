@@ -1,11 +1,27 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" controller="AuraForumController">
+    <aura:attribute name="topLevelPosts" type="Forum_Item__c[]" access="private"/>
+    <aura:handler name="init" value="{!this}" action="{!c.SetTopLevelPosts}"/>
+
     <div class='title-bar'>
         <!-- Consider a 'search' type, with list attribute for suggetsed values -->
         <input type="text" placeholder="Search for terms or topics here..." />
     </div>
     <div class="forum-body">
         <div class="forum-display">
-            <!-- Iterate over retrived items... -->
+            <aura:iteration items="{!v.topLevelPosts}" var="post" indexVar="index">
+                <c:forumItem headerOnly="{!true}"
+                    myTitle="{!post.Title__c}"
+                    myDetails="{!post.Content__c}"
+                    numLikes="{!post.Likes__c}"
+                    numComments="{!post.Child_Comments__c}"
+                >
+                </c:forumItem>
+                <!-- <p>{!post.Title__c}</p>
+                <p>{!post.Content__c}</p>
+                <p>{!post.Parent__r.name}</p>
+                <p>{!post.Likes__c}</p>
+                <p>{!post.Child_Comments__c}</p> -->
+            </aura:iteration>
         </div>
         <div class="forum-interact">
             <textarea rows="4" />
