@@ -11,7 +11,7 @@ public without sharing class AuraShoppingCartController {
             product2.size__c, product2.light_level__c, product2.ispetfriendly__c, product2.hasvarieties__c, product2.hasflowers__c, product2.hascolor__c, 
             product2.difficulty__c 
             FROM orderItem 
-            WHERE Order.AccountID = :acctID AND order.status = 'Draft'
+            WHERE Order.AccountID = :acctID AND order.status = 'Draft' AND order.isdeleted = false
         ];
 
         system.debug(items.size());
