@@ -1,0 +1,23 @@
+.container {
+    width: 100%;
+    background-color: #E1A478;
+}
+
+.large-header {
+    font-size: 48px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding: 100px;
+    -webkit-text-stroke: 1px black;
+}
+
+.small-header {
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding: 8px;
+    -webkit-text-stroke: 1px black;
+}
+

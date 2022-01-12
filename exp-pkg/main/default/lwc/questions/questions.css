@@ -2,7 +2,19 @@
     text-align: center;
 }
 
+.background-image-container {
+    height: 60px;
+}
+
 h3 {
     font-size: 20px;
 }
 
+button {
+    border: none;
+    background-color: #E5E5E5;
+    color: black;
+    text-align: center;
+    font-size: 14px;
+    padding: 3px 10px;
+}
