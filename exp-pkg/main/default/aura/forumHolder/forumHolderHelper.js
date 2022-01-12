@@ -1,4 +1,17 @@
 ({
+    ApexSetAccount : function(component) {
+        let apexMethod = component.get("c.GetMyAccount");
+
+        apexMethod.setCallback(this, function (response) {
+            if (response.getState() == 'SUCCESS') {
+                component.set("v.thisAccount", response.getReturnValue());
+            } else {
+                console.log("Error retrieving top level posts!");
+            }
+        });
+
+        $A.enqueueAction(apexMethod);
+    }, 
     ApexSetTopLevelPosts : function(component) {
         let apexMethod = component.get("c.GetTopLevelPosts");
 

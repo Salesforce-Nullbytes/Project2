@@ -19,7 +19,13 @@ public without sharing class AuraForumController {
         return posts;
     }
 
-    public static ID GetAccount(String acctName) {
+    @AuraEnabled
+    public static Account GetMyAccount(){
+        return [SELECT Id, Name FROM Account WHERE Id = :getAccountId() LIMIT 1];
+    }
+
+    public static ID getAccountId() {
+        String acctName = 'Account 3';
         return [SELECT id FROM Account WHERE name= :acctName]?.id;
     }
 }
