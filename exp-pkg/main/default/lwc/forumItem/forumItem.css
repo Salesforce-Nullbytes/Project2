@@ -2,12 +2,30 @@ p {
     color:tomato;
 }
 
+button {
+    border: none;
+    background-color: #E5E5E5;
+    color: black;
+    text-align: center;
+    font-size: 14px;
+    padding: 3px 10px;
+}
+
+.expand-btn {
+    margin-left: 10px;
+    margin-top: 30px;
+}
+
 
 .forum-item{
     border:1px solid black;
     min-height: 5rem;
     overflow: hidden;
     padding: 1rem;
+}
+
+.forum-title {
+    font-size: 22px;
 }
 
 .selected {
@@ -29,14 +47,32 @@ p {
 }
 
 .column-one{
-    width: 80%;
+    width: 75%;
     float: left;
 }
 
 .column-two {
-   
     float: right;
+    margin-right: 2%;
+    width: 22%;
  }
+
+ .inner-column {
+     width: 33%;
+     float: right;
+ }
+
+ .likeIcon {
+    height: 20px;
+    margin: 5px;
+ }
+
+ .commentIcon {
+    height: 20px;
+    margin: 5px;
+ }
+
+
 
  /* .column-two * {
      float: right;

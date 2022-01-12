@@ -1,0 +1,14 @@
+<template>
+    <template if:true={largeHeader}>
+        <div class="container" style="background-image: url({titleVines}); background-size: cover;">
+            <!--<img src={titleVines}> -->
+            <h1 class="big-header">Plant People</h1>
+        </div>
+    </template>
+    <template if:false={largeHeader}>
+        <div class="container">
+            <!--<img src={titleVines}> -->
+            <h1 class="small-header">Plant People</h1>
+        </div>
+    </template>
+</template>

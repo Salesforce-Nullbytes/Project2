@@ -1,10 +1,12 @@
 import { LightningElement, api } from 'lwc';
 import starUnliked from '@salesforce/resourceUrl/starUnliked';
 import starLiked from '@salesforce/resourceUrl/starLiked';
+import commentIcon from '@salesforce/resourceUrl/commentIcon';
 
 export default class ForumItem extends LightningElement {
     starUnliked = starUnliked;
     starLiked = starLiked;
+    commentIcon = commentIcon;
 
     @api
     headerOnly = false;
@@ -34,9 +36,9 @@ export default class ForumItem extends LightningElement {
 
     get updateLikeIcon(){
         if (this.userLiked == false) {
-            return ("{starUnliked}");
+            return (starUnliked);
         } else {
-            return ("{starLiked}");
+            return (starLiked);
         }
     }
 
@@ -53,6 +55,7 @@ export default class ForumItem extends LightningElement {
 
     toggleLike() {
         this.numLikes += 1;
+        this.userLiked = !this.userLiked;
     }
 
     addComment() {

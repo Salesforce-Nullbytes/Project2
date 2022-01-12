@@ -28,15 +28,21 @@
             </div>
 
             <div class="column-two">
-                <div class="num-comments">{numComments}</div>
-                <div class="num-likes">{numLikes}</div><img class="likeIcon" src={updateLikeIcon}>
-                <button onclick={addComment}>Comment</button>
-                <button onclick={toggleLike}>Like</button>
+                <div class="inner-column">
+                    <template if:false={headerOnly}>
+                        <button class="expand-btn" onclick={clickExpand}>Expand +</button>
+                    </template>
+                </div>
+                
+                <div class="inner-column">
+                    <div class="num-comments">{numComments}<img class="commentIcon" src={commentIcon}/></div>
+                    <button onclick={addComment}>Comment</button>
+                </div>
 
-                <template if:false={headerOnly}>
-                    <button class="btn" onclick={clickExpand}>Expand +</button>
-                </template>
-
+                <div class="inner-column">
+                    <div class="num-likes">{numLikes}<img class="likeIcon" src={updateLikeIcon}/></div>   
+                    <button onclick={toggleLike}>Like</button> 
+                </div>
             </div>
 
             

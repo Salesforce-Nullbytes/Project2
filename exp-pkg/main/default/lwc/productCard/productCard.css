@@ -1,6 +1,6 @@
 .product {
-    background-color: rgb(219, 255, 219);
-    border: 4px solid rgb(228, 168, 56);
+    background-color: white;
+    border: 4px solid #E2AD86;
     padding: 1rem;
 }
 .cart {

@@ -1,6 +1,9 @@
 import {LightningElement, api, track} from 'lwc';
+import quizBackgroundImage from '@salesforce/resourceUrl/quizBackgroundImage';
 
 export default class questions extends LightningElement {
+    quizBackgroundImage = quizBackgroundImage;
+
     @api
     questionNumber = 1;
     

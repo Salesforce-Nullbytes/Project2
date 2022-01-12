@@ -12,6 +12,10 @@
     <!-- Initialize top level posts on load -->
     <aura:handler name="init" value="{!this}" action="{!c.Initialize}"/>
 
+    <div class="title-section" style="font-size: 22px; text-align: center;">
+        <h1>Let's Have a Chat</h1>
+    </div>
+
     <div>
         <div class='title-bar'>
             <div class='search-bar'>
