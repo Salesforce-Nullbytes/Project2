@@ -11,7 +11,7 @@ export default class homepageQuizIcons extends LightningElement {
     quizTitle = "Find your plant match";
 
     @api
-    quizNumber = 3;
+    quizNumber = 1;
 
     quizOdd = true;
 
@@ -39,5 +39,13 @@ export default class homepageQuizIcons extends LightningElement {
         }
 
         this.backgroundRendered = true;
+    }
+
+    clickTakeQuiz() {
+        const event = new CustomEvent('chooseQuiz', {
+            detail: this.quizNumber,
+        });
+
+        this.dispatchEvent(event);
     }
 }
