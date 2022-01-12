@@ -40,7 +40,7 @@
         <template if:true={ifDisplayComments}>
             <button onclick={toggleShowHide}>Show/Hide</button>
             <template if:true={showComments}>
-                {children.length} comments:
+                {numComments} comments:
                 <template for:each={children} for:item="comment" for:index="index">
                     <c-forum-item post-tree={comment} key={comment}></c-forum-item>
                 </template>
