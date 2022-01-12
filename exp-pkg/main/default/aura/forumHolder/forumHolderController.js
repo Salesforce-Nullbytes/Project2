@@ -1,5 +1,6 @@
 ({
     Initialize : function(component, event, helper) {
+        helper.ApexSetAccount(component);
         helper.ApexSetTopLevelPosts(component);
     }, 
     HandleChoose: function(component, event, helper) {
