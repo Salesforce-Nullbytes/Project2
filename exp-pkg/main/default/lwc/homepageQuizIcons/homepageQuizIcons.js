@@ -1,10 +1,27 @@
-import {LightningElement} from 'lwc';
+import {LightningElement, api} from 'lwc';
 import quizIconBackground1 from '@salesforce/resourceUrl/quizIconBackground1';
+import quizIconBackground2 from '@salesforce/resourceUrl/quizIconBackground2';
+import quizIconBackground3 from '@salesforce/resourceUrl/quizIconBackground3';
 
 export default class homepageQuizIcons extends LightningElement {
-    quizIconBackground1 = quizIconBackground1;
 
     backgroundRendered = false;
+
+    @api
+    quizTitle = "Find your plant match";
+
+    @api
+    quizNumber = 3;
+
+    quizOdd = true;
+
+    get isQuizOdd() {
+        if (this.quizNumber % 2 != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     renderedCallback() {
         if (this.backgroundRendered) {
@@ -12,8 +29,14 @@ export default class homepageQuizIcons extends LightningElement {
         } 
 
         let container = this.template.querySelectorAll(".container");
-        console.log(container.length);
-        container[0].style.backgroundImage = `url(${quizIconBackground1})`;
+
+        if (this.quizNumber == 1){
+            container[0].style.backgroundImage = `url(${quizIconBackground1})`;
+        } else if (this.quizNumber == 2) {
+            container[0].style.backgroundImage = `url(${quizIconBackground2})`;
+        } else {
+            container[0].style.backgroundImage = `url(${quizIconBackground3})`;
+        }
 
         this.backgroundRendered = true;
     }

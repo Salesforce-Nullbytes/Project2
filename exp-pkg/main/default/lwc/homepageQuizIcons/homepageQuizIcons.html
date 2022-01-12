@@ -1,5 +1,17 @@
 <template>
-   <div class="container">
-       test <br/>test <br/>test <br/>test <br/>test <br/>
+    <div class="container">
+        <template if:true={isQuizOdd}>
+            <div class="box">
+                <h3>{quizTitle}</h3>
+                <button class="quiz-button">Take the Quiz</button>
+            </div>
+        </template>
+
+        <template if:false={isQuizOdd}>
+            <div class="box even">
+                <h3 class="align-right">{quizTitle}</h3>
+                <button class="quiz-button align-left">Take the Quiz</button>
+            </div>
+        </template>
    </div>
 </template>
