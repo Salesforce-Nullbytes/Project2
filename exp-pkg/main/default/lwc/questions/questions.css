@@ -2,6 +2,10 @@
     text-align: center;
 }
 
+.background-image-container {
+    height: 60px;
+}
+
 h3 {
     font-size: 20px;
 }

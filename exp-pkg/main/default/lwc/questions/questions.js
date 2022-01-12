@@ -2,7 +2,6 @@ import {LightningElement, api, track} from 'lwc';
 import quizBackgroundImage from '@salesforce/resourceUrl/quizBackgroundImage';
 
 export default class questions extends LightningElement {
-    quizBackgroundImage = quizBackgroundImage;
 
     @api
     questionNumber = 1;
@@ -25,6 +24,21 @@ export default class questions extends LightningElement {
         for (let i = 0; i < this.question.options.length; i++) {
             this.selections.push(false);
         }
+    }
+
+    backgroundRendered = false;
+
+    renderedCallback() {
+        if (this.backgroundRendered) {
+            return;
+        } 
+
+        let container = this.template.querySelectorAll(".background-image-container");
+        console.log(container.length);
+        container[0].style.backgroundImage = `url(${quizBackgroundImage})`;
+        container[1].style.backgroundImage = `url(${quizBackgroundImage})`;
+
+        this.backgroundRendered = true;
     }
 
     handleSelectEvent(event) {
@@ -62,6 +76,10 @@ export default class questions extends LightningElement {
         }
         console.log(this.question.options);
         return this.question.options;
+    }
+
+    get imageStyle() {
+        return `background-image: url(${quizBackgroundImage});`;
     }
 
     // Question1 = "Posuere lorem ipsum dolor sit amet consectetur adipiscing elit?"
