@@ -1,0 +1,39 @@
+TEAM MEMBERS
+  - All members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 2
+
+INDIVIDUAL STANDUPS
+  - Becky
+    - Accomplished
+      - Studied for QC
+      - Finsihed majority of Aura component (shopping cart)
+    - Roadblocks
+      - Making data connections between LWC and Aura
+    - Next Steps
+      - Finish Aura component
+      - Work on CSS across site
+  - Mike
+    - Accomplished
+      - Studied for QC
+      - Basic setup for LWC
+    - Roadblocks
+      - Pushing and pulling from team repo (resolved)
+    - Next Steps
+      - Work on Project
+  - Zach
+    - Accomplished
+      - New Base package version with Forum objects/ Data Factory
+      - Modified LWC (cart item) for new specifications needed by Aura
+      - Began Aura component (Forum)
+    - Roadblocks
+      - None reported
+    - Next Steps
+      - Work on Aura forum component
+
+PROJECT 2 STANDUP
+  - Went over the errors Becky was facing
+  - Set up repo for Mike
+  - Refactored LWC code a little
