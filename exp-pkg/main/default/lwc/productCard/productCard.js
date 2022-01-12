@@ -3,6 +3,7 @@ import productImage from '@salesforce/resourceUrl/productimage';
 
 export default class ProductCard extends LightningElement {
     needUpdate = false;
+    showDetails = false;
     qtyHolder = 0;
 
     @api
@@ -37,12 +38,12 @@ export default class ProductCard extends LightningElement {
 
         if (property === "UnitPrice" || property === "Quantity" ) {
             if (!this.itemData.hasOwnProperty(property)) { return null; }
-            return this.itemData.property;
+            return this.itemData[property];
         }
 
         if (!this.itemData.hasOwnProperty("Product2")) { return null; }
         if (!this.itemData.Product2.hasOwnProperty(property)) { return null; }
-        return this.itemData.Product2.property;
+        return this.itemData.Product2[property];
     }
 
     // Data Bindings
@@ -80,11 +81,38 @@ export default class ProductCard extends LightningElement {
         }
         return 'No Charge';
     }
+    get productCode() {
+        return this.dataParser('ProductCode') || 'Unknown';
+    }
+    get hasVarieties() {
+        return this.dataParser('HasVarieties__c') || 'Unknown';
+    }
+    get hasColor() {
+        return this.dataParser('HasColor__c') || 'Unknown';
+    }
+    get hasFlowers() {
+        return this.dataParser('HasFlowers__c') || 'Unknown';
+    }
+    get isPetFriendly() {
+        return this.dataParser('IsPetFriendly__c') || 'Unknown';
+    }
+    get lightLevel() {
+        return this.dataParser('Light_Level__c') || 'Unknown';
+    }
+    get difficulty() {
+        return this.dataParser('Difficulty__c') || 'Unknown';
+    }
+    get plantSize() {
+        return this.dataParser('Size__c') || 'Unknown';
+    }
 
     // Interactivity
     qtyChange(event) {
         this.needUpdate = true;
         this.qtyHolder = event.target.value;
+    }
+    handleDetails() {
+        this.showDetails = !this.showDetails;
     }
 
     // Events
@@ -112,5 +140,8 @@ export default class ProductCard extends LightningElement {
     }
     get changeClass() {
         return this.needUpdate ? 'must-update' : 'in-sync';
+    }
+    get btnDetails() {
+        return this.showDetails ? 'Image' : 'Details';
     }
 }
