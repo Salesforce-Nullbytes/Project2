@@ -1,0 +1,43 @@
+h3 {
+    font-size: 32px;
+    color: black;
+    float: left;
+}
+
+.container {
+    width: 100%;
+    height: 300px;
+    padding: 5%;
+}
+
+.quiz-button {
+    background-color: #EFE0D4;
+    padding: 15px 32px;
+    color: black;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid black;
+    float: right;
+}
+
+.box {
+    background-color: white;
+    border: 1px solid black;
+    padding: 20px;
+    width: 30%;
+    height: 200px;
+}
+
+.even {
+    float: right;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-left {
+    float: left;
+}
+
+
