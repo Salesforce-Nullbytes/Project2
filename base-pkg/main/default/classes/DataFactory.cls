@@ -446,7 +446,10 @@ public class DataFactory {
                 }
             }
         }
+        Insert comments;
+
         Integer num_comments = comments.size();
+        List<Forum_Item__c> subcomments = new List<Forum_Item__c>();
         for (Integer i = 0; i < num_comments; i++) {
             Account poster = accts[Math.mod(i, NUM_ACCOUNTS)];
 
@@ -459,9 +462,9 @@ public class DataFactory {
             comment.Parent__c = comments[i].id;
             comment.Top__c = comments[i].Top__c;
 
-            comments.add(comment);
+            subcomments.add(comment);
         }
-        Insert comments;
+        Insert subcomments;
         Insert likes;
     }
 
