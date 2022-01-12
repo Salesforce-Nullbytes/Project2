@@ -9,6 +9,9 @@
     <aura:attribute name="parentPost" type="Forum_Item__c" access="private"/>
     <aura:attribute name="childPosts" type="Forum_Item__c[]" access="private"/>
 
+    <aura:attribute name="topList" type="Object[]" access="private"/>
+    <aura:attribute name="displayTree" type="Object" access="private"/>
+
     <!-- Initialize top level posts on load -->
     <aura:handler name="init" value="{!this}" action="{!c.Initialize}"/>
 
@@ -23,7 +26,6 @@
                 <input type="text" placeholder="Search for terms or topics here..." />
                 <button>Search</button>
                 <button onclick="{!c.HandleTop}">All Posts</button>
-                <button onclick="{!c.PrintChildren}">Children</button>
                 <aura:if isTrue="{!v.hasSelection}">
                     <button onclick="{!c.OpenSelected}">Open Selected</button>
                 </aura:if>
@@ -33,39 +35,25 @@
         <div class="forum-body">
             <div class="forum-display">
                 <aura:if isTrue="{!v.showTop}">
-                    <aura:iteration items="{!v.topLevelPosts}" var="post" indexVar="index">
+                    <aura:iteration items="{!v.topList}" var="post" indexVar="index">
                         <c:forumItem headerOnly="{!true}"
-                            myTitle="{!post.Title__c}"
-                            myDetails="{!post.Content__c}"
-                            numLikes="{!post.Likes__c}"
-                            numComments="{!post.Child_Comments__c}"
+                            postTree="{!post}"
                             onchoose="{!c.HandleChoose}"
                             accessId="{!index}"
-                            isSelected="{!post.Id == v.SelectedId}"
+                            isSelected="{!post.self.Id == v.SelectedId}"
                         >
-                        <!-- <p>{!post.Parent__r.name}</p> -->
                         </c:forumItem>
                     </aura:iteration>
                     <aura:set attribute="else">
-                        <aura:if isTrue="{!v.childPosts.length != 0}">
-                            <aura:iteration items="{!v.childPosts}" var="post" indexVar="index">
-                                <c:forumItem
-                                    myTitle="{!post.Title__c}"
-                                    myDetails="{!post.Content__c}"
-                                    numLikes="{!post.Likes__c}"
-                                    numComments="{!post.Child_Comments__c}"
-                                    onchoose="{!c.HandleChoose}"
-                                    accessId="{!index}"
-                                    isSelected="{!post.Id == v.SelectedId}"
-                                >
-                                </c:forumItem>
-                                <br />
-                                <!-- <p>{!post.Parent__r.name}</p> -->
-                            </aura:iteration>
-                            <!-- NO POSTS TO DISPLAY -->
+                        <aura:if isTrue="{!v.parentPost != null}">
+                            <p>PARENT POST TO GO HERE</p>
                             <aura:set attribute="else">
-                                <p>No comments to display...</p>
+                                <p>Post not found...</p>
                             </aura:set>
+                            <c:forumItem
+                                postTree="{!v.displayTree}"
+                            >
+                            </c:forumItem>
                         </aura:if>
                     </aura:set>
                 </aura:if>

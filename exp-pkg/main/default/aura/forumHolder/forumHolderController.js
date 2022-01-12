@@ -4,9 +4,7 @@
     }, 
     HandleChoose: function(component, event, helper) {
         let index = event.getParam('id');
-        console.log('index: ' + index);
-
-        helper.ItemChosen(component, index);
+        helper.SetParentPostFromTop(component, index);
     },
     OpenSelected: function(component, event, helper) {
         // Set parent post
@@ -19,12 +17,5 @@
     },
     HandleTop: function(component, event, helper) {
         component.set("v.showTop", true);
-    },
-    PrintChildren: function(component, event, helper) {
-        let array = component.get("v.childPosts");
-        console.log("Printing children...");
-        for (let child of array) {
-            console.log("    child found: " + array);
-        }
     },
 })

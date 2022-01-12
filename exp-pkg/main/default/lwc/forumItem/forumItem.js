@@ -128,7 +128,7 @@ export default class ForumItem extends LightningElement {
     }
 
     get ifDisplayComments() {
-        return (children.length != 0);
+        return (this.postTree.children.length != 0);
     }
 
     get updateLikeIcon(){
