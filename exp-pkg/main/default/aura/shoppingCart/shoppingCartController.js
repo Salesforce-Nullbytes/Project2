@@ -2,22 +2,7 @@
     Initialize : function(component, event, helper) {
         console.log("initialize is good");
 
-
-
-        let apexMethod = component.get("c.GetCartItems");
-
-        // Finally, we set the callback function. Seem familiar?
-        apexMethod.setCallback(this, function (response) {
-            if (response.getState() == 'SUCCESS') {
-                component.set("v.items", response.getReturnValue());
-            } else {
-                console.log("callback not set");
-            }
-        });
-
-        // Before we finish, we use the A namespace to enqueue the action and send it to the server
-        $A.enqueueAction(apexMethod);
-
+        helper.refreshCart(component, helper);
     }, 
 
     TestPrint : function(component, event, helper) {
@@ -30,15 +15,52 @@
     },
 
     HandleRemove : function(component, event, helper) {
-        console.log("herd a removal");
-        let target = event.target;
-        console.log(target);
-        console.log(event);
+        let removeIndex = event.getParam('id');
+        let items = component.get("v.items");
+
+        items[removeIndex].remove = true; 
+        component.set("v.items", items);
+        component.set("v.pending", true);
     },
     
     HandleChangeQuantity : function(component, event, helper) {
-        console.log(event.getParam('data'));
+        let changeIndex = event.getParam('id');
+        let changeQuantity = event.getParam('quantity');
+        let items = component.get("v.items");
+        
+        if (!items[changeIndex].originalQuantity) {
+            items[changeIndex].originalQuantity = items[changeIndex].Quantity;
+        }
 
+        items[changeIndex].Quantity = changeQuantity;
+        component.set("v.items", items);
+        component.set("v.pending", true);
+    }, 
+    
+    UpdateCart : function(component, event, helper) {
+        if (!component.get("v.pending")) {
+            return;
+        }
 
-    }
+        let items = component.get("v.items");
+
+        let toBeRemoved = [];
+        let toBeUpdated = [];
+        let newQuantity = [];
+        
+
+        for (let item of items) {
+            if (item.remove) { 
+                 toBeRemoved.push(item.Id);
+            }
+
+            if (item.hasOwnProperty("originalQuantity")) { 
+                toBeUpdated.push(item.Id);
+                newQuantity.push(item.Quantity);
+            }
+        }
+
+        helper.SendCartToServer(component, toBeRemoved, toBeUpdated, newQuantity, helper);
+    },
 })
+
