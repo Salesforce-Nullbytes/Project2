@@ -1,0 +1,10 @@
+<template>
+    <div class="shop">
+        <template for:each={catalog.data} for:item="product" for:index="index">
+            <c-product-card key={product.id} 
+                access-id={index}
+                item-data={product}
+            ></c-product-card>
+        </template> 
+    </div>
+</template>

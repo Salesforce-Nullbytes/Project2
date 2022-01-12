@@ -1,0 +1,8 @@
+.shop {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 1.5rem;
+}
+.shop c-product-card {
+    margin: 1rem;
+}

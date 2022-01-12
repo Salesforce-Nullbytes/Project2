@@ -1,11 +1,25 @@
 <template>
     <div class={cssClass}>
         <template if:false={isCartItem}>
-            <div class="product-image">
-                <img src={image.link} alt={image.alt} />
-            </div>
+            <template if:true={showDetails}>
+                <table>
+                    <tr><td>Product Code</td><td>{productCode}</td></tr>
+                    <tr><td>Size</td><td>{plantSize}</td></tr>
+                    <tr><td>Difficulty</td><td>{difficulty}</td></tr>
+                    <tr><td>Light Level</td><td>{lightLevel}</td></tr>
+                    <tr><td>Has Color?</td><td>{hasColor}</td></tr>
+                    <tr><td>Has Flowers?</td><td>{hasFlowers}</td></tr>
+                    <tr><td>Pet Friendly?</td><td>{isPetFriendly}</td></tr>
+                </table>
+            </template>
+            <template if:false={showDetails}>
+                <div class="product-image">
+                    <img src={image.link} alt={image.alt} />
+                </div>
+            </template>
             <p class="shop-name">{itemName}</p>
             <p class="shop-variant">{variantName}</p>
+            <button onclick={handleDetails}>{btnDetails}</button>
             <div class="shop-price">
                 <p>{unitPrice}</p>
                 <button onclick={clickToggle}>Add</button>
