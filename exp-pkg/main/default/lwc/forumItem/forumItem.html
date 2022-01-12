@@ -4,7 +4,9 @@
             <div class="column-one" style="position:relative;">
 
                 <template if:false={headerOnly}>
-                    <div class="fade"></div>
+                    <template if:false={expanded}>
+                        <div class="fade"></div>
+                    </template>
                 </template>
 
                 <div class="forum-title">{myTitle} : {accountName}</div>

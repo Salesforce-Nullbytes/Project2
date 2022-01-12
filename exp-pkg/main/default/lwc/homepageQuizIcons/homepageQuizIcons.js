@@ -1,11 +1,8 @@
 import {LightningElement} from 'lwc';
-import titleVines from '@salesforce/resourceUrl/titleVines';
+import quizIconBackground1 from '@salesforce/resourceUrl/quizIconBackground1';
 
-export default class plantPeopleHeader extends LightningElement {
-    titleVines = titleVines;
-
-    largeHeader = true;
-
+export default class homepageQuizIcons extends LightningElement {
+    quizIconBackground1 = quizIconBackground1;
 
     backgroundRendered = false;
 
@@ -16,7 +13,7 @@ export default class plantPeopleHeader extends LightningElement {
 
         let container = this.template.querySelectorAll(".container");
         console.log(container.length);
-        container[0].style.backgroundImage = `url(${titleVines})`;
+        container[0].style.backgroundImage = `url(${quizIconBackground1})`;
 
         this.backgroundRendered = true;
     }
