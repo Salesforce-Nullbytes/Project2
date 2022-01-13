@@ -6,7 +6,7 @@ public without sharing class PostLikeHandler {
             SELECT id, (
                 SELECT id, Forum_Item__c 
                 FROM Post_Likes__r 
-                WHERE id IN :postIDs 
+                WHERE Forum_Item__c IN :postIDs 
             ) 
             FROM Account 
             WHERE id IN :accountIDs

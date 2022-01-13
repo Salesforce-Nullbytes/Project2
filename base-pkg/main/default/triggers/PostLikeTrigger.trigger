@@ -5,14 +5,14 @@ trigger PostLikeTrigger on Post_Like__c (before insert, before update, before de
             PostLikeHandler.PreventExistingInsert(trigger.new);
         }
         when BEFORE_UPDATE {
-            PostLikeHandler.FailAll(trigger.new, 'Updates are not  allowed. Only delete or insert.');
+            PostLikeHandler.FailAll(trigger.new, 'Updates are not allowed. Only delete or insert.');
         }
         when BEFORE_DELETE {} // Impossible to double-delete.
         when AFTER_INSERT {
             PostLikeHandler.IncrementParentPostLikes(trigger.new);
         }
         when AFTER_UPDATE {
-            PostLikeHandler.FailAll(trigger.new, 'Updates are not  allowed. Only delete or insert.');
+            PostLikeHandler.FailAll(trigger.new, 'Updates are not allowed. Only delete or insert.');
         }
         when AFTER_DELETE {
             PostLikeHandler.DecrementParentPostLikes(trigger.old);
