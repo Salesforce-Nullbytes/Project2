@@ -42,7 +42,11 @@
             <template if:true={showComments}>
                 {numComments} comments:
                 <template for:each={children} for:item="comment" for:index="index">
-                    <c-forum-item post-tree={comment} key={comment}></c-forum-item>
+                    <c-forum-item 
+                    post-tree={comment} 
+                    key={comment}
+                    onchoose={passChoose}>
+                </c-forum-item>
                 </template>
             </template>
         </template>

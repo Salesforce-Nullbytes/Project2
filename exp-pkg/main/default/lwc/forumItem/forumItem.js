@@ -16,11 +16,7 @@ export default class ForumItem extends LightningElement {
     userLiked = false;
     
     @api
-    isSelected = false;
-
-    @api
-    accessId = -1;
-
+    selectedId;
 
     @api
     postTree = {
@@ -141,9 +137,13 @@ export default class ForumItem extends LightningElement {
 
     get itemClass(){
         let output = "forum-item";
-        if (this.expanded) { output += " cropped";} 
-        if (this.isSelected) { output += " selected";} 
-        return this.expanded ? 'forum-item' : 'forum-item cropped';
+        if (!this.expanded) { output += " cropped";} 
+        if (this.dataParser("Id") == this.selectedId) { output += " selected";} 
+        return output;
+    }
+
+    get isSelected() {
+        return this.dataParser("Id") == this.selectedId;
     }
 
     clickExpand() {
@@ -171,6 +171,12 @@ export default class ForumItem extends LightningElement {
     
             this.dispatchEvent(event);
         }
+    }
+
+    passChoose(event) {
+        this.dispatchEvent(new CustomEvent('choose', {
+            detail: { id: event.detail.id },
+        }));
     }
 
 
