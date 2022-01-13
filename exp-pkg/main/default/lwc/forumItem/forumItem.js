@@ -153,9 +153,11 @@ export default class ForumItem extends LightningElement {
         let dir;
         if (this.userLiked()) {
             dir = 'down';
-            this.likeOffSet--;
+            console.log("setting dir down");
+            this.likeOffset--;
         } else {
             dir = 'up';
+            console.log("setting dir up");
             this.likeOffset++;
         }
         this.flipLike = !this.flipLike;
@@ -163,6 +165,7 @@ export default class ForumItem extends LightningElement {
         const event = new CustomEvent('like', {
             detail: { id: this.dataParser("Id"), direction: dir },
         });
+
         this.dispatchEvent(event);
     }
 

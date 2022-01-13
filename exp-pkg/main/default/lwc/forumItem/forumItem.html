@@ -26,12 +26,10 @@
                 
                 <div class="inner-column">
                     <div class="num-comments">{numComments}<img class="commentIcon" src={commentIcon}/></div>
-                    <button onclick={addComment}>Comment</button>
                 </div>
 
                 <div class="inner-column">
-                    <div class="num-likes">{numLikes}<img class="likeIcon" src={updateLikeIcon}/></div>   
-                    <button onclick={toggleLike}>Like</button> 
+                    <div class="num-likes">{numLikes}<img class="likeIcon" src={updateLikeIcon} onclick={toggleLike}/></div>   
                 </div>
             </div>
     </div>
@@ -41,13 +39,14 @@
             <button onclick={toggleShowHide}>Show/Hide</button>
             <template if:true={showComments}>
                 {numComments} comments:
-                <template for:each={children} for:item="comment" for:index="index">
+                <template for:each={children} for:item="comment">
                     <c-forum-item 
-                    post-tree={comment} 
-                    key={comment}
-                    onlike={passLike}
-                    onchoose={passChoose}>
-                </c-forum-item>
+                        key={comment}
+                        post-tree={comment} 
+                        selected-id={selectedId}
+                        onlike={passLike}
+                        onchoose={passChoose}>
+                    </c-forum-item>
                 </template>
             </template>
         </template>

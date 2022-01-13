@@ -1,9 +1,10 @@
-import {LightningElement} from 'lwc';
+import {LightningElement, api} from 'lwc';
 import titleVines from '@salesforce/resourceUrl/titleVines';
 
 export default class plantPeopleHeader extends LightningElement {
     titleVines = titleVines;
 
+    @api
     largeHeader = false;
 
 
