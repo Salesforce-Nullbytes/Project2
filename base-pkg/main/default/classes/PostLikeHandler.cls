@@ -8,7 +8,7 @@ public without sharing class PostLikeHandler {
             posts.add(insertion.Forum_Item__c);
         }
 
-        Map<ID, Account> accountLikes = [
+        List<Account> accountLikes = [
             SELECT id, (
                 SELECT id, Forum_Item__c 
                 FROM Post_Likes__r 
@@ -17,11 +17,15 @@ public without sharing class PostLikeHandler {
             FROM Account 
             WHERE id IN :accounts
         ];
+        Map<ID, Account> mapAccountLikes = new Map<ID, Account>();
+        for (Account a : accountLikes) {
+            mapAccountLikes.put(a.id, a);
+        }
 
         for (Post_Like__c insertion : insertions) {
-            List<Forum_Item> likes = accountLikes[insertion.Account__c]?.Forum_Item__r;
-            for (Forum_Item liked : likes) {
-                if (insertion.Forum_Item__c == liked) {
+            List<Post_Like__c> likes = mapAccountLikes.get(insertion.Account__c).Post_Likes__r;
+            for (Post_Like__c liked : likes) {
+                if (insertion.Forum_Item__c == liked.Forum_Item__c) {
                     insertion.addError('No insert: Account already liked post.');
                 }
             }
@@ -33,17 +37,17 @@ public without sharing class PostLikeHandler {
 
         Forum_Item__c[] updates = [SELECT id, Likes__c FROM Forum_Item__c WHERE id IN :postLikes.keySet()];
         for (Forum_Item__c post : updates) {
-            post.Likes__c += postLikes[postId];
+            post.Likes__c += postLikes.get(post.Id);
         }
         Update updates;
     }
     // AFTER DELETE -> Decrement post likes
     public static void DecrementParentPostLikes(List<Post_Like__c> deletions) {
-        Map<ID, Integer> postUnlikes = getLikeCountsByPost(insertions);
+        Map<ID, Integer> postUnlikes = getLikeCountsByPost(deletions);
 
-        Forum_Item__c[] updates = [SELECT id, Likes__c FROM Forum_Item__c WHERE id IN :postLikes.keySet()];
+        Forum_Item__c[] updates = [SELECT id, Likes__c FROM Forum_Item__c WHERE id IN :postUnlikes.keySet()];
         for (Forum_Item__c post : updates) {
-            post.Likes__c -= postUnlikes[postId];
+            post.Likes__c -= postUnlikes.get(post.Id);
         }
         Update updates;
     }
@@ -59,11 +63,12 @@ public without sharing class PostLikeHandler {
     private static Map<ID, Integer> getLikeCountsByPost(List<Post_Like__c> likes) {
         Map<ID, Integer> counts = new Map<ID, Integer>();
         for (Post_Like__c liked : likes) {
-            let postId = liked.Forum_Item__c;
+            ID postId = liked.Forum_Item__c;
             if (!counts.containsKey(postId)) {
                 counts.put(postId, 0);
             }
-            counts[postId] += 1;
+            Integer prior = counts.get(postId);
+            counts.put(postId, prior + 1);
         }
         return counts;
     }
