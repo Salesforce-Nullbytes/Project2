@@ -13,9 +13,6 @@ export default class ForumItem extends LightningElement {
     headerOnly = false;
 
     @api
-    userLiked = false;
-    
-    @api
     selectedId;
 
     @api
@@ -103,8 +100,9 @@ export default class ForumItem extends LightningElement {
         return this.dataParser("Content__c");
     }
 
+    likeOffset = 0;
     get numLikes() {
-        return this.dataParser("Likes__c");
+        return this.dataParser("Likes__c") + this.likeOffset;
     }
 
     get numComments() {
@@ -128,7 +126,7 @@ export default class ForumItem extends LightningElement {
     }
 
     get updateLikeIcon(){
-        if (this.userLiked == false) {
+        if (!this.userLiked()) {
             return (starUnliked);
         } else {
             return (starLiked);
@@ -151,8 +149,26 @@ export default class ForumItem extends LightningElement {
     }
 
     toggleLike() {
-        this.numLikes += 1;
-        this.userLiked = !this.userLiked;
+        let dir;
+        if (this.userLiked()) {
+            dir = 'down';
+            this.likeOffSet--;
+        } else {
+            dir = 'up';
+            this.likeOffset++;
+        }
+        this.flipLike = !this.flipLike;
+
+        const event = new CustomEvent('like', {
+            detail: { id: this.dataParser("Id"), direction: dir },
+        });
+        this.dispatchEvent(event);
+    }
+
+    passLike(event) {
+        this.dispatchEvent(new CustomEvent('like', {
+            detail : { id: event.detail.id, direction: event.detail.direction },
+        }));
     }
 
     addComment() {
@@ -177,6 +193,12 @@ export default class ForumItem extends LightningElement {
         this.dispatchEvent(new CustomEvent('choose', {
             detail: { id: event.detail.id },
         }));
+    }
+
+    flipLike = false;
+    userLiked() {
+        let original = (this.dataParser("Post_Likes__r"));
+        return this.flipLike ? !original : original;
     }
 
 
