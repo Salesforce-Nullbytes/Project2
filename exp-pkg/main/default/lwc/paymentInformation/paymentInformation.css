@@ -1,0 +1,46 @@
+.box {
+    border: 1px solid black;
+    padding: 15px;
+}
+
+.main {
+    padding: 15px;
+}
+
+.info {
+    text-align: right;
+    font-size: 14px;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.submitted {
+    background-color: #77dd77;
+}
+
+.notSubmitted {
+    background-color: #ff8c8c;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+input {
+    padding: 5px;
+    margin: 5px;
+}
+
+button {
+    border: none;
+    background-color: #E5E5E5;
+    color: black;
+    text-align: center;
+    font-size: 14px;
+    padding: 3px 10px;
+    margin: 5px;
+}
+

@@ -19,18 +19,13 @@ public without sharing class AuraShoppingCartController {
     }
 
     private static id getAccountID() {
-        return [SELECT id FROM Account WHERE name = 'Account 5']?.id;
+        return [SELECT id FROM Account WHERE name = 'Account 6']?.id;
     }
 
     @AuraEnabled
     public static void updateCart(Id[] ListOfRemovedIds, Id[] ListOfChangedQuantityIds, Integer[] ListOfChangedQuantityInts){
         List<orderItem> removals = [SELECT id FROM orderItem WHERE id IN : ListOfRemovedIds];
         delete removals;
-
-        // List<orderItems> updatesId = [SELECT id FROM orderItems WHERE id IN : ListOfChangedQuantityIds];
-        // List<orderItems> updatesQuantity = [SELECT quantity FROM orderItems WHERE quantity IN : ListOfChangeQuantityInts];
-        // update updatesId;
-        // update updatesQuantity;
 
         List<orderItem> updates = new List<orderItem>();
         if (ListOfChangedQuantityIds.size() != ListOfChangedQuantityInts.size()) {
@@ -46,6 +41,13 @@ public without sharing class AuraShoppingCartController {
             updates.add(change);
         }
         update updates;
+    }
+
+    @AuraEnabled
+    public static void changeOrderStatus() {
+        order completedOrder = [SELECT status FROM order WHERE Order.AccountID = :getAccountID() AND order.status = 'Draft' AND order.isdeleted = false LIMIT 1];
+        completedOrder.status = 'Activated';
+        update completedOrder;
     }
     
 }

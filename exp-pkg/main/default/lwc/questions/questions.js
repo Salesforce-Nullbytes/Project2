@@ -34,7 +34,6 @@ export default class questions extends LightningElement {
         } 
 
         let container = this.template.querySelectorAll(".background-image-container");
-        console.log(container.length);
         container[0].style.backgroundImage = `url(${quizBackgroundImage})`;
         container[1].style.backgroundImage = `url(${quizBackgroundImage})`;
 
@@ -78,9 +77,9 @@ export default class questions extends LightningElement {
         return this.question.options;
     }
 
-    get imageStyle() {
-        return `background-image: url(${quizBackgroundImage});`;
-    }
+    // get imageStyle() {
+    //     return `background-image: url(${quizBackgroundImage});`;
+    // }
 
     // Question1 = "Posuere lorem ipsum dolor sit amet consectetur adipiscing elit?"
     // QuestionNumber = "1";
