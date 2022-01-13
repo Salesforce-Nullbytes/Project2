@@ -166,7 +166,7 @@ export default class ForumItem extends LightningElement {
     handleSelect() {
         if (!this.isSelected) {
             const event = new CustomEvent('choose', {
-                detail: { id: this.accessId, },
+                detail: { id: this.dataParser("Id") },
             });
     
             this.dispatchEvent(event);
