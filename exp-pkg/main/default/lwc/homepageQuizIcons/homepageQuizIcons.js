@@ -11,7 +11,7 @@ export default class homepageQuizIcons extends LightningElement {
     quizTitle = "Find your plant match";
 
     @api
-    quizNumber = 1;
+    quizNumber;
 
     quizOdd = true;
 
