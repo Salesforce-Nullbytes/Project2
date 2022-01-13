@@ -1,6 +1,30 @@
 public without sharing class PostLikeHandler {
+
+    @testVisible
+    private static Map<ID, List<ID>> getPostsLikedByAccount(Set<ID> accountIds, Set<ID> postIds) {
+        List<Account> accountLikes = [
+            SELECT id, (
+                SELECT id, Forum_Item__c 
+                FROM Post_Likes__r 
+                WHERE id IN :postIDs 
+            ) 
+            FROM Account 
+            WHERE id IN :accountIDs
+        ];
+
+        Map<ID, List<ID>> mapAccountLikes = new Map<ID, List<ID>>();
+        for (Account a : accountLikes) {
+            List<ID> postsLiked = new List<ID>();
+            for (Post_Like__c liked : a.Post_Likes__r) {
+                postsLiked.add(liked.Forum_Item__c);
+            }
+            mapAccountLikes.put(a.id, postsLiked);
+        }
+        return mapAccountLikes;
+    }
+
     // BEFORE INSERT -> Prevent if account already liked post.
-    public static void PreventDoubleInsert(List<Post_Like__c> insertions) {
+    public static void PreventExistingInsert(List<Post_Like__c> insertions) {
         Set<ID> accounts = new Set<ID>();
         Set<ID> posts = new Set<ID>();
         for (Post_Like__c insertion : insertions) {
@@ -8,26 +32,30 @@ public without sharing class PostLikeHandler {
             posts.add(insertion.Forum_Item__c);
         }
 
-        List<Account> accountLikes = [
-            SELECT id, (
-                SELECT id, Forum_Item__c 
-                FROM Post_Likes__r 
-                WHERE id IN :posts 
-            ) 
-            FROM Account 
-            WHERE id IN :accounts
-        ];
-        Map<ID, Account> mapAccountLikes = new Map<ID, Account>();
-        for (Account a : accountLikes) {
-            mapAccountLikes.put(a.id, a);
-        }
+        Map<ID, List<ID>> mapAccountLikes = getPostsLikedByAccount(accounts, posts);
 
         for (Post_Like__c insertion : insertions) {
-            List<Post_Like__c> likes = mapAccountLikes.get(insertion.Account__c).Post_Likes__r;
-            for (Post_Like__c liked : likes) {
-                if (insertion.Forum_Item__c == liked.Forum_Item__c) {
+            ID acctId = insertion.Account__c;
+            for (ID postId : mapAccountLikes.get(acctId)) {
+                ID existing = insertion.Forum_Item__c;
+                if (insertion.Forum_Item__c == existing) {
                     insertion.addError('No insert: Account already liked post.');
                 }
+            }
+        }
+    }
+    // BEFORE INSERT -> Prevent if account liking post appears twice.
+    public static void PreventDoubleInsert(List<Post_Like__c> insertions) {
+        Map<ID, Set<ID>> observedLikes = new Map<ID, Set<ID>>();
+        for (Post_Like__c liked : insertions) {
+            ID acctId = liked.Account__c;
+            if (!observedLikes.containsKey(acctId)) {
+                observedLikes.put(acctId, new Set<ID>());
+            }
+            if (observedLikes.get(acctId).contains(liked.Forum_Item__c)) {
+                liked.addError('No insert: like appeared twice in list!');
+            } else {
+                observedLikes.get(acctId).add(liked.Forum_Item__c);
             }
         }
     }

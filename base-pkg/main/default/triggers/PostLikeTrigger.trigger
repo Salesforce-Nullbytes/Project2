@@ -2,6 +2,7 @@ trigger PostLikeTrigger on Post_Like__c (before insert, before update, before de
     switch on trigger.operationType {
         when BEFORE_INSERT {
             PostLikeHandler.PreventDoubleInsert(trigger.new);
+            PostLikeHandler.PreventExistingInsert(trigger.new);
         }
         when BEFORE_UPDATE {
             PostLikeHandler.FailAll(trigger.new, 'Updates are not  allowed. Only delete or insert.');
@@ -14,7 +15,7 @@ trigger PostLikeTrigger on Post_Like__c (before insert, before update, before de
             PostLikeHandler.FailAll(trigger.new, 'Updates are not  allowed. Only delete or insert.');
         }
         when AFTER_DELETE {
-            PostLikeHandler.DecrementParentPostLikes(trigger.new);
+            PostLikeHandler.DecrementParentPostLikes(trigger.old);
         }
         when AFTER_UNDELETE {
             PostLikeHandler.FailAll(trigger.new, 'No undeletes. Please insert new records instead.');
