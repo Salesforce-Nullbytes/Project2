@@ -11,7 +11,29 @@
         });
 
         $A.enqueueAction(apexMethod);
-    }, 
+    },
+    ToggleLike: function(component, likeId, direction) {        
+        let flag;
+        if (direction === 'up') flag = true;
+        else if (direction === 'down') flag = false;
+        else {
+            console.log("LIKE DIRECTION CANNOT BE " + direction);
+            return;
+        }
+
+        let apexMethod = component.get("c.CreateOrDeleteLike");
+        apexMethod.setParams({ postId: likeId, isUp: flag });
+
+        apexMethod.setCallback(this, function (response) {
+            if (response.getState() == 'SUCCESS') {
+                if (!response.getReturnValue()) console.log("Like request failed.");
+            } else {
+                console.log("Error toggling the like!");
+            }
+        });
+
+        $A.enqueueAction(apexMethod);
+    },
     ApexSetTopLevelPosts : function(component) {
         let apexMethod = component.get("c.GetTopLevelPosts");
 
@@ -20,6 +42,7 @@
                 let posts = response.getReturnValue();
                 component.set("v.topLevelPosts", posts);
                 component.set("v.topList", this.BuildTopList(posts));
+                component.set("v.showTop", true);
             } else {
                 console.log("Error retrieving top level posts!");
             }
@@ -27,73 +50,51 @@
 
         $A.enqueueAction(apexMethod);
     }, 
-    SetParentPostFromTop: function(component, index) {
-        let post = null;
-        if (component.get("v.showTop")) {
-            post = component.get("v.topLevelPosts")[index];
-        } else {
-            post = component.get("v.childPosts")[index];
-        }
-        if (post == null) {
-            console.log("ERROR: post chosen does not have valid index!");
-            return;
-        }
-
-        component.set("v.selectedPost", post);
-        component.set("v.selectedId", post.Id);
+    SetSelected: function(component, toId) {        
+        component.set("v.selectedId", toId);
         component.set("v.hasSelection", true);
-        console.log("SELECTED ID IS " + post.Id);
     },
-    ApexSetValueChildPosts: function(component, helper, fromId) {
+    ApexSetPostTree: function(component, helper, fromId) {
         let apexMethod = component.get("c.GetPostsUnder");
         apexMethod.setParams({ postId: fromId });
 
         apexMethod.setCallback(component, function (response) {
             if (response.getState() == 'SUCCESS') {
-                helper.SetValueChildPosts(component, response.getReturnValue());
+                helper.SetTree(component, response.getReturnValue());
             } else {
-                console.log("Error retrieving top children posts!");;
+                console.log("Error retrieving top posts!");;
             }
         });
 
         $A.enqueueAction(apexMethod);
     },
-    SetValueChildPosts: function(component, children) {
-        if (!children) {
+    SetTree: function(component, posts) {
+        if (!posts) {
             console.log("No results!");
             return;
         }
-
-        component.set("v.childPosts", children);
-        //console.log("Set # children: " + component.get("v.childPosts").length);
-        
+        component.set("v.treePosts", posts);
         component.set("v.showTop", false);
+
         this.ResetSelection(component);
         this.BuildDisplayTree(component);
     },
     ResetSelection: function(component) {
-        component.set("v.selectedPost", null);
-        component.set("v.selectedId", null);
         component.set("v.hasSelection", false);
+        component.set("v.selectedId", null);
     },
     BuildDisplayTree: function(component) {   
-        let parent = component.get("v.parentPost");
-        let allPosts = component.get("v.childPosts");
-
-        let parentDepth = parent.Depth__c;
+        let allPosts = component.get("v.treePosts");
         let postsByDepth = [];
 
-        postsByDepth[0] = [];
-        postsByDepth[0].push(this.MakeNode(parent));
-
         for (let post of allPosts) {
-            let depth = post.Depth__c - parentDepth;
+            let depth = post.Depth__c;
+
             if (depth < 0) {continue;} // Review this condition later
-            
+
             if (postsByDepth[depth] === undefined) postsByDepth[depth] = [];
             postsByDepth[depth].push(this.MakeNode(post));
         }
-
 
         // Traverse from bottom to top of tree.
         // Start one before the last depth.
@@ -108,7 +109,6 @@
             }
         }
 
-        //this.PrintTree(postsByDepth[0][0], 0);
         component.set("v.displayTree", postsByDepth[0][0]);
     },
     PrintTree: function(node, depth) {
