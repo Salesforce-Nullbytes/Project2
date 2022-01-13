@@ -62,5 +62,18 @@
 
         helper.SendCartToServer(component, toBeRemoved, toBeUpdated, newQuantity, helper);
     },
+
+    CancelChanges : function(component, event, helper) {
+        helper.refreshCart(component, helper);
+    },
+
+    CheckOut : function(component, event, helper) {
+        component.set("v.checkOutUnclicked", false);
+    },
+
+    PlaceOrder : function(component, event, helper) {
+        component.set("v.placeOrderUnclicked", false);
+        helper.UpdateOrderStatus(component, helper);
+    },
 })
 

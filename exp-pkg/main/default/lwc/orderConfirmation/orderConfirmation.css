@@ -1,0 +1,15 @@
+.box {
+    border: 1px solid black;
+    padding: 15px;
+}
+
+.background-image-container {
+    height: 100px;
+}
+
+.confirmation-order-text {
+    margin-top: 200px;
+    margin-bottom: 200px;
+    text-align: center;
+    font-size: 18px;
+}

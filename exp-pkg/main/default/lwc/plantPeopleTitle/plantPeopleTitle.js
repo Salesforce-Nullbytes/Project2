@@ -4,7 +4,7 @@ import titleVines from '@salesforce/resourceUrl/titleVines';
 export default class plantPeopleHeader extends LightningElement {
     titleVines = titleVines;
 
-    largeHeader = true;
+    largeHeader = false;
 
 
     backgroundRendered = false;

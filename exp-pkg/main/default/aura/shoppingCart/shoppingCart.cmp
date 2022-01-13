@@ -3,21 +3,40 @@
     <aura:attribute name="items" type="Object[]" access="private"/>
     <aura:attribute name="cartTrue" type="Boolean" access="private" default="true"/>
     <aura:attribute name="pending" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="checkOutUnclicked" type="Boolean" access="private" default="true"/>
+    <aura:attribute name="placeOrderUnclicked" type="Boolean" access="private" default="true"/>
     <aura:handler name="init" value="{!this}" action="{!c.Initialize}"/>
     <lightning:button label="TestPrint" onclick="{!c.TestPrint}"/>
-    <lightning:button label="Update Cart" onclick="{!c.UpdateCart}"/>
     
-
-    <aura:iteration items="{!v.items}" var="item" indexVar="index">
-        <aura:if isTrue="{!!item.remove}">
-        <c:productCard 
-            onremove="{!c.HandleRemove}" 
-            onchangequantity="{!c.HandleChangeQuantity}" 
-            accessId="{!index}"
-            isCartItem="{!v.cartTrue}"
-            itemData="{!item}">
-        </c:productCard>
+    <aura:if isTrue="{!v.checkOutUnclicked}">
+        <lightning:button label="Update Cart" onclick="{!c.UpdateCart}"/>
+        <lightning:button label="Cancel" onclick="{!c.CancelChanges}"/>
+        <aura:iteration items="{!v.items}" var="item" indexVar="index">
+            <aura:if isTrue="{!!item.remove}">
+                <c:productCard 
+                    onremove="{!c.HandleRemove}" 
+                    onchangequantity="{!c.HandleChangeQuantity}" 
+                    accessId="{!index}"
+                    isCartItem="{!v.cartTrue}"
+                    itemData="{!item}">
+                </c:productCard>
+            </aura:if>
+        </aura:iteration>
+        <lightning:button label="Check out" onclick="{!c.CheckOut}"/>
     </aura:if>
-    </aura:iteration>
+
+    <aura:if isTrue="{!!v.checkOutUnclicked}">
+        <aura:if isTrue="{!v.placeOrderUnclicked}">
+            <c:paymentInformation></c:paymentInformation>
+            <lightning:button label="Place Your Order" onclick="{!c.PlaceOrder}"/>
+        </aura:if>
+    </aura:if>
+
+    <aura:if isTrue="{!!v.placeOrderUnclicked}">
+         <c:orderConfirmation></c:orderConfirmation>         
+    </aura:if>
+
+
+
 
 </aura:component>	

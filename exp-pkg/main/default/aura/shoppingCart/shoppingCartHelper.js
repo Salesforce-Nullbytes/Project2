@@ -71,5 +71,22 @@
 
         // Before we finish, we use the A namespace to enqueue the action and send it to the server
         $A.enqueueAction(apexMethod);
-    }
+    }, 
+
+    UpdateOrderStatus : function(component, helper) {
+        let apexMethod = component.get("c.changeOrderStatus");
+        
+        apexMethod.setCallback(this, function (response) {
+            if (response.getState() == 'SUCCESS') {
+                helper.refreshCart(component, helper);
+                console.log("Success");
+                console.log(component.get("v.items"));
+            } else {
+                console.log("Order Failed");
+            }
+        });
+
+        $A.enqueueAction(apexMethod);
+        
+    },
 })
