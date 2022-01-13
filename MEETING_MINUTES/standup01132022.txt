@@ -1,0 +1,35 @@
+TEAM MEMBERS
+  - All members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 2
+
+INDIVIDUAL STANDUPS
+  - Becky
+    - Accomplished
+      - Implemented the cancel button on cart
+      - Checkout process pages and components      
+      - Home page and styling
+    - Roadblocks
+      - Submit order functionality with apex controller logic
+       (resolved)
+    - Next Steps
+      - Finish home page
+      - General updates to components
+      - Triggers
+  - Zach
+    - Accomplished
+      - Apex controller logic for forum likes
+      - Trigger in base package for forum likes
+      - Refactored and debugged Aura forum controller logic
+    - Roadblocks
+      - More subcomponent specifications
+    - Next Steps
+      - General updates to components
+      - Triggers
+
+PROJECT 2 STANDUP
+  - Discussed difficultties
+  - Made plans for overall site
+  - Pair programming

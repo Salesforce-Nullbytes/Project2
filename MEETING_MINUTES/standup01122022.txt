@@ -1,0 +1,34 @@
+TEAM MEMBERS
+  - Mike will no longer be on the team and has been removed from the quorum.
+  - All remaining members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 2
+
+INDIVIDUAL STANDUPS
+  - Becky
+    - Accomplished
+      - Refactored and updated LWC components (quiz)
+      - Updated CSS across site and started new section components
+      - Corrected LWC communication with Aura
+    - Roadblocks
+      - Getting background image to display properly
+    - Next Steps
+      - Cart apex controller, cancel button
+      - Work on home page
+  - Zach
+    - Accomplished
+      - Finished bulk of aura component (forum)
+      - Created new data factory functionality
+      - Began Aura component (Forum)
+    - Roadblocks
+      - Need updates to forum LWC component
+    - Next Steps
+      - Apex controller logic for Aura component
+      - Begin triggers
+
+PROJECT 2 STANDUP
+  - Discussed difficultties
+  - Made plans for overall site
+  - Pair programming
