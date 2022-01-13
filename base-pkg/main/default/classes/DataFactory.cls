@@ -362,6 +362,10 @@ public class DataFactory {
         }
         Insert accts;
 
+        if(Test.isRunningTest()){
+            Pricebook2 testPb = new Pricebook2(name='Standard Price Book');
+            Insert testPb;
+        }
         Pricebook2 pb = [SELECT id, name FROM Pricebook2 WHERE name = 'Standard Price Book' LIMIT 1];
 
         List<Order> orders = new List<Order>();
@@ -491,7 +495,7 @@ public class DataFactory {
         }
         return output;
     }
-    private static Forum_Item__c makePost(ID acctID, Integer depth, 
+    public static Forum_Item__c MakePost(ID acctID, Integer depth, 
             String title, String content, String topics) {
         Forum_Item__c post = new Forum_Item__c();
 
