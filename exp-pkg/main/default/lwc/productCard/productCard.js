@@ -2,9 +2,16 @@ import { LightningElement, api } from 'lwc';
 import productImage from '@salesforce/resourceUrl/productimage';
 
 export default class ProductCard extends LightningElement {
-    needUpdate = false;
     showDetails = false;
     qtyHolder = 0;
+
+    available() {
+        return (this.dataParser('UnitPrice') != null);
+    }
+    needUpdate() {
+        let origQuantity = this.dataParser('originalQuantity');
+        return !(origQuantity == null) && (this.dataParser('Quantity') != origQuantity)
+    }
 
     @api
     accessId = -1;
@@ -30,13 +37,13 @@ export default class ProductCard extends LightningElement {
             HasColor__c: true,
             HasFlowers__c: false,
         },
-        UnitPrice: 25.03,
+        //UnitPrice: 25.03,
         Quantity: 7,
     };
     dataParser(property) {
         if (!this.itemData) { return null; }
 
-        if (property === "UnitPrice" || property === "Quantity" ) {
+        if (property === "UnitPrice" || property === "Quantity" || property === "originalQuantity" ) {
             if (!this.itemData.hasOwnProperty(property)) { return null; }
             return this.itemData[property];
         }
@@ -107,19 +114,15 @@ export default class ProductCard extends LightningElement {
     }
 
     // Interactivity
-    qtyChange(event) {
-        this.needUpdate = true;
-        this.qtyHolder = event.target.value;
-    }
     handleDetails() {
         this.showDetails = !this.showDetails;
     }
 
     // Events
-    clickUpdate(event) {
+    changeQuantity(event) {
         this.dispatchEvent(new CustomEvent('changequantity', {
             detail: { id: this.accessId,
-                quantity: this.qtyHolder,
+                quantity: event.target.value,
             },
         }));
     }
@@ -134,14 +137,17 @@ export default class ProductCard extends LightningElement {
         }));
     }
 
-    // Class calculation
+    // Class and render fields
     get cssClass() {
-        return this.cartItem ? 'product cart' : 'product';
+        return this.isCartItem ? 'product cart' : 'product shop';
     }
     get changeClass() {
-        return this.needUpdate ? 'must-update' : 'in-sync';
+        return this.needUpdate() ? 'must-update' : 'in-sync';
+    }
+    get priceClass() {
+        return this.available() ? 'shop-price' : 'shop-price unavailable';
     }
     get btnDetails() {
-        return this.showDetails ? 'Image' : 'Details';
+        return this.showDetails ? 'Less' : 'Details';
     }
 }
