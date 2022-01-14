@@ -1,6 +1,7 @@
 trigger ForumItemTrigger on Forum_Item__c (before insert, before update, before delete, after insert, after update, after delete, after undelete) {
     switch on trigger.operationType {
         when BEFORE_INSERT {
+            ForumItemHandler.IncreaseParentCommentCounts(trigger.new);
         }
         when BEFORE_UPDATE {
         }
