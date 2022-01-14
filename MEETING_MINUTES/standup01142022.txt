@@ -1,0 +1,38 @@
+TEAM MEMBERS
+  - All members were present
+
+AGENDA
+  - Individual standups
+  - Discuss Project 2
+
+INDIVIDUAL STANDUPS
+  - Becky
+    - Accomplished
+      - Finished triggers for Order object
+      - Completed header component
+      - Home page/icons/styling
+    - Roadblocks
+      - Issue on one of triggers
+      - Submit order functionality in Aura
+       (both resolved)
+    - Next Steps
+      - Testing
+  - Zach
+    - Accomplished
+      - Completed Trigger for Post Likes
+      - Completed Testing for Post likes
+      - Implemented Forum Comment functionality in Aura
+      - Finished implementing forum like functionality in Aura
+    - Roadblocks
+      - CSS styling
+      - Troubleshooting issues
+    - Next Steps
+      - Triggers/Testing for forum commenting
+      - Search function for Forum
+      - Shop filters for LWC
+      - Web controller unit tests
+
+PROJECT 2 STANDUP
+  - Discussed difficulties
+  - Made plans for overall site
+  - Pair programming
