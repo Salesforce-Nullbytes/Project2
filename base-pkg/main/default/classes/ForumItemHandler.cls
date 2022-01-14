@@ -75,7 +75,7 @@ public without sharing class ForumItemHandler {
         Map<Integer, Map<ID, Integer>> depthToIdToCount,
         Integer maxDepth
     ) {
-        for (Integer depth = maxDepth; depth > 1; depth--) {
+        for (Integer depth = maxDepth; depth > 0; depth--) {
             incrementCounts(depthToIdToCount, [
                 SELECT Parent__c, Depth__c FROM Forum_Item__c 
                 WHERE Depth__c = :depth AND id IN :depthToIdToCount.get(depth).keySet()
