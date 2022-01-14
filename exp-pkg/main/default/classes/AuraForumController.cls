@@ -27,6 +27,38 @@ public without sharing class AuraForumController {
     }
 
     @AuraEnabled
+    public static Forum_Item__c UploadPost( ID parentId, String title, String content, List<String> topics) {
+        ID acctId = getAccountId();
+        ID top = null;
+        Integer depth = 0;
+
+        if (parentId != null) {
+            Forum_Item__c parent = [SELECT id, Depth__c, Top__c FROM Forum_Item__c WHERE id = :parentId LIMIT 1];
+            if (parent == null) return null;
+
+            depth = (Integer)parent.Depth__c + 1;
+            top = (parent.Top__c == null) ? parent.Id : parent.Top__c;
+        }
+
+        Forum_Item__c post = new Forum_Item__c();
+        post.Poster__c = acctId;
+        post.Title__c = title;
+        post.Content__c = content;
+        post.Parent__c = parentId;
+        post.Top__c = top;
+        post.Depth__c = depth;
+
+        String topicPattern = '';
+        for (String topic : topics) {
+            topicPattern += ';' + topic;
+        }
+        post.Topics__c = topicPattern;
+
+        Insert post;
+        return post;
+    }
+
+    @AuraEnabled
     public static List<Forum_Item__c> GetPostsUnder(ID postId) {
         List<Forum_Item__c> posts = [
             SELECT Id, Title__c, Content__c, Poster__r.Name, Topics__c, Depth__c, 

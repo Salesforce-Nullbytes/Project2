@@ -34,6 +34,10 @@
 
         $A.enqueueAction(apexMethod);
     },
+    SetSelected: function(component, toId) {        
+        component.set("v.selectedId", toId);
+        component.set("v.hasSelection", true);
+    },
     ApexSetTopLevelPosts : function(component) {
         let apexMethod = component.get("c.GetTopLevelPosts");
 
@@ -49,10 +53,39 @@
         });
 
         $A.enqueueAction(apexMethod);
-    }, 
-    SetSelected: function(component, toId) {        
-        component.set("v.selectedId", toId);
-        component.set("v.hasSelection", true);
+    },
+    ApexInsertForumItem : function(component) {
+        let apexMethod = component.get("c.UploadPost");
+        apexMethod.setParams(this.SetPostAttributes(component));
+
+        apexMethod.setCallback(this, function (response) {
+            if (response.getState() == 'SUCCESS') {
+                let created = response.getReturnValue();
+                if (created.Top__c != null) {
+                    this.ApexSetPostTree(component, this, created.Top__c);
+                } else {
+                    this.ApexSetTopLevelPosts(component);
+                }
+                this.SetSelected(component, created.Id);
+            } else {
+                console.log("Error submitting post to server!");
+            }
+        });
+
+        $A.enqueueAction(apexMethod);
+    },
+    SetPostAttributes: function(component) {
+        let setParent = null;
+        if (!component.get("v.showTop")) {
+            setParent = component.get("v.selectedId") || component.get("v.displayTree").self.Id;
+        }
+        let post = {
+            parentId: setParent,
+            title: component.find("postTitle").getElement().value,
+            content: component.find("postContent").getElement().value,
+            topics: '',
+        };
+        return post;
     },
     ApexSetPostTree: function(component, helper, fromId) {
         let apexMethod = component.get("c.GetPostsUnder");

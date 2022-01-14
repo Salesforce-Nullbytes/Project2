@@ -7,6 +7,9 @@
         let id = event.getParam('id');
         helper.SetSelected(component, id);
     },
+    HandleNewForumItem: function(component, event, helper) {
+        helper.ApexInsertForumItem(component);
+    },
     HandleLike: function(component, event, helper) {
         let id = event.getParam('id');
         let direction = event.getParam('direction');
