@@ -10,6 +10,8 @@
 
     <aura:attribute name="topList" type="Object[]" access="private"/>
     <aura:attribute name="displayTree" type="Object" access="private"/>
+    
+    <aura:attribute name="postDetails" type="Object" access="private"/>
 
     <!-- Initialize thisAccount and top level posts on load -->
     <aura:handler name="init" value="{!this}" action="{!c.Initialize}"/>
@@ -60,8 +62,14 @@
                 </aura:if>
             </div>
             <div class="forum-interact">
-                <textarea rows="4" />
-                <button>Post</button>
+                <div>
+                    {!v.showTop ? 'Post' : 'Comment'} Heading:
+                    <input type="text" aura:id="postTitle"/>
+                </div>
+                <textarea rows="4" aura:id="postContent"/>
+                <button class="post" onclick="{!c.HandleNewForumItem}">
+                    {!v.showTop ? 'Post' : 'Comment'}
+                </button>
             </div>
         </div>
     </div>
