@@ -102,6 +102,7 @@ export default class ForumItem extends LightningElement {
 
     likeOffset = 0;
     get numLikes() {
+        console.log(`Original: ${this.dataParser("Likes__c")}, Offset: ${this.likeOffset}`);
         return this.dataParser("Likes__c") + this.likeOffset;
     }
 
