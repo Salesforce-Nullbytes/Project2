@@ -145,6 +145,10 @@ export default class ForumItem extends LightningElement {
         return this.dataParser("Id") == this.selectedId;
     }
 
+    get expandLabel() {
+        return this.expanded ? 'Collaspe -' : 'Expand +';
+    }
+
     clickExpand() {
         this.expanded = !this.expanded;
     }

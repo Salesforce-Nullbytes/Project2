@@ -1,44 +1,38 @@
 <template>
     <div class={itemClass} onclick={handleSelect}>
-   
-            <div class="column-one" style="position:relative;">
-
-                <template if:false={headerOnly}>
-                    <template if:false={expanded}>
-                        <div class="fade"></div>
-                    </template>
+        <div class="column-one" style="position:relative;">
+            <template if:false={headerOnly}>
+                <template if:false={expanded}>
+                    <div class="fade"></div>
                 </template>
+            </template>
 
-                <div class="forum-title">{myTitle} : {accountName}</div>
-
+            <div class="forum-title">
+                <div class="poster-info">
+                    <p>[{accountName}]</p>
+                </div>
                 <template if:false={headerOnly}>
-                    <div class="forum-details">{myContent}</div>
+                    <button class="expand-btn" onclick={clickExpand}>{expandLabel}</button>
                 </template>
-        
+                {myTitle}
             </div>
 
-            <div class="column-two">
-                <div class="inner-column">
-                    <template if:false={headerOnly}>
-                        <button class="expand-btn" onclick={clickExpand}>Expand +</button>
-                    </template>
-                </div>
-                
-                <div class="inner-column">
-                    <div class="num-comments">{numComments}<img class="commentIcon" src={commentIcon}/></div>
-                </div>
+            <template if:false={headerOnly}>
+                <div class="forum-details">{myContent}</div>
+            </template>
+        </div>
 
-                <div class="inner-column">
-                    <div class="num-likes">{numLikes}<img class="likeIcon" src={updateLikeIcon} onclick={toggleLike}/></div>   
-                </div>
-            </div>
+        <div class="column-two">
+            <div class="num-comments">{numComments}<img class="commentIcon" src={commentIcon}/></div>
+            <div class="num-likes">{numLikes}<img class="likeIcon" src={updateLikeIcon} onclick={toggleLike}/></div> 
+        </div>
     </div>
 
     <div class="comment-section">
         <template if:true={ifDisplayComments}>
             <button onclick={toggleShowHide}>Show/Hide</button>
+            {numComments} comments:
             <template if:true={showComments}>
-                {numComments} comments:
                 <template for:each={children} for:item="comment">
                     <c-forum-item 
                         key={comment}
@@ -51,8 +45,10 @@
             </template>
         </template>
 
-        <template if:false={ifDisplayComments}>
-            No Comments
+        <template if:false={headerOnly}>
+            <template if:false={ifDisplayComments}>
+                No Comments
+            </template>
         </template>
     </div>
     
