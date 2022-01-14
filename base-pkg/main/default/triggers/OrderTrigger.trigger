@@ -9,7 +9,7 @@ trigger OrderTrigger on Order (before insert, before update, before delete, afte
         }
         when BEFORE_UPDATE {
             //prevent changes to an already activated order
-            OrderHandler.PreventChanges(trigger.new);
+            OrderHandler.PreventChanges(trigger.old);
         }
         when BEFORE_DELETE {
             // ensure order isn't activated

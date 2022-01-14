@@ -1,2 +1,15 @@
-.THIS {
+.THIS button {
+    border: none;
+    background-color: #E5E5E5;
+    color: black;
+    text-align: center;
+    font-size: 14px;
+    padding: 3px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.THIS .checkout-button {
+    float: right;
+    margin-right: 0px;
 }

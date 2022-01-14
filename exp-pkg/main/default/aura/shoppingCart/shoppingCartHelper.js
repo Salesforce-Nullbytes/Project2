@@ -7,23 +7,13 @@
             item.Quantity = result.Quantity;
             item.Id = result.Id;
             item.remove = false;
-
+            
             let product = {};
 
             for (let key in result.Product2) {
                 product[key] = result.Product2[key];
             }
 
-            // product.Name = result.Product2.name;
-            // product.ProductCode = result.Product2.productcode;
-            // product.HasVarieties__c = result.Product2.hasvarieties__c;
-            // product.SubVarieties__c = result.Product2.subvarieties__c;
-            // product.Size__c = result.Product2.size__c;
-            // product.Difficulty__c = result.Product2.difficulty__c;
-            // product.Light_Level__c = result.Product2.light_level__c;
-            // product.IsPetFriendly__c = result.Product2.ispetfriendly__c;
-            // product.HasColor__c = result.Product2.hascolor__c;
-            // product.HasFlowers__c = result.Product2.hasflowers__c;
 
             item.Product2 = product;
 
@@ -71,22 +61,27 @@
 
         // Before we finish, we use the A namespace to enqueue the action and send it to the server
         $A.enqueueAction(apexMethod);
-    }, 
+    },
 
-    UpdateOrderStatus : function(component, helper) {
+    ServerActivateOrder : function(component, event) {
+        let params = event.getParam('data');
         let apexMethod = component.get("c.changeOrderStatus");
-        
+    
+        // Next, we populate any parameters using this object notation
+        apexMethod.setParams(params);
+    
+        // Finally, we set the callback function. Seem familiar?
         apexMethod.setCallback(this, function (response) {
             if (response.getState() == 'SUCCESS') {
-                helper.refreshCart(component, helper);
+                this.refreshCart(component, this);
                 console.log("Success");
-                console.log(component.get("v.items"));
+                component.set("v.placeOrderUnclicked", false);
             } else {
-                console.log("Order Failed");
+                console.log("Update Failed");
             }
         });
 
+        // Before we finish, we use the A namespace to enqueue the action and send it to the server
         $A.enqueueAction(apexMethod);
-        
-    },
+    }, 
 })

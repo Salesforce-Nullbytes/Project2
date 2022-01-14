@@ -6,29 +6,32 @@
     <aura:attribute name="checkOutUnclicked" type="Boolean" access="private" default="true"/>
     <aura:attribute name="placeOrderUnclicked" type="Boolean" access="private" default="true"/>
     <aura:handler name="init" value="{!this}" action="{!c.Initialize}"/>
-    <lightning:button label="TestPrint" onclick="{!c.TestPrint}"/>
     
     <aura:if isTrue="{!v.checkOutUnclicked}">
-        <lightning:button label="Update Cart" onclick="{!c.UpdateCart}"/>
-        <lightning:button label="Cancel" onclick="{!c.CancelChanges}"/>
-        <aura:iteration items="{!v.items}" var="item" indexVar="index">
-            <aura:if isTrue="{!!item.remove}">
-                <c:productCard 
-                    onremove="{!c.HandleRemove}" 
-                    onchangequantity="{!c.HandleChangeQuantity}" 
-                    accessId="{!index}"
-                    isCartItem="{!v.cartTrue}"
-                    itemData="{!item}">
-                </c:productCard>
-            </aura:if>
-        </aura:iteration>
-        <lightning:button label="Check out" onclick="{!c.CheckOut}"/>
+        <div>
+            <button onclick="{!c.UpdateCart}">Update Cart</button>
+            <button onclick="{!c.CancelChanges}">Cancel</button>
+            <button onclick="{!c.CheckOut}" class="checkout-button">Check Out</button>
+            <aura:iteration items="{!v.items}" var="item" indexVar="index">
+                <aura:if isTrue="{!!item.remove}">
+                    <c:productCard 
+                        onremove="{!c.HandleRemove}" 
+                        onchangequantity="{!c.HandleChangeQuantity}" 
+                        accessId="{!index}"
+                        isCartItem="{!v.cartTrue}"
+                        itemData="{!item}">
+                    </c:productCard>
+                </aura:if>
+            </aura:iteration>
+        </div>
     </aura:if>
 
     <aura:if isTrue="{!!v.checkOutUnclicked}">
         <aura:if isTrue="{!v.placeOrderUnclicked}">
-            <c:paymentInformation></c:paymentInformation>
-            <lightning:button label="Place Your Order" onclick="{!c.PlaceOrder}"/>
+            <c:paymentInformation 
+            accountName="NameGoesHere"
+            onsubmitInfo="{!c.PlaceOrder}"
+            ></c:paymentInformation>
         </aura:if>
     </aura:if>
 

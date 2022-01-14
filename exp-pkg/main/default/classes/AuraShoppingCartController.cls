@@ -19,7 +19,7 @@ public without sharing class AuraShoppingCartController {
     }
 
     private static id getAccountID() {
-        return [SELECT id FROM Account WHERE name = 'Account 7']?.id;
+        return [SELECT id FROM Account WHERE name = 'Account 1']?.id;
     }
 
     @AuraEnabled
@@ -44,10 +44,25 @@ public without sharing class AuraShoppingCartController {
     }
 
     @AuraEnabled
-    public static void changeOrderStatus() {
+    public static void changeOrderStatus(String address, String city, String state, String zipcode, String cardnumber, String exp, String cvv, String billingzipcode) {
+        account myAccount = [SELECT billingpostalcode, shippingstreet, shippingcity, shippingstate, shippingpostalcode FROM account WHERE id = :getAccountID() LIMIT 1];
+        if (myAccount == null) {
+            system.debug('No account');
+            return;
+        }
+
+        myAccount.billingpostalcode = billingzipcode;
+        myAccount.shippingStreet = address;
+        myAccount.shippingcity = city;
+        myAccount.shippingstate = state;
+        myAccount.shippingpostalcode = zipcode;
+
+        system.debug(cardnumber + exp + cvv);
+        update myAccount;
+
+
         order completedOrder = [SELECT status FROM order WHERE Order.AccountID = :getAccountID() AND order.status = 'Draft' AND order.isdeleted = false LIMIT 1];
         completedOrder.status = 'Activated';
         update completedOrder;
     }
-    
 }

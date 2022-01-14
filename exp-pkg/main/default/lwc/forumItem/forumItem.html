@@ -7,10 +7,14 @@
                 </template>
             </template>
 
-            <div class="forum-title">{myTitle} : {accountName}
+            <div class="forum-title">
+                <div class="poster-info">
+                    <p>[{accountName}]</p>
+                </div>
                 <template if:false={headerOnly}>
-                    <button class="expand-btn" onclick={clickExpand}>Expand +</button>
+                    <button class="expand-btn" onclick={clickExpand}>{expandLabel}</button>
                 </template>
+                {myTitle}
             </div>
 
             <template if:false={headerOnly}>
@@ -27,8 +31,8 @@
     <div class="comment-section">
         <template if:true={ifDisplayComments}>
             <button onclick={toggleShowHide}>Show/Hide</button>
+            {numComments} comments:
             <template if:true={showComments}>
-                {numComments} comments:
                 <template for:each={children} for:item="comment">
                     <c-forum-item 
                         key={comment}
@@ -41,8 +45,10 @@
             </template>
         </template>
 
-        <template if:false={ifDisplayComments}>
-            No Comments
+        <template if:false={headerOnly}>
+            <template if:false={ifDisplayComments}>
+                No Comments
+            </template>
         </template>
     </div>
     

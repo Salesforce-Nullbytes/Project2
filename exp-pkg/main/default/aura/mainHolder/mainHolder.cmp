@@ -16,6 +16,7 @@
 
     <aura:if isTrue="{!v.isShop}">
         <c:plantPeopleTitle largeHeader="false"></c:plantPeopleTitle>
+        <c:shop></c:shop>
     </aura:if>
 
     <aura:if isTrue="{!v.isForum}">

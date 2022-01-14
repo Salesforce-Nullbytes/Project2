@@ -27,12 +27,19 @@
         let changeIndex = event.getParam('id');
         let changeQuantity = event.getParam('quantity');
         let items = component.get("v.items");
+
+        if (changeQuantity < 1) { changeQuantity = 1; }
         
         if (!items[changeIndex].originalQuantity) {
             items[changeIndex].originalQuantity = items[changeIndex].Quantity;
         }
 
         items[changeIndex].Quantity = changeQuantity;
+
+        if (items[changeIndex].originalQuantity = changeQuantity) {
+            items[changeIndex].originalQuantity = null;
+        }
+
         component.set("v.items", items);
         component.set("v.pending", true);
     }, 
@@ -72,8 +79,7 @@
     },
 
     PlaceOrder : function(component, event, helper) {
-        component.set("v.placeOrderUnclicked", false);
-        helper.UpdateOrderStatus(component, helper);
-    },
+        helper.ServerActivateOrder(component, event);
+    }
 })
 
