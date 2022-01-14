@@ -10,6 +10,7 @@
     height: auto;
     margin: 15px;
     float: right;
+    cursor: pointer;
 }
 
 .align-right {
@@ -20,8 +21,17 @@
     font-size: 18px;
     float: left;
     margin-top: 15px;
+    padding-left:13px;
 }
 
 span {
-    padding-left: 25px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    cursor: pointer;
+}
+
+span:hover {
+    background-color: #F5F5F5;
 }

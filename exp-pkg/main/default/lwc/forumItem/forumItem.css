@@ -13,7 +13,8 @@ button {
 
 .expand-btn {
     margin-left: 10px;
-    margin-top: 30px;
+    background-color:white;
+    border: 1px solid black;
 }
 
 
@@ -53,14 +54,15 @@ button {
 
 .column-two {
     float: right;
+    text-align: right;
     margin-right: 2%;
     width: 22%;
  }
 
- .inner-column {
-     width: 33%;
+/* .inner-column {
+     width: 50%;
      float: right;
- }
+ }  */
 
  .likeIcon {
     height: 20px;
