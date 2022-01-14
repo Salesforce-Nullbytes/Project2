@@ -1,61 +1,74 @@
 <template>
     <div class={cssClass}>
         <template if:false={isCartItem}>
-            <template if:true={showDetails}>
-                <table>
-                    <tr><td>Product Code</td><td>{productCode}</td></tr>
-                    <tr><td>Size</td><td>{plantSize}</td></tr>
-                    <tr><td>Difficulty</td><td>{difficulty}</td></tr>
-                    <tr><td>Light Level</td><td>{lightLevel}</td></tr>
-                    <tr><td>Has Color?</td><td>{hasColor}</td></tr>
-                    <tr><td>Has Flowers?</td><td>{hasFlowers}</td></tr>
-                    <tr><td>Pet Friendly?</td><td>{isPetFriendly}</td></tr>
-                </table>
-            </template>
-            <template if:false={showDetails}>
-                <div class="product-image">
-                    <img src={image.link} alt={image.alt} />
+            <div class="shop-top">
+                <template if:true={showDetails}>
+                    <table>
+                        <tr><td>Product Code</td><td>{productCode}</td></tr>
+                        <tr><td>Size</td><td>{plantSize}</td></tr>
+                        <tr><td>Difficulty</td><td>{difficulty}</td></tr>
+                        <tr><td>Light Level</td><td>{lightLevel}</td></tr>
+                        <tr><td>Has Color?</td><td>{hasColor}</td></tr>
+                        <tr><td>Has Flowers?</td><td>{hasFlowers}</td></tr>
+                        <tr><td>Pet Friendly?</td><td>{isPetFriendly}</td></tr>
+                    </table>
+                </template>
+                <template if:false={showDetails}>
+                    <div class="product-image">
+                        <img src={image.link} alt={image.alt} />
+                    </div>
+                </template>
+            </div>
+            <div class="shop-name">
+                <p>{itemName}</p>
+                <p class="shop-variant">&nbsp;{variantName}&nbsp;</p>
+            </div>
+            <div class="shop-bottom">
+                <div class="shop-add">
+                    <button onclick={clickToggle}>Add</button>
+                    <span class={priceClass}>{unitPrice}</span>
                 </div>
-            </template>
-            <p class="shop-name">{itemName}</p>
-            <p class="shop-variant">{variantName}</p>
-            <button onclick={handleDetails}>{btnDetails}</button>
-            <div class="shop-price">
-                <p>{unitPrice}</p>
-                <button onclick={clickToggle}>Add</button>
+                <button onclick={handleDetails}>{btnDetails}</button>
             </div>
         </template>
         <template if:true={isCartItem}>
             <div class="cart-contents">
-                <div class="cart-image">
-                    <img src={image.link} alt={image.alt} />
-                </div>
-                <div class="cart-detail">
-                    <div class="cart-detail-hor">
-                        <div class="cart-detail-ver">
-                            <p class="cart-name">{fullName}</p>
-                            <p class="cart-price">{unitPrice}</p>
+                <div class="cart-detail-section">
+                    <div class="cart-detail-block" style="display:flex;">
+                        <div class="cart-image">
+                            <img src={image.link} alt={image.alt} />
                         </div>
-                        <div class="cart-detail-ver">
-                            <div class={changeClass}>
-                                <p> Quantity: </p>
-                                <input type="number" min="0"
-                                    onchange={qtyChange}
-                                    value={cartQuantity}
-                                />
-                                <template if:true={needUpdate}>
-                                    <button onclick={clickUpdate}>Update</button>
-                                </template>
+                        <div class="cart-detail-section">
+                            <div class="cart-detail-block">
+                                <div class="cart-name">
+                                    <p>{itemName}</p>
+                                    <p class="shop-variant">
+                                        {variantName}
+                                    </p>
+                                </div>
+                                <div style="display:flex;">
+                                    <p class={priceClass}>{unitPrice}</p>
+                                </div>
+                            </div>
+                            <div class="cart-detail-block" style="display:flex;">
+                                <div class={changeClass} style="padding:0.1rem;">
+                                    <span style="margin-right:1rem;"> Quantity: </span>
+                                    <input type="number" min="0"
+                                        onchange={changeQuantity}
+                                        value={cartQuantity} />
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="cart-detail-hor">
-                        <div class="cart-detail-ver">
+                </div>
+                <div class="cart-detail-section" style="float:right;">
+                    <div class="cart-detail-block">
+                        <div class={changeClass}>
                             <p class="cart-total">{cartTotal}</p>
                         </div>
-                        <div class="cart-detail-ver">
-                            <button onclick={clickRemove}>Remove</button>
-                        </div>
+                    </div>
+                    <div class="cart-detail-block">
+                        <button onclick={clickRemove} style="float:right;">Remove</button>
                     </div>
                 </div>
             </div>
