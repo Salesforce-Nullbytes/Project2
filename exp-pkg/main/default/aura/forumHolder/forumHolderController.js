@@ -28,4 +28,8 @@
         helper.ApexSetTopLevelPosts(component);
         helper.ResetSelection(component);
     },
+    CloseModal: function(component, event, helper) {
+        let modal = { show: false, title: '', content: ''};
+        component.set("v.modal1", modal);
+    },
 })

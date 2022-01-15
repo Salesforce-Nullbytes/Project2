@@ -56,6 +56,15 @@
     },
     ApexInsertForumItem : function(component) {
         let apexMethod = component.get("c.UploadPost");
+        let post = this.SetPostAttributes(component);
+        let message = {show: true};
+
+        if (!this.ValidatePost(post)) {
+            message.label="Post not submitted!";
+            message.content="Post must have title and content!";
+            component.set("v.modal1", message);
+            return;
+        }
         apexMethod.setParams(this.SetPostAttributes(component));
 
         apexMethod.setCallback(this, function (response) {
@@ -67,6 +76,7 @@
                     this.ApexSetTopLevelPosts(component);
                 }
                 this.SetSelected(component, created.Id);
+                this.ClearPostInputs(component);
             } else {
                 console.log("Error submitting post to server!");
             }
@@ -86,6 +96,14 @@
             topics: '',
         };
         return post;
+    },
+    ValidatePost: function(post) {
+        if (post.title == '' || post.content == '') return false;
+        return true;
+    },
+    ClearPostInputs: function(component) {
+        component.find("postTitle").getElement().value = '';
+        component.find("postContent").getElement().value = '';
     },
     ApexSetPostTree: function(component, helper, fromId) {
         let apexMethod = component.get("c.GetPostsUnder");
@@ -114,7 +132,6 @@
     },
     ResetSelection: function(component) {
         component.set("v.hasSelection", false);
-        component.set("v.selectedId", null);
     },
     BuildDisplayTree: function(component) {   
         let allPosts = component.get("v.treePosts");

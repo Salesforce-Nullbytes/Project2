@@ -2,6 +2,8 @@
     display: flex;
     flex-flow: row wrap;
     padding: 1.5rem;
+    justify-content: center;
+    border: 4px solid #E2AD86;
 }
 .shop c-product-card {
     margin: 1rem;

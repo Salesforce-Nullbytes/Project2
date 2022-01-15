@@ -12,6 +12,7 @@
     <aura:attribute name="displayTree" type="Object" access="private"/>
     
     <aura:attribute name="postDetails" type="Object" access="private"/>
+    <aura:attribute name="modal1" type="Object" access="private"/>
 
     <!-- Initialize thisAccount and top level posts on load -->
     <aura:handler name="init" value="{!this}" action="{!c.Initialize}"/>
@@ -21,7 +22,7 @@
             <aura:if isTrue="{!v.thisAccount != null}">
                 Hi, {!v.thisAccount.Name}!
             </aura:if>
-            Let's Have a Chat
+            Let's Have a Chat {!v.selectedId}
         </h1>
     </div>
 
@@ -39,6 +40,11 @@
             </div>
         </div>
         <div class="forum-body">
+            <c:utilModal oncloseModal="{!c.CloseModal}" 
+                show="{!v.modal1.show}"
+                myLabel="{!v.modal1.label}"
+                myContent="{!v.content}">
+            </c:utilModal>
             <div class="forum-display">
                 <aura:if isTrue="{!v.showTop}">
                     <aura:iteration items="{!v.topList}" var="post">
@@ -52,6 +58,8 @@
                     </aura:iteration>
                     <aura:set attribute="else">
                         <c:forumItem
+                            startExpand="{!true}"
+                            startShowComments="{!true}"
                             postTree="{!v.displayTree}"
                             onchoose="{!c.HandleChoose}"
                             onlike="{!c.HandleLike}"

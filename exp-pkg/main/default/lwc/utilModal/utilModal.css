@@ -1,0 +1,53 @@
+.show {
+    display: block;
+}
+.hide {
+    display: none;
+}
+.modal {
+    /* Fill and sit atop <main> */
+    position: absolute; 
+    box-sizing: border-box;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto;
+    
+    /* Offset from top */
+    padding-top: 10rem;
+
+    /* Backdrop */
+    background-color: rgba(0,0,0,0.6);
+
+}
+
+/* Modal Content */
+.contents {
+    background-color: white;
+    box-shadow: 0 0 2rem black;
+    border: 4px solid black;
+    padding: 2rem;
+
+    margin: auto;
+    width: 32rem;
+
+    animation-name: appear;
+    animation-duration: 0.5s
+}
+  
+/* The Close Button */
+.heading {
+    display: flex;
+    justify-content: space-between;
+}
+.heading h1 {
+    margin: 0;
+}
+
+/* Animation  */
+@keyframes appear {
+    from { opacity:0 }
+    to { opacity:1 }
+}
