@@ -8,3 +8,40 @@
 .shop c-product-card {
     margin: 1rem;
 }
+.filter-bar {
+    border: 4px solid #E2AD86;
+    background-color: azure;
+    padding: 0.5rem;
+}
+.filter-row {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0.5rem 0;
+}
+.search-bar input {
+    width: 25rem;
+}
+label {
+    font-weight: bold;
+}
+select {
+    width: 10rem;
+}
+.check-box input {
+    width: 3rem;
+}
+.checkbox > * {
+    float: left;
+}
+/* .check-box label {
+    width: 15rem;
+} */
+button {
+    border: none;
+    background-color: #E5E5E5;
+    color: black;
+    text-align: center;
+    font-size: 14px;
+    padding: 3px 10px;
+    margin: 2px 4px 0 5px;
+}

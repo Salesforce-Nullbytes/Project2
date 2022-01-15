@@ -92,3 +92,8 @@ button {
 input {
     width: 3rem;
 }
+.add-inactive {
+    color: green;
+    background-color: silver;
+    cursor: auto;
+}

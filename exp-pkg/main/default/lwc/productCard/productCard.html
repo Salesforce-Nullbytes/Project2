@@ -15,7 +15,7 @@
                 </template>
                 <template if:false={showDetails}>
                     <div class="product-image">
-                        <img src={image.link} alt={image.alt} />
+                        <img src={setImage.link} alt={setImage.alt} />
                     </div>
                 </template>
             </div>
@@ -25,7 +25,10 @@
             </div>
             <div class="shop-bottom">
                 <div class="shop-add">
-                    <button onclick={clickToggle}>Add</button>
+                    <button onclick={clickAdd} 
+                        class={addButtonStyle}>
+                        {addButtonLabel}
+                    </button>
                     <span class={priceClass}>{unitPrice}</span>
                 </div>
                 <button onclick={handleDetails}>{btnDetails}</button>
@@ -36,7 +39,7 @@
                 <div class="cart-detail-section">
                     <div class="cart-detail-block" style="display:flex;">
                         <div class="cart-image">
-                            <img src={image.link} alt={image.alt} />
+                            <img src={setImage.link} alt={setImage.alt} />
                         </div>
                         <div class="cart-detail-section">
                             <div class="cart-detail-block">
