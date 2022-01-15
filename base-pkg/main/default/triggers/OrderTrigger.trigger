@@ -4,8 +4,7 @@ trigger OrderTrigger on Order (before insert, before update, before delete, afte
             //prevent multiple draft orders on an account
             OrderHandler.PreventMultipleDrafts(trigger.new);
 
-            //set effective date to now
-            OrderHandler.SetEffectiveDate(trigger.new);
+            //if pricebook == null, set to standard
         }
         when BEFORE_UPDATE {
             //prevent changes to an already activated order
@@ -19,8 +18,7 @@ trigger OrderTrigger on Order (before insert, before update, before delete, afte
             //prevent multiple draft orders on an account
             OrderHandler.PreventMultipleDrafts(trigger.new);
 
-            //set effective date to now
-            OrderHandler.SetEffectiveDate(trigger.new);
+            //if pricebook == null, set to standard
         }
     }
 }
