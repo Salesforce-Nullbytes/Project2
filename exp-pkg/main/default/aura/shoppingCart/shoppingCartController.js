@@ -1,21 +1,17 @@
 ({
-    Initialize : function(component, event, helper) {
-        helper.refreshCart(component, helper);
-    }, 
-
     HandleRemove : function(component, event, helper) {
         let removeIndex = event.getParam('id');
-        let items = component.get("v.items");
+        let items = component.get("v.cartData");
 
         items[removeIndex].remove = true; 
-        component.set("v.items", items);
-        component.set("v.pending", true);
+        component.set("v.cartData", items);
+        component.set("v.flipPending", true);
     },
     
     HandleChangeQuantity : function(component, event, helper) {
         let changeIndex = event.getParam('id');
         let changeQuantity = event.getParam('quantity');
-        let items = component.get("v.items");
+        let items = component.get("v.cartData");
 
         if (changeQuantity < 1) { changeQuantity = 1; }
         
@@ -29,16 +25,16 @@
             items[changeIndex].originalQuantity = null;
         }
 
-        component.set("v.items", items);
-        component.set("v.pending", true);
+        component.set("v.cartData", items);
+        component.set("v.flipPending", true);
     }, 
     
     UpdateCart : function(component, event, helper) {
-        if (!component.get("v.pending")) {
+        if (!component.get("v.flipPending")) {
             return;
         }
 
-        let items = component.get("v.items");
+        let items = component.get("v.cartData");
 
         let toBeRemoved = [];
         let toBeUpdated = [];
@@ -60,7 +56,7 @@
     },
 
     CancelChanges : function(component, event, helper) {
-        helper.refreshCart(component, helper);
+        helper.refreshCart(component, false);
     },
 
     CheckOut : function(component, event, helper) {
@@ -69,6 +65,6 @@
 
     PlaceOrder : function(component, event, helper) {
         helper.ServerActivateOrder(component, event);
-    }
+    },
 })
 

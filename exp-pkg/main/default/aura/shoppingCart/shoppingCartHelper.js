@@ -1,44 +1,10 @@
 ({
-    SetItems : function(query) {
-        let itemList = [];
-        for (let result of query) {
-            let item = {};
-            item.UnitPrice = result.UnitPrice;
-            item.Quantity = result.Quantity;
-            item.Id = result.Id;
-            item.remove = false;
-            
-            let product = {};
+    refreshCart : function(component, changed) {
+       //request parent to refresh data
+        let changeEvent = component.getEvent("refresh");
 
-            for (let key in result.Product2) {
-                product[key] = result.Product2[key];
-            }
-
-
-            item.Product2 = product;
-
-            itemList.push(item);
-
-        }
-
-        return itemList;
-    },
-    refreshCart : function(component, helper) {
-        let apexMethod = component.get("c.GetCartItems");
-
-        // Finally, we set the callback function. 
-        apexMethod.setCallback(this, function (response) {
-            if (response.getState() == 'SUCCESS') {
-                let itemList = helper.SetItems(response.getReturnValue());  
-                component.set("v.items", itemList);
-            } else {
-                console.log("callback not set");
-            }
-        });
-
-        // Before we finish, we use the A namespace to enqueue the action and send it to the server
-        $A.enqueueAction(apexMethod);
-
+        changeEvent.setParams({ cartChanged: changed });
+        changeEvent.fire();
     },
     
     SendCartToServer : function(component, removals, changes, quantities, helper) {
@@ -52,7 +18,7 @@
         // Finally, we set the callback function. Seem familiar?
         apexMethod.setCallback(this, function (response) {
             if (response.getState() == 'SUCCESS') {
-                helper.refreshCart(component, helper);
+                helper.refreshCart(component, true);
             } else {
                 console.log("Update Failed");
             }
@@ -72,7 +38,7 @@
         // Finally, we set the callback function. Seem familiar?
         apexMethod.setCallback(this, function (response) {
             if (response.getState() == 'SUCCESS') {
-                this.refreshCart(component, this);
+                this.refreshCart(component, true);
                 console.log("Success");
                 component.set("v.placeOrderUnclicked", false);
             } else {

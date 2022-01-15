@@ -1,4 +1,7 @@
 ({
+    Initialize : function(component, event, helper) {
+        helper.ApexCartItems(component, helper);
+    }, 
     getHeaderValue : function(component, event, helper) {
         component.set("v.inputValue", event.getParam('value'));
 
@@ -23,5 +26,9 @@
             component.set("v.isForum", false);
             component.set("v.isCart", true);
         }
+    }, 
+    HandleCartEvent: function (component, event, helper) {
+        helper.ApexCartItems(component, helper);
     }
+
 })

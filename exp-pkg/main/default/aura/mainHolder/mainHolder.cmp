@@ -1,9 +1,14 @@
-<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="AuraMainHolderController" access="global">
     <aura:attribute name="inputValue" type="String"/>
     <aura:attribute name="isHome" type="Boolean" default="true"/>
     <aura:attribute name="isShop" type="Boolean" default="false"/>
     <aura:attribute name="isForum" type="Boolean" default="false"/>
     <aura:attribute name="isCart" type="Boolean" default="false"/>
+
+    <aura:attribute name="cartItems" type="Object[]" access="private"/>
+    <aura:handler name="refresh" event="c:CartEvent" action="{!c.HandleCartEvent}" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.Initialize}"/>
 
     <c:header onvaluechange="{!c.getHeaderValue}"> </c:header>
 
@@ -26,7 +31,7 @@
 
     <aura:if isTrue="{!v.isCart}">
         <c:plantPeopleTitle largeHeader="false"></c:plantPeopleTitle>
-        <c:shoppingCart></c:shoppingCart>
+        <c:shoppingCart cartData="{!v.cartItems}"></c:shoppingCart>
     </aura:if>
 
     <c:footer> </c:footer>
