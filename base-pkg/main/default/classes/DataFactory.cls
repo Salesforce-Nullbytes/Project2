@@ -25,16 +25,53 @@ public class DataFactory {
         pb.isActive = true;
         Update pb;
 
+
         // Used to generate products and later attach prices in PricebookEntry
         Map<String, ProductInfo> infoMap = GetProductMap();
+
+
+        if(Test.isRunningTest()){
+            List<Product2> all = [SELECT id FROM Product2 ];
+            System.assertEquals(all.size(), 0, all.size());
+        }
 
         // Insert Product2 records
         List<Product2> productInserts = new List<Product2>();
         for (ProductInfo pInfo : infoMap.values()) {
             productInserts.add(pInfo.ToProduct());
         }
+
+        if(Test.isRunningTest()){
+            Set<String> skus = new Set<String>();
+            for (Product2 inserted : productInserts) {
+                inserted.StockKeepingUnit = inserted.StockKeepingUnit + 'tst';
+                skus.add(inserted.StockKeepingUnit);
+            }
+            System.assertEquals(skus.size(), productInserts.size());
+        }
+        
         Insert productInserts;
 
+
+        // if (Test.isRunningTest()) {
+        //     ID std = Test.getStandardPricebookId();
+        //     List<PricebookEntry> stdEntries = new List<PricebookEntry>();
+        //     for (Product2 prod : productInserts) {
+        //         PricebookEntry entry = new PricebookEntry();
+        //         entry.isActive = true;
+        //         entry.Pricebook2Id = pb.id;
+        //         entry.Product2Id = prod.id;
+        //         entry.UnitPrice = infoMap.get(prod.ProductCode).price;
+        //         entry.UseStandardPrice = false;
+    
+        //         stdEntries.add(entry);
+        //     }
+        //     Insert stdEntries;
+
+        //     Pricebook[] tests = [SELECT ];
+        //     System.assertEquals(true, false, )
+        // }
+        
         // Insert pricebook entries
         List<PricebookEntry> pbEntries = new List<PricebookEntry>();
         for (Product2 prod : productInserts) {
@@ -43,7 +80,7 @@ public class DataFactory {
             entry.Pricebook2Id = pb.id;
             entry.Product2Id = prod.id;
             entry.UnitPrice = infoMap.get(prod.ProductCode).price;
-            //entry.UseStandardPrice = true;
+            entry.UseStandardPrice = false;
 
             pbEntries.add(entry);
         }
