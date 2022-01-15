@@ -2,7 +2,7 @@
     <div class={itemClass} onclick={handleSelect}>
         <div class="column-one" style="position:relative;">
             <template if:false={headerOnly}>
-                <template if:false={expanded}>
+                <template if:false={showFade}>
                     <div class="fade"></div>
                 </template>
             </template>
@@ -35,6 +35,7 @@
             <template if:true={showComments}>
                 <template for:each={children} for:item="comment">
                     <c-forum-item 
+                        no-expand
                         key={comment}
                         post-tree={comment} 
                         selected-id={selectedId}

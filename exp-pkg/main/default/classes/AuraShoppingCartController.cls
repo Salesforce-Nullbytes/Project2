@@ -19,7 +19,7 @@ public without sharing class AuraShoppingCartController {
     }
 
     private static id getAccountID() {
-        return [SELECT id FROM Account WHERE name = 'Account 1']?.id;
+        return [SELECT id FROM Account WHERE name = 'Account 3']?.id;
     }
 
     @AuraEnabled

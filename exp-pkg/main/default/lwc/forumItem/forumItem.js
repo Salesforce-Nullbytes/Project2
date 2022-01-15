@@ -6,8 +6,14 @@ import commentIcon from '@salesforce/resourceUrl/commentIcon';
 export default class ForumItem extends LightningElement {
     commentIcon = commentIcon;
 
-    expanded = false;
-    showComments = false;
+    expanded() { return this.flipExpand ? this.noExpand : !this.noExpand } 
+    get showFade() { return this.expanded(); }
+
+    showComments = true;
+
+    @api
+    noExpand = false;
+    flipExpand = false;
 
     @api
     headerOnly = false;
@@ -136,7 +142,7 @@ export default class ForumItem extends LightningElement {
 
     get itemClass(){
         let output = "forum-item";
-        if (!this.expanded) { output += " cropped";} 
+        if (!this.expanded()) { output += " cropped";} 
         if (this.dataParser("Id") == this.selectedId) { output += " selected";} 
         return output;
     }
@@ -146,11 +152,11 @@ export default class ForumItem extends LightningElement {
     }
 
     get expandLabel() {
-        return this.expanded ? 'Collaspe -' : 'Expand +';
+        return this.expanded() ? 'Collaspe -' : 'Expand +';
     }
 
     clickExpand() {
-        this.expanded = !this.expanded;
+        this.flipExpand = !this.flipExpand;
     }
 
     toggleLike() {

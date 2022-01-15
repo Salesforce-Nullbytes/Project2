@@ -36,7 +36,7 @@
 
         items[changeIndex].Quantity = changeQuantity;
 
-        if (items[changeIndex].originalQuantity = changeQuantity) {
+        if (items[changeIndex].originalQuantity == changeQuantity) {
             items[changeIndex].originalQuantity = null;
         }
 

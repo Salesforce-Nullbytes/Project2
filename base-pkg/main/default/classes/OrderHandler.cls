@@ -30,27 +30,17 @@ public without sharing class OrderHandler {
 
     public static void SetEffectiveDate (List<Order> newOrders)  {
         for(Order O : newOrders) {
-            O.EffectiveDate = date.today();
+            O.EffectiveDate = System.today();
         }
     }
 
 
     //Before Update
-    public static void PreventChanges (List<Order> updatedOrders)  {
-        For (Order O : updatedOrders) {
+    public static void PreventChanges (List<Order> originalOrders, Map<ID, Order> updatedOrders)  {
+        For (Order O : originalOrders) {
             if (O.status == 'Activated') {
-                O.addError('Error: You cannot make changes to an activated order');
+                updatedOrders.get(O.id).addError('Error: You cannot make changes to an activated order');
             }
         } 
     }
-
-
-    //Before Delete
-    // public static void PreventDelete (List<Order> deletedOrders)  {
-    //     For (Order O : deletedOrders) {
-    //         if (O.status == 'Activated') {
-    //             O.addError('Error: You cannot delete an activated order');
-    //         }
-    //     } 
-    // }
 }
