@@ -1,18 +1,7 @@
 ({
     Initialize : function(component, event, helper) {
-        console.log("initialize is good");
-
         helper.refreshCart(component, helper);
     }, 
-
-    TestPrint : function(component, event, helper) {
-        console.log("hello we are here");
-        let items = component.get("v.items");
-
-        for (let item of items) {
-            console.log(item);
-        }
-    },
 
     HandleRemove : function(component, event, helper) {
         let removeIndex = event.getParam('id');

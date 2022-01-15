@@ -30,7 +30,6 @@
         apexMethod.setCallback(this, function (response) {
             if (response.getState() == 'SUCCESS') {
                 let itemList = helper.SetItems(response.getReturnValue());  
-                console.log(itemList);     
                 component.set("v.items", itemList);
             } else {
                 console.log("callback not set");
