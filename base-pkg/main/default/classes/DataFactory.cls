@@ -507,4 +507,8 @@ public class DataFactory {
 
         return post;
     }
+    public static void DeleteForum() {
+        Delete [SELECT id FROM Post_Like__c];
+        Delete [SELECT id FROM Forum_Item__c];
+    }
 }

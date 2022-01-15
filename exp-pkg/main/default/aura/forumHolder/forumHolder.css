@@ -5,15 +5,18 @@
     display: flex;
     flex-flow: column nowrap;
 }
-.THIS .forum-display {
-    background-color: white;;
-    border: 2px solid black;
-    margin:  0 0 0.5rem;
+.THIS .forum-body {
+    position: relative;
 }
 .THIS .forum-display {
     position: relative;
     max-height: 32rem;
+    min-height: 25rem;
     overflow: auto;
+    background-color: white;;
+    border: 2px solid black;
+    margin:  0 0 0.5rem;
+    padding: 0.5rem 1.8rem;
 }
 .THIS .forum-interact textarea {
     width: 100%;
