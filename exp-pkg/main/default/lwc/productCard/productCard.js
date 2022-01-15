@@ -1,5 +1,6 @@
 import { LightningElement, api } from 'lwc';
 import productImage from '@salesforce/resourceUrl/productimage';
+import ShopImages from '@salesforce/resourceUrl/ShopImages';
 
 export default class ProductCard extends LightningElement {
     showDetails = false;
@@ -20,11 +21,16 @@ export default class ProductCard extends LightningElement {
     accessId = -1;
     @api
     isCartItem = false;
-    @api
-    image = {
-        link: productImage,
-        alt: 'Generic Product Image'
-    };
+    
+    
+    get setImage() {
+        let img = { link: productImage, alt:'Generic Product Image'};
+        if (this.dataParser('ProductCode')) {
+            img.link = ShopImages + '/shopPlantImages/' + this.dataParser('ProductCode') + '.png';
+            img.alt = 'Image of ' + this.dataParser('Name');
+        }
+        return img;
+    }
     
     @api
     itemData = {
