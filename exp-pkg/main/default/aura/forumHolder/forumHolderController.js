@@ -22,11 +22,11 @@
             return;
         }
         helper.ApexSetPostTree(component, helper, selectedId);
-        //helper.SetTree2(component, helper, selectedId);
     },
     HandleTop: function(component, event, helper) {
         helper.ApexSetTopLevelPosts(component);
         helper.ResetSelection(component);
+        component.set("v.selectedId", null);
     },
     CloseModal: function(component, event, helper) {
         let modal = { show: false, title: '', content: ''};

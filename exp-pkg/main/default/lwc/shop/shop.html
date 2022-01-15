@@ -1,9 +1,70 @@
 <template>
+    <div class='title-bar'>
+        <div class='search-bar'>
+            <!-- Consider a 'search' type, with list attribute for suggetsed values -->
+            <input type="text" placeholder="Search for products here..." />
+            <button>Search</button>
+            <button onclick={toggleFilters} style="float:right;">Filters</button>
+            <br>
+        </div>
+    </div>
+    <div class="filter-bar">
+        <div class="filter-row">
+            <div class="multi-select">
+                <label for="sizes">Plant size:</label>
+                <br>
+                <select name="sizes" multiple>
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                </select>
+            </div>
+            <div class="multi-select">
+                <label for="sizes">Expertise level:</label>
+                <br>
+                <select name="difficulty" multiple>
+                    <option value="Easy">Beginner</option>
+                    <option value="Regular">Intermediate</option>
+                    <option value="Hard">Advanced</option>
+                </select>
+            </div>
+            <div class="multi-select">
+                <label for="sizes">Light Requirements:</label>
+                <br>
+                <select name="light" multiple>
+                    <option value="Low">Low</option>
+                    <option value="Indirect">Indirect</option>
+                    <option value="Bright">Bright</option>
+                </select>
+            </div>
+            <div class="check-boxes">
+                <div class="filter-row">
+                    <div class="check-box">
+                        <input type="checkbox" name="isPetFriendly" value="pet">
+                        <label for="isPetFriendly">Pet Friendly?</label>
+                    </div>
+                </div>
+                <div class="filter-row">
+                    <div class="check-box">
+                        <input type="checkbox" name="hasColor" value="hasColor">
+                        <label for="hasColor">Colorful?</label>
+                    </div>
+                </div>
+                <div class="filter-row">
+                    <div class="check-box">
+                        <input type="checkbox" name="hasFlowers" value="hasFlowers">
+                        <label for="hasFlowers">Flowers?</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="shop">
-        <template for:each={catalog.data} for:item="product" for:index="index">
-            <c-product-card key={product.id} 
+        <template for:each={cartData} for:item="product" for:index="index">
+            <c-product-card key={product.id}
                 access-id={index}
                 item-data={product}
+                onadditem={handleAddToCart}
             ></c-product-card>
         </template> 
     </div>

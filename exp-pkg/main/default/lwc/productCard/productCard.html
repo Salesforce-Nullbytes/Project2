@@ -25,7 +25,10 @@
             </div>
             <div class="shop-bottom">
                 <div class="shop-add">
-                    <button onclick={clickToggle}>Add</button>
+                    <button onclick={clickAdd} 
+                        class={addButtonStyle}>
+                        {addButtonLabel}
+                    </button>
                     <span class={priceClass}>{unitPrice}</span>
                 </div>
                 <button onclick={handleDetails}>{btnDetails}</button>

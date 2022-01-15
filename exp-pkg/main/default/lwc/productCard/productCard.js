@@ -12,6 +12,9 @@ export default class ProductCard extends LightningElement {
         let origQuantity = this.dataParser('originalQuantity');
         return !(origQuantity == null) && (this.dataParser('Quantity') != origQuantity)
     }
+    isInCart() {
+        return this.dataParser('inCart');;
+    }
 
     @api
     accessId = -1;
@@ -39,11 +42,15 @@ export default class ProductCard extends LightningElement {
         },
         //UnitPrice: 25.03,
         Quantity: 7,
+        inCart: true
     };
     dataParser(property) {
         if (!this.itemData) { return null; }
 
-        if (property === "UnitPrice" || property === "Quantity" || property === "originalQuantity" ) {
+        if (property === "UnitPrice" 
+            || property === "Quantity" 
+            || property === "originalQuantity" 
+            || property === 'inCart') {
             if (!this.itemData.hasOwnProperty(property)) { return null; }
             return this.itemData[property];
         }
@@ -131,9 +138,13 @@ export default class ProductCard extends LightningElement {
             detail: { id: this.accessId, },
         }));
     }
-    clickToggle(event) {
-        this.dispatchEvent(new CustomEvent('toggleitem', {
-            detail: { id: this.accessId, },
+    clickAdd(event) {
+        if (this.isInCart()) return;
+        this.dispatchEvent(new CustomEvent('additem', {
+            detail: { 
+                id: this.accessId, 
+                productCode: this.dataParser('ProductCode'),
+            },
         }));
     }
 
@@ -149,5 +160,11 @@ export default class ProductCard extends LightningElement {
     }
     get btnDetails() {
         return this.showDetails ? 'Less' : 'Details';
+    }
+    get addButtonLabel() {
+        return this.isInCart() ? '✔' : 'Add';
+    }
+    get addButtonStyle() {
+        return this.isInCart() ? 'add-inactive' : 'add-active';
     }
 }
