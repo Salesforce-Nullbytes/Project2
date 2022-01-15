@@ -16,7 +16,6 @@
 
         // Before we finish, we use the A namespace to enqueue the action and send it to the server
         $A.enqueueAction(apexMethod);
-
     },
 
     SetItems : function(query) {

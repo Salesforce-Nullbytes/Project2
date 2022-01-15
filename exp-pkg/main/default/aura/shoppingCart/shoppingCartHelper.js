@@ -3,9 +3,19 @@
        //request parent to refresh data
         let changeEvent = component.getEvent("refresh");
 
+        this.updatePendingStatus(component, false);
+
         changeEvent.setParams({ cartChanged: changed });
         changeEvent.fire();
     },
+
+    updatePendingStatus : function(component, isPending) {
+        //request parent to refresh data
+         let changeEvent = component.getEvent("changePending");
+ 
+         changeEvent.setParams({ changePending : isPending });
+         changeEvent.fire();
+     },
     
     SendCartToServer : function(component, removals, changes, quantities, helper) {
     

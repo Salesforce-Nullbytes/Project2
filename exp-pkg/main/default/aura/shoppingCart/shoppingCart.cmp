@@ -1,14 +1,15 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" controller="AuraShoppingCartController" access="global">
 
     <aura:attribute name="cartData" type="Object[]" access="public"/>
-    <aura:attribute name="flipPending" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="pending" type="Boolean" access="public" default="false"/>
     <aura:attribute name="checkOutUnclicked" type="Boolean" access="private" default="true"/>
     <aura:attribute name="placeOrderUnclicked" type="Boolean" access="private" default="true"/>
-    <aura:registerEvent name="refresh" type="c:CartEvent" />
+    <aura:registerEvent name="refresh" type="c:CartEvent"/>
+    <aura:registerEvent name="changePending" type="c:CartPendingEvent"/>
     
     <aura:if isTrue="{!v.checkOutUnclicked}">
         <div>
-            <aura:if isTrue="{!v.flipPending}">
+            <aura:if isTrue="{!v.pending}">
                 <button onclick="{!c.UpdateCart}">Update Cart</button>
                 <button onclick="{!c.CancelChanges}">Cancel</button>
             </aura:if>

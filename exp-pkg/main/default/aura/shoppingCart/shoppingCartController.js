@@ -5,7 +5,7 @@
 
         items[removeIndex].remove = true; 
         component.set("v.cartData", items);
-        component.set("v.flipPending", true);
+        helper.updatePendingStatus(component, true);
     },
     
     HandleChangeQuantity : function(component, event, helper) {
@@ -26,11 +26,12 @@
         }
 
         component.set("v.cartData", items);
-        component.set("v.flipPending", true);
+
+        helper.updatePendingStatus(component, true);
     }, 
     
     UpdateCart : function(component, event, helper) {
-        if (!component.get("v.flipPending")) {
+        if (!component.get("v.pending")) {
             return;
         }
 
