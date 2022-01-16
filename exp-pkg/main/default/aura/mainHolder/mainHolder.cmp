@@ -35,7 +35,7 @@
         <c:shop 
             catalog="{!v.shopCatalog}" 
             onitemadd="{!c.HandleCartEvent}" 
-            onvaluechange="{!c.HandleCartEvent}">
+            onvaluechange="{!c.getHeaderValue}">
         </c:shop>
     </aura:if>
 
