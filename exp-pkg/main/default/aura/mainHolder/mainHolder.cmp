@@ -1,18 +1,26 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" controller="AuraMainHolderController" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.Initialize}"/>
+
+    <!-- Conditional Rendering attributes -->
     <aura:attribute name="inputValue" type="String"/>
     <aura:attribute name="isHome" type="Boolean" default="true"/>
     <aura:attribute name="isShop" type="Boolean" default="false"/>
     <aura:attribute name="isForum" type="Boolean" default="false"/>
     <aura:attribute name="isCart" type="Boolean" default="false"/>
 
+    <!-- Shop control attributes -->
+    <aura:attribute name="productList" type="PricebookEntry[]" access="private"/>
+    <aura:attribute name="shopCatalog" type="Object[]" access="private"/>
+
+    <!-- Cart control attributes -->
     <aura:attribute name="cartItems" type="Object[]" access="private"/>
     <aura:attribute name="cartPending" type="Boolean" access="private"/>
     
+    <!-- Cart control handlers -->
     <aura:handler name="refresh" event="c:CartEvent" action="{!c.HandleCartEvent}" />
     <aura:handler name="changePending" event="c:CartPendingEvent" action="{!c.HandleCartPendingEvent}" />
 
-    <aura:handler name="init" value="{!this}" action="{!c.Initialize}"/>
-
+    <!-- Begin HTML -->
     <c:header onvaluechange="{!c.getHeaderValue}"> </c:header>
 
     <aura:if isTrue="{!v.isHome}">
@@ -24,7 +32,11 @@
 
     <aura:if isTrue="{!v.isShop}">
         <c:plantPeopleTitle largeHeader="false"></c:plantPeopleTitle>
-        <c:shop></c:shop>
+        <c:shop 
+            catalog="{!v.shopCatalog}" 
+            onitemadd="{!c.HandleCartEvent}" 
+            onvaluechange="{!c.getHeaderValue}">
+        </c:shop>
     </aura:if>
 
     <aura:if isTrue="{!v.isForum}">
@@ -34,7 +46,10 @@
 
     <aura:if isTrue="{!v.isCart}">
         <c:plantPeopleTitle largeHeader="false"></c:plantPeopleTitle>
-        <c:shoppingCart cartData="{!v.cartItems}" pending="{!v.cartPending}"></c:shoppingCart>
+        <c:shoppingCart 
+            cartData="{!v.cartItems}" 
+            pending="{!v.cartPending}">
+        </c:shoppingCart>
     </aura:if>
 
     <c:footer> </c:footer>

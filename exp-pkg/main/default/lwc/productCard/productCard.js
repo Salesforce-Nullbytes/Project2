@@ -4,34 +4,11 @@ import ShopImages from '@salesforce/resourceUrl/ShopImages';
 
 export default class ProductCard extends LightningElement {
     showDetails = false;
-    qtyHolder = 0;
-
-    available() {
-        return (this.dataParser('UnitPrice') != null);
-    }
-    needUpdate() {
-        let origQuantity = this.dataParser('originalQuantity');
-        return !(origQuantity == null) && (this.dataParser('Quantity') != origQuantity)
-    }
-    isInCart() {
-        return this.dataParser('inCart');;
-    }
 
     @api
     accessId = -1;
     @api
     isCartItem = false;
-    
-    
-    get setImage() {
-        let img = { link: productImage, alt:'Generic Product Image'};
-        if (this.dataParser('ProductCode')) {
-            img.link = ShopImages + '/shopPlantImages/' + this.dataParser('ProductCode') + '.png';
-            img.alt = 'Image of ' + this.dataParser('Name');
-        }
-        return img;
-    }
-    
     @api
     itemData = {
         Product2: {
@@ -46,7 +23,7 @@ export default class ProductCard extends LightningElement {
             HasColor__c: true,
             HasFlowers__c: false,
         },
-        //UnitPrice: 25.03,
+        UnitPrice: 25.03,
         Quantity: 7,
         inCart: true
     };
@@ -64,6 +41,17 @@ export default class ProductCard extends LightningElement {
         if (!this.itemData.hasOwnProperty("Product2")) { return null; }
         if (!this.itemData.Product2.hasOwnProperty(property)) { return null; }
         return this.itemData.Product2[property];
+    }
+
+    available() {
+        return (this.dataParser('UnitPrice') != null);
+    }
+    needUpdate() {
+        let origQuantity = this.dataParser('originalQuantity');
+        return !(origQuantity == null) && (this.dataParser('Quantity') != origQuantity)
+    }
+    isInCart() {
+        return this.dataParser('inCart') == true;
     }
 
     // Data Bindings
@@ -101,20 +89,28 @@ export default class ProductCard extends LightningElement {
         }
         return 'No Charge';
     }
+    get setImage() {
+        let img = { link: productImage, alt:'Generic Product Image'};
+        if (this.dataParser('ProductCode')) {
+            img.link = ShopImages + '/shopPlantImages/' + this.dataParser('ProductCode') + '.png';
+            img.alt = 'Image of ' + this.dataParser('Name');
+        }
+        return img;
+    }
     get productCode() {
         return this.dataParser('ProductCode') || 'Unknown';
     }
     get hasVarieties() {
-        return this.dataParser('HasVarieties__c') || 'Unknown';
+        return this.dataParser('HasVarieties__c') ? 'true' : 'false';
     }
     get hasColor() {
-        return this.dataParser('HasColor__c') || 'Unknown';
+        return this.dataParser('HasColor__c')  ? 'true' : 'false';
     }
     get hasFlowers() {
-        return this.dataParser('HasFlowers__c') || 'Unknown';
+        return this.dataParser('HasFlowers__c')  ? 'true' : 'false';
     }
     get isPetFriendly() {
-        return this.dataParser('IsPetFriendly__c') || 'Unknown';
+        return this.dataParser('IsPetFriendly__c')  ? 'true' : 'false';
     }
     get lightLevel() {
         return this.dataParser('Light_Level__c') || 'Unknown';

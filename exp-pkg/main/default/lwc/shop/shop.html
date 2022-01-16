@@ -4,34 +4,37 @@
             <!-- Consider a 'search' type, with list attribute for suggetsed values -->
             <input type="text" placeholder="Search for products here..." />
             <button>Search</button>
-            <button onclick={toggleFilters} style="float:right;">Filters</button>
+            <button onclick={handleFilter} style="float:right;">Filter</button>
+            <template if:true={hasFilters}>
+                <button onclick={handleClear} style="float:right;">Clear</button>
+            </template>
             <br>
         </div>
     </div>
     <div class="filter-bar">
         <div class="filter-row">
             <div class="multi-select">
-                <label for="sizes">Plant size:</label>
+                <label for="Size__c">Plant size:</label>
                 <br>
-                <select name="sizes" multiple>
+                <select name="Size__c" multiple>
                     <option value="Small">Small</option>
                     <option value="Medium">Medium</option>
                     <option value="Large">Large</option>
                 </select>
             </div>
             <div class="multi-select">
-                <label for="sizes">Expertise level:</label>
+                <label for="Difficulty__c">Expertise level:</label>
                 <br>
-                <select name="difficulty" multiple>
+                <select name="Difficulty__c" multiple>
                     <option value="Easy">Beginner</option>
                     <option value="Regular">Intermediate</option>
                     <option value="Hard">Advanced</option>
                 </select>
             </div>
             <div class="multi-select">
-                <label for="sizes">Light Requirements:</label>
+                <label for="Light_Level__c">Light Requirements:</label>
                 <br>
-                <select name="light" multiple>
+                <select name="Light_Level__c" multiple>
                     <option value="Low">Low</option>
                     <option value="Indirect">Indirect</option>
                     <option value="Bright">Bright</option>
@@ -40,27 +43,27 @@
             <div class="check-boxes">
                 <div class="filter-row">
                     <div class="check-box">
-                        <input type="checkbox" name="isPetFriendly" value="pet">
-                        <label for="isPetFriendly">Pet Friendly?</label>
+                        <input type="checkbox" name="IsPetFriendly__c" value="IsPetFriendly__c">
+                        <label for="IsPetFriendly__c">Pet Friendly?</label>
                     </div>
                 </div>
                 <div class="filter-row">
                     <div class="check-box">
-                        <input type="checkbox" name="hasColor" value="hasColor">
-                        <label for="hasColor">Colorful?</label>
+                        <input type="checkbox" name="HasColor__c" value="HasColor__c">
+                        <label for="HasColor__c">Colorful?</label>
                     </div>
                 </div>
                 <div class="filter-row">
                     <div class="check-box">
-                        <input type="checkbox" name="hasFlowers" value="hasFlowers">
-                        <label for="hasFlowers">Flowers?</label>
+                        <input type="checkbox" name="HasFlowers__c" value="HasFlowers__c">
+                        <label for="HasFlowers__c">Flowers?</label>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="shop">
-        <template for:each={cartData} for:item="product" for:index="index">
+        <template for:each={filteredCatalog} for:item="product" for:index="index">
             <c-product-card key={product.id}
                 access-id={index}
                 item-data={product}
