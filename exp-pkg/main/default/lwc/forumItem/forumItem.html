@@ -28,10 +28,14 @@
         </div>
     </div>
 
-    <div class="comment-section">
+    
         <template if:true={ifDisplayComments}>
-            <button onclick={toggleShowHide}>Show/Hide</button>
+            <button onclick={toggleShowHide}>
+                <template if:true={showComments}>Hide</template>
+                <template if:false={showComments}>Show</template>
+            </button>
             {numComments} comments:
+            <div class="comment-section">
             <template if:true={showComments}>
                 <template for:each={children} for:item="comment">
                     <c-forum-item 
@@ -44,6 +48,7 @@
                     </c-forum-item>
                 </template>
             </template>
+            </div>
         </template>
 
         <template if:false={headerOnly}>
@@ -51,7 +56,7 @@
                 No Comments
             </template>
         </template>
-    </div>
+
     
 
 </template>

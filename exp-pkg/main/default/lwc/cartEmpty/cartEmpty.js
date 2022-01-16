@@ -11,7 +11,6 @@ export default class cartEmpty extends LightningElement {
         } 
 
         let container = this.template.querySelectorAll(".background-image-container");
-        console.log(container.length);
         container[0].style.backgroundImage = `url(${confirmationBackgroundImage})`;
         container[1].style.backgroundImage = `url(${confirmationBackgroundImage})`;
 

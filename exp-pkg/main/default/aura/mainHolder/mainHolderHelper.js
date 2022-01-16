@@ -19,6 +19,17 @@
             if (response.getState() == 'SUCCESS') {
                 let itemList = helper.SetItems(response.getReturnValue());  
                 component.set("v.cartItems", itemList);
+
+                //determine if cart is empty
+                console.log(itemList.length);
+                if (itemList.length == 0) {
+                    component.set("v.cartEmpty1", true);
+                } else {
+                    component.set("v.cartEmpty1", false);
+                }
+
+                console.log(component.get("v.cartEmpty1"));
+
                 helper.SetShopCatalog(component, itemList);
             } else {
                 console.log("callback not set");
@@ -76,7 +87,6 @@
         component.set("v.isShop", false);
         component.set("v.isForum", false);
         component.set("v.isCart", false);
-        component.set("v.isCartEmpty", false);
 
         switch (component.get("v.inputValue")) {
             case "Home":
@@ -89,12 +99,8 @@
                 component.set("v.isForum", true);
                 break;
             case "Cart":
-                if (component.get("v.cartItems").length > 0) {
-                    component.set("v.isCart", true);
-                    break;
-                } else {
-                    component.set("v.isCartEmpty", true);
-                }
+                component.set("v.isCart", true);
+                break;
             default:
                 console.log("Error: Unrecognized navigation target!");
         }

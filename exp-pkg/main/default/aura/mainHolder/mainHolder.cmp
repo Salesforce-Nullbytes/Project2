@@ -7,7 +7,6 @@
     <aura:attribute name="isShop" type="Boolean" default="false"/>
     <aura:attribute name="isForum" type="Boolean" default="false"/>
     <aura:attribute name="isCart" type="Boolean" default="false"/>
-    <aura:attribute name="isCartEmpty" type="Boolean" default="false"/>
 
     <!-- Shop control attributes -->
     <aura:attribute name="productList" type="PricebookEntry[]" access="private"/>
@@ -16,6 +15,7 @@
     <!-- Cart control attributes -->
     <aura:attribute name="cartItems" type="Object[]" access="private"/>
     <aura:attribute name="cartPending" type="Boolean" access="private"/>
+    <aura:attribute name="cartEmpty1" type="Boolean" access="private" default="false"/>
     
     <!-- Cart control handlers -->
     <aura:handler name="refresh" event="c:CartEvent" action="{!c.HandleCartEvent}" />
@@ -49,13 +49,9 @@
         <c:plantPeopleTitle largeHeader="false"></c:plantPeopleTitle>
         <c:shoppingCart 
             cartData="{!v.cartItems}" 
-            pending="{!v.cartPending}">
+            pending="{!v.cartPending}"
+            cartEmpty2="{!v.cartEmpty1}">
         </c:shoppingCart>
-    </aura:if>
-
-    <aura:if isTrue="{!v.isCartEmpty}">
-        <c:plantPeopleTitle largeHeader="false"></c:plantPeopleTitle>
-        <c:cartEmpty></c:cartEmpty>
     </aura:if>
 
     <c:footer> </c:footer>

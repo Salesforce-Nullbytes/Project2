@@ -60,6 +60,7 @@
 
     CancelChanges : function(component, event, helper) {
         helper.refreshCart(component, false);
+        component.set("v.cannotCheckout", false);
     },
 
     CheckOut : function(component, event, helper) {

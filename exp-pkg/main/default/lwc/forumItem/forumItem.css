@@ -22,6 +22,7 @@ button {
     overflow: hidden;
     padding: 1rem;
     padding-top: 5px;
+    margin-top: 15px;
 }
 
 .forum-title {
