@@ -1,19 +1,26 @@
 public without sharing class ForumItemHandler {
 
+    // BEFORE_DELETE
+    public static void FailAll(List<Forum_Item__c> records, String message) {
+        for (Forum_Item__c record : records) {
+            record.addError(message);
+        }
+    }
+
     // BEFORE INSERT -> increment all the way up parent chain
     public static void IncreaseParentCommentCounts(List<Forum_Item__c> insertions) {
-        Forum_Item__c[] newTops = new Forum_Item__c[]{}; // Tops cannot have comments yet
+        //Forum_Item__c[] newTops = new Forum_Item__c[]{}; // Tops cannot have comments yet
         Forum_Item__c[] newComments = new Forum_Item__c[]{};
 
+        // Segregate children (who have parent comment increments) from top-level
         Set<ID> topIDs = new Set<ID>();
         for (Forum_Item__c insertion : insertions) {
             ID thisTop = insertion.Top__c;
-            if (thisTop == null) { newTops.add(insertion); }
-            else {
+            if (thisTop != null) { 
                 topIDs.add(thisTop);
                 newComments.add(insertion);
-            }
-        } // Segregated children (who have parent comment increments) from top-level
+            } //else { newTops.add(insertion); }
+        }
 
         if (newComments.size() == 0) return; // No comment increments to make
 
@@ -22,6 +29,7 @@ public without sharing class ForumItemHandler {
 
         cascadeCounts(depthToIdToCount, maxDepth);
 
+        // Aggregate all depths to a single Map of ID to required comment count increments
         Map<ID, Integer> allChanges = new Map<ID, Integer>();
         for (Integer depth : depthToIdToCount.keySet()) {
             allChanges.putAll(depthToIdToCount.get(depth));
@@ -49,12 +57,13 @@ public without sharing class ForumItemHandler {
                 if (pDepth > maxDepth) maxDepth = pDepth;
             }
 
-            Integer childCount = 1; // The increment to take place for the new comment being iterated
+            Integer childCount = 1; // The increment to take place for a new comment being iterated
             if (depthToIdToCount.get(pDepth).containsKey(parent)) {
                 childCount += depthToIdToCount.get(pDepth).get(parent);
             }
             depthToIdToCount.get(pDepth).put(parent, childCount);
         }
+        
         // Fill holes in keyset from 0 to maxDepth
         for (Integer depth = 0; depth < maxDepth; depth++) {
             if (!depthToIdToCount.containsKey(depth)) {
@@ -66,9 +75,7 @@ public without sharing class ForumItemHandler {
     private static Integer getGreatestMapKey(Map<Integer, Map<ID, Integer>> fromSet) {
         if (!fromSet.containsKey(1)) return 0;
         Integer key = 1;
-        while (fromSet.containsKey(key+1)) {
-            key++;
-        }
+        while (fromSet.containsKey(key+1)) { key++; }
         return key;
     }
     private static void cascadeCounts(

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Content_Exists</fullName>
+    <active>true</active>
+    <description>Content may not be null.</description>
+    <errorConditionFormula>ISNULL( Title__c)</errorConditionFormula>
+    <errorDisplayField>Content__c</errorDisplayField>
+    <errorMessage>Content may not be null.</errorMessage>
+</ValidationRule>

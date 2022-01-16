@@ -476,7 +476,7 @@ public class DataFactory {
                         Forum_Item__c comment = makePost(accts[j].id, 1,
                             'Test comment ' + i + ' on ' + j, 
                             getLongContent(), 
-                            getForumTopics(postSeed)
+                            '' //getForumTopics(postSeed)
                         );
                         comment.Parent__c = posts[i].id;
                         comment.Top__c = posts[i].id;
@@ -498,7 +498,7 @@ public class DataFactory {
             Forum_Item__c comment = makePost(poster.id, 2,
                 'Test subcomment ' + i, 
                 getLongContent(), 
-                getForumTopics(postSeed)
+                '' //getForumTopics(postSeed)
             );
             comment.Parent__c = comments[i].id;
             comment.Top__c = comments[i].Top__c;
