@@ -3,6 +3,7 @@ import AddToCart from "@salesforce/apex/LWCShopController.AddToCart";
 
 export default class Shop extends LightningElement {
     // Filtered attribute inclusions
+    hasFilters = false;
     @track
     filters = {
         Size__c: {
@@ -58,9 +59,16 @@ export default class Shop extends LightningElement {
     @api
     catalog;
     get filteredCatalog() {
-        if (!this.catalog) return [];
-        return this.filterCatalog();
+        if (!this.catalog) {
+            this.numDisplayed = 0;
+            return [];
+        }
+        let listed = this.filterCatalog();
+        this.numDisplayed = listed.length;
+        return listed;
     }
+
+
     filterCatalog() {
         if (this.catalog.length == 0) return;
 
@@ -91,11 +99,6 @@ export default class Shop extends LightningElement {
         return output;
     }
 
-    get hasProducts() {
-        if (!this.catalog || !this.catalog.length == 0) { return false; }
-        return true;
-    }
-
     handleFilter() {
         let selections = this.template.querySelectorAll("select");
         let checkboxes = this.template.querySelectorAll("input[type=checkbox]");
@@ -119,6 +122,7 @@ export default class Shop extends LightningElement {
             let parameter = checkbox.name;
             this.setParameter(property, parameter, checkbox.checked);
         }
+        this.hasFilters = true;
     }
     setParameter(property, parameter, toValue) {
         if (!this.filters.hasOwnProperty(property)) {
@@ -156,5 +160,13 @@ export default class Shop extends LightningElement {
     informCartChange() {
         this.dispatchEvent(new CustomEvent('itemadd'));
     }
+    handleClear() {
+        this.dispatchEvent(new CustomEvent("valuechange", {
+            detail: { value : "Shop" }
+        }));
+    }
 
+    get hasProducts() {
+        return this.numDisplayed == 0;
+    }
 }

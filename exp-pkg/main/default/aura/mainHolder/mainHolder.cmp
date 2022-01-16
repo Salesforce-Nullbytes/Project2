@@ -32,7 +32,11 @@
 
     <aura:if isTrue="{!v.isShop}">
         <c:plantPeopleTitle largeHeader="false"></c:plantPeopleTitle>
-        <c:shop catalog="{!v.shopCatalog}" onitemadd="{!c.HandleCartEvent}"></c:shop>
+        <c:shop 
+            catalog="{!v.shopCatalog}" 
+            onitemadd="{!c.HandleCartEvent}" 
+            onvaluechange="{!c.HandleCartEvent}">
+        </c:shop>
     </aura:if>
 
     <aura:if isTrue="{!v.isForum}">
@@ -42,7 +46,10 @@
 
     <aura:if isTrue="{!v.isCart}">
         <c:plantPeopleTitle largeHeader="false"></c:plantPeopleTitle>
-        <c:shoppingCart cartData="{!v.cartItems}" pending="{!v.cartPending}"></c:shoppingCart>
+        <c:shoppingCart 
+            cartData="{!v.cartItems}" 
+            pending="{!v.cartPending}">
+        </c:shoppingCart>
     </aura:if>
 
     <c:footer> </c:footer>

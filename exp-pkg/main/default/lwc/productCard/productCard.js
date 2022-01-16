@@ -4,34 +4,11 @@ import ShopImages from '@salesforce/resourceUrl/ShopImages';
 
 export default class ProductCard extends LightningElement {
     showDetails = false;
-    qtyHolder = 0;
-
-    available() {
-        return (this.dataParser('UnitPrice') != null);
-    }
-    needUpdate() {
-        let origQuantity = this.dataParser('originalQuantity');
-        return !(origQuantity == null) && (this.dataParser('Quantity') != origQuantity)
-    }
-    isInCart() {
-        return this.dataParser('inCart') == true;
-    }
 
     @api
     accessId = -1;
     @api
     isCartItem = false;
-    
-    
-    get setImage() {
-        let img = { link: productImage, alt:'Generic Product Image'};
-        if (this.dataParser('ProductCode')) {
-            img.link = ShopImages + '/shopPlantImages/' + this.dataParser('ProductCode') + '.png';
-            img.alt = 'Image of ' + this.dataParser('Name');
-        }
-        return img;
-    }
-    
     @api
     itemData = {
         Product2: {
@@ -64,6 +41,17 @@ export default class ProductCard extends LightningElement {
         if (!this.itemData.hasOwnProperty("Product2")) { return null; }
         if (!this.itemData.Product2.hasOwnProperty(property)) { return null; }
         return this.itemData.Product2[property];
+    }
+
+    available() {
+        return (this.dataParser('UnitPrice') != null);
+    }
+    needUpdate() {
+        let origQuantity = this.dataParser('originalQuantity');
+        return !(origQuantity == null) && (this.dataParser('Quantity') != origQuantity)
+    }
+    isInCart() {
+        return this.dataParser('inCart') == true;
     }
 
     // Data Bindings
@@ -100,6 +88,14 @@ export default class ProductCard extends LightningElement {
             return 'Subtotal: $' + (p*q);
         }
         return 'No Charge';
+    }
+    get setImage() {
+        let img = { link: productImage, alt:'Generic Product Image'};
+        if (this.dataParser('ProductCode')) {
+            img.link = ShopImages + '/shopPlantImages/' + this.dataParser('ProductCode') + '.png';
+            img.alt = 'Image of ' + this.dataParser('Name');
+        }
+        return img;
     }
     get productCode() {
         return this.dataParser('ProductCode') || 'Unknown';

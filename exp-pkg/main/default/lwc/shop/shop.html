@@ -4,7 +4,10 @@
             <!-- Consider a 'search' type, with list attribute for suggetsed values -->
             <input type="text" placeholder="Search for products here..." />
             <button>Search</button>
-            <button onclick={handleFilter} style="float:right;">Filters</button>
+            <button onclick={handleFilter} style="float:right;">Filter</button>
+            <template if:true={hasFilters}>
+                <button onclick={handleClear} style="float:right;">Clear</button>
+            </template>
             <br>
         </div>
     </div>
