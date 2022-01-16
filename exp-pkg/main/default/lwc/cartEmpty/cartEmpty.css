@@ -1,0 +1,18 @@
+.box {
+    border: 1px solid black;
+    padding: 15px;
+}
+
+.background-image-container {
+    height: 100px;
+}
+
+.cart-empty {
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+.text {
+    text-align: center;
+    font-size: 18px;
+}

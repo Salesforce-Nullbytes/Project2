@@ -76,6 +76,7 @@
         component.set("v.isShop", false);
         component.set("v.isForum", false);
         component.set("v.isCart", false);
+        component.set("v.isCartEmpty", false);
 
         switch (component.get("v.inputValue")) {
             case "Home":
@@ -88,8 +89,12 @@
                 component.set("v.isForum", true);
                 break;
             case "Cart":
-                component.set("v.isCart", true);
-                break;
+                if (component.get("v.cartItems").length > 0) {
+                    component.set("v.isCart", true);
+                    break;
+                } else {
+                    component.set("v.isCartEmpty", true);
+                }
             default:
                 console.log("Error: Unrecognized navigation target!");
         }

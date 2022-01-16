@@ -7,6 +7,7 @@
     <aura:attribute name="isShop" type="Boolean" default="false"/>
     <aura:attribute name="isForum" type="Boolean" default="false"/>
     <aura:attribute name="isCart" type="Boolean" default="false"/>
+    <aura:attribute name="isCartEmpty" type="Boolean" default="false"/>
 
     <!-- Shop control attributes -->
     <aura:attribute name="productList" type="PricebookEntry[]" access="private"/>
@@ -25,9 +26,9 @@
 
     <aura:if isTrue="{!v.isHome}">
         <c:plantPeopleTitle largeHeader="true"></c:plantPeopleTitle>
-        <c:homepageQuizIcons quizNumber="1"> </c:homepageQuizIcons>
-        <c:homepageQuizIcons quizNumber="2"> </c:homepageQuizIcons>
-        <c:homepageQuizIcons quizNumber="3"> </c:homepageQuizIcons>
+        <c:homepageQuizIcons quizNumber="1" quizTitle="Find your plant match"> </c:homepageQuizIcons>
+        <c:homepageQuizIcons quizNumber="2" quizTitle="Check your seed knowledge"> </c:homepageQuizIcons>
+        <c:homepageQuizIcons quizNumber="3" quizTitle="What's your vine vibe?"> </c:homepageQuizIcons>
     </aura:if>
 
     <aura:if isTrue="{!v.isShop}">
@@ -50,6 +51,11 @@
             cartData="{!v.cartItems}" 
             pending="{!v.cartPending}">
         </c:shoppingCart>
+    </aura:if>
+
+    <aura:if isTrue="{!v.isCartEmpty}">
+        <c:plantPeopleTitle largeHeader="false"></c:plantPeopleTitle>
+        <c:cartEmpty></c:cartEmpty>
     </aura:if>
 
     <c:footer> </c:footer>

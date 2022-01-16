@@ -53,6 +53,8 @@
             }
         }
 
+        component.set("v.cannotCheckout", false);
+
         helper.SendCartToServer(component, toBeRemoved, toBeUpdated, newQuantity, helper);
     },
 
@@ -61,6 +63,10 @@
     },
 
     CheckOut : function(component, event, helper) {
+        if (component.get("v.pending") == true) {
+            component.set("v.cannotCheckout", true);
+            return;
+        }
         component.set("v.checkOutUnclicked", false);
     },
 

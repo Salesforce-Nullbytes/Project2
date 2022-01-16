@@ -1,9 +1,13 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" controller="AuraShoppingCartController" access="global">
 
     <aura:attribute name="cartData" type="Object[]" access="public"/>
+
     <aura:attribute name="pending" type="Boolean" access="public" default="false"/>
     <aura:attribute name="checkOutUnclicked" type="Boolean" access="private" default="true"/>
     <aura:attribute name="placeOrderUnclicked" type="Boolean" access="private" default="true"/>
+    <aura:attribute name="cartEmpty" type="Boolean" access="private" default="true"/>
+    <aura:attribute name="cannotCheckout" type="Boolean" access="private" default="false"/>
+
     <aura:registerEvent name="refresh" type="c:CartEvent"/>
     <aura:registerEvent name="changePending" type="c:CartPendingEvent"/>
     
@@ -12,6 +16,9 @@
             <aura:if isTrue="{!v.pending}">
                 <button onclick="{!c.UpdateCart}">Update Cart</button>
                 <button onclick="{!c.CancelChanges}">Cancel</button>
+            </aura:if>
+            <aura:if isTrue="{!v.cannotCheckout}">
+                <span>You have unsaved changes in your cart</span>
             </aura:if>
             <button onclick="{!c.CheckOut}" class="checkout-button">Check Out</button>
             <div class="cart-items">
@@ -33,7 +40,7 @@
     <aura:if isTrue="{!!v.checkOutUnclicked}">
         <aura:if isTrue="{!v.placeOrderUnclicked}">
             <c:paymentInformation 
-            accountName="NameGoesHere"
+            accountName="Account Name"
             onsubmitInfo="{!c.PlaceOrder}"
             ></c:paymentInformation>
         </aura:if>
