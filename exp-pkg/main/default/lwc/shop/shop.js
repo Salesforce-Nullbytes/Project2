@@ -142,16 +142,19 @@ export default class Shop extends LightningElement {
 
         AddToCart({ productCode: productCode })
         .then((result) => {
-            console.log("Have changes occurred? " + result);
-            for (let item of this.catalog.data) {
-                if (item.Product2.ProductCode == productCode) {
-                    item.inCart = true;
-                }
+            if (result) {
+                this.informCartChange();
+            } else {
+                console.log("Order could not be added to cart.");
             }
         })
         .catch((error) => {
             console.log('Received an error: ' + JSON.stringify(error));
         });
+    }
+    
+    informCartChange() {
+        this.dispatchEvent(new CustomEvent('itemadd'));
     }
 
 }
