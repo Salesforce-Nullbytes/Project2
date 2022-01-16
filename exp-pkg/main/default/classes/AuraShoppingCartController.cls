@@ -1,5 +1,6 @@
 public without sharing class AuraShoppingCartController {
 
+    @TestVisible
     private static id getAccountID() {
         return [SELECT id FROM Account WHERE name = 'Account 3']?.id;
     }
