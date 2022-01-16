@@ -16,7 +16,6 @@ export default class plantPeopleHeader extends LightningElement {
         } 
 
         let container = this.template.querySelectorAll(".container");
-        console.log(container.length);
         container[0].style.backgroundImage = `url(${titleVines})`;
 
         this.backgroundRendered = true;

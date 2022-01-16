@@ -1,32 +1,17 @@
 ({
-    Initialize : function(component, event, helper) {
-        console.log("initialize is good");
-
-        helper.refreshCart(component, helper);
-    }, 
-
-    TestPrint : function(component, event, helper) {
-        console.log("hello we are here");
-        let items = component.get("v.items");
-
-        for (let item of items) {
-            console.log(item);
-        }
-    },
-
     HandleRemove : function(component, event, helper) {
         let removeIndex = event.getParam('id');
-        let items = component.get("v.items");
+        let items = component.get("v.cartData");
 
         items[removeIndex].remove = true; 
-        component.set("v.items", items);
-        component.set("v.pending", true);
+        component.set("v.cartData", items);
+        helper.updatePendingStatus(component, true);
     },
     
     HandleChangeQuantity : function(component, event, helper) {
         let changeIndex = event.getParam('id');
         let changeQuantity = event.getParam('quantity');
-        let items = component.get("v.items");
+        let items = component.get("v.cartData");
 
         if (changeQuantity < 1) { changeQuantity = 1; }
         
@@ -40,8 +25,9 @@
             items[changeIndex].originalQuantity = null;
         }
 
-        component.set("v.items", items);
-        component.set("v.pending", true);
+        component.set("v.cartData", items);
+
+        helper.updatePendingStatus(component, true);
     }, 
     
     UpdateCart : function(component, event, helper) {
@@ -49,7 +35,7 @@
             return;
         }
 
-        let items = component.get("v.items");
+        let items = component.get("v.cartData");
 
         let toBeRemoved = [];
         let toBeUpdated = [];
@@ -71,7 +57,7 @@
     },
 
     CancelChanges : function(component, event, helper) {
-        helper.refreshCart(component, helper);
+        helper.refreshCart(component, false);
     },
 
     CheckOut : function(component, event, helper) {
@@ -80,6 +66,6 @@
 
     PlaceOrder : function(component, event, helper) {
         helper.ServerActivateOrder(component, event);
-    }
+    },
 })
 

@@ -7,15 +7,6 @@ export default class paymentInformation extends LightningElement {
     handleSubmitInfo() {
         let listOfCustomerInfo = this.template.querySelectorAll("input[type=text]");
 
-        // let customerAddress = listOfCustomerInfo[0].value;
-        // let customerCity = listOfCustomerInfo[1].value;
-        // let customerState = listOfCustomerInfo[2].value;
-        // let customerZipCode = listOfCustomerInfo[3].value;
-        // let customerCardNumber = listOfCustomerInfo[4].value;
-        // let customerExp = listOfCustomerInfo[5].value;
-        // let customerCVV = listOfCustomerInfo[6].value;
-        // let customerBillingZipCode = listOfCustomerInfo[7].value;
-
         for (let i=0; i<listOfCustomerInfo.length; i++){
             if (listOfCustomerInfo[i].value != "") {
                 listOfCustomerInfo[i].classList.remove("notSubmitted")
@@ -28,7 +19,7 @@ export default class paymentInformation extends LightningElement {
 
         let params = {};
         for (let element of listOfCustomerInfo) {
-            if (element.value == null) {
+            if (element.value == "") {
                 return;
             }
 

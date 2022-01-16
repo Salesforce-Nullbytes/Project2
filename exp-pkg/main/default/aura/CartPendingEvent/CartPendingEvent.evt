@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="Broadcasts pending status of cart">
+    <aura:attribute name="changePending" type="Boolean" />
+</aura:event>

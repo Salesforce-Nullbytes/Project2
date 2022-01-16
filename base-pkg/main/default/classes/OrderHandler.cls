@@ -15,25 +15,22 @@ public without sharing class OrderHandler {
                 Integer currentCount = newOrderAccountIDs.get(Acct);
                 newOrderAccountIDs.put(Acct, currentCount+1);
 
-                if (currentCount > 1) {
+                if (currentCount > 0) {
                     O.addError('Error: There is already a draft order in progress');
                 }
             }
         }
 
-        List<Order> existingDrafts =  [SELECT AccountID, status FROM order WHERE Order.AccountID = :newOrderAccountIDs.keyset() AND status = 'Draft'];
-
-        For (Order O : existingDrafts) {
-            O.addError('Error: There is already a draft order in progress');
+        List<Order> existingDrafts =  [SELECT AccountID, status FROM order WHERE Order.AccountID IN :newOrderAccountIDs.keyset() AND status = 'Draft'];
+        if (existingDrafts.size() == 0) return;
+        For (Order O : newOrders) {
+            for (Order e : existingDrafts) {
+                if (O.accountid == e.accountid) {
+                    O.addError('Error: There is already a draft order in progress');
+                }
+            }
         }  
     }
-
-    public static void SetEffectiveDate (List<Order> newOrders)  {
-        for(Order O : newOrders) {
-            O.EffectiveDate = System.today();
-        }
-    }
-
 
     //Before Update
     public static void PreventChanges (List<Order> originalOrders, Map<ID, Order> updatedOrders)  {
