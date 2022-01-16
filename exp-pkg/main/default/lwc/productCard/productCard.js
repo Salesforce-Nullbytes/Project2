@@ -14,7 +14,7 @@ export default class ProductCard extends LightningElement {
         return !(origQuantity == null) && (this.dataParser('Quantity') != origQuantity)
     }
     isInCart() {
-        return this.dataParser('inCart');;
+        return this.dataParser('inCart') == true;
     }
 
     @api
@@ -46,7 +46,7 @@ export default class ProductCard extends LightningElement {
             HasColor__c: true,
             HasFlowers__c: false,
         },
-        //UnitPrice: 25.03,
+        UnitPrice: 25.03,
         Quantity: 7,
         inCart: true
     };
@@ -105,16 +105,16 @@ export default class ProductCard extends LightningElement {
         return this.dataParser('ProductCode') || 'Unknown';
     }
     get hasVarieties() {
-        return this.dataParser('HasVarieties__c') || 'Unknown';
+        return this.dataParser('HasVarieties__c') ? 'true' : 'false';
     }
     get hasColor() {
-        return this.dataParser('HasColor__c') || 'Unknown';
+        return this.dataParser('HasColor__c')  ? 'true' : 'false';
     }
     get hasFlowers() {
-        return this.dataParser('HasFlowers__c') || 'Unknown';
+        return this.dataParser('HasFlowers__c')  ? 'true' : 'false';
     }
     get isPetFriendly() {
-        return this.dataParser('IsPetFriendly__c') || 'Unknown';
+        return this.dataParser('IsPetFriendly__c')  ? 'true' : 'false';
     }
     get lightLevel() {
         return this.dataParser('Light_Level__c') || 'Unknown';

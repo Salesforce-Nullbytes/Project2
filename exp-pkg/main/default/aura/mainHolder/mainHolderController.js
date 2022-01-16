@@ -1,5 +1,6 @@
 ({
     Initialize : function(component, event, helper) {
+        helper.ApexCatalogData(component, helper);
         helper.ApexCartItems(component, helper);
     }, 
     getHeaderValue : function(component, event, helper) {

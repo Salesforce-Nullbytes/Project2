@@ -1,13 +1,25 @@
 ({
+    ApexCatalogData : function(component, helper) {
+        let apexMethod = component.get("c.AllProducts");
+
+        apexMethod.setCallback(this, function (response) {
+            if (response.getState() == 'SUCCESS') {
+                component.set("v.productList", response.getReturnValue());
+            } else {
+                console.log("Error retrieving product catalog!");
+            }
+        });
+
+        $A.enqueueAction(apexMethod);
+    },
     ApexCartItems : function(component, helper) {
         let apexMethod = component.get("c.GetCartItems");
 
         apexMethod.setCallback(this, function (response) {
             if (response.getState() == 'SUCCESS') {
                 let itemList = helper.SetItems(response.getReturnValue());  
-                console.log('Item list is');
-                console.log(itemList);
                 component.set("v.cartItems", itemList);
+                helper.SetShopCatalog(component, itemList);
             } else {
                 console.log("callback not set");
             }
@@ -15,7 +27,7 @@
 
         $A.enqueueAction(apexMethod);
     },
-    parseItem(queryResult) {
+    parseItem: function(queryResult) {
         let item = {};
         
         // Standard OrderItem fields
@@ -42,10 +54,25 @@
 
         return itemList;
     },
-    SetHeaderFields(component, event) {
+    SetShopCatalog: function(component, cartList) {
+        let cartKey = {};
+        for (let item of cartList) {
+            cartKey[item.Product2.ProductCode] = true;
+        }
+
+        let catalog = this.SetItems(component.get("v.productList"));
+        for (let item of catalog) {
+            let code = item.Product2.ProductCode;
+            if (cartKey.hasOwnProperty(code)) {
+                item.inCart = cartKey[code];
+            }
+        }
+        component.set("v.shopCatalog", catalog);
+    },
+    SetHeaderFields: function(component, event) {
         component.set("v.inputValue", event.getParam('value'));
 
-        component.set("v.isHome", true);
+        component.set("v.isHome", false);
         component.set("v.isShop", false);
         component.set("v.isForum", false);
         component.set("v.isCart", false);
