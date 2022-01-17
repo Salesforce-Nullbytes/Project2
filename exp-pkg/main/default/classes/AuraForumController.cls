@@ -60,11 +60,12 @@ public without sharing class AuraForumController {
 
     @AuraEnabled
     public static List<Forum_Item__c> GetPostsUnder(ID postId) {
+        // Parameter must be top-level post
         List<Forum_Item__c> posts = [
             SELECT Id, Title__c, Content__c, Poster__r.Name, Topics__c, Depth__c, 
                 Top__c, Parent__c, Likes__c, Child_Comments__c, 
                 (SELECT id FROM Post_Likes__r WHERE Account__c = :getAccountId())
-            FROM Forum_Item__c WHERE Top__c = :postId OR Id = :postId
+            FROM Forum_Item__c WHERE IsRemoved__c = false AND (Top__c = :postId OR Id = :postId)
         ];
         return posts;
     }

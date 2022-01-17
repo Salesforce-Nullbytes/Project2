@@ -8,9 +8,6 @@ public class AuraForumControllerTest {
 
     @testSetup
     public static void SetupTests() {
-        //Pricebook2 std = new Pricebook2(name = 'Standard Price Book');
-        //Insert std;
-        //DataFactory.ProductSetup();
         DataFactory.AccountSetup();
         DataFactory.ForumSetup();
     }
@@ -18,27 +15,38 @@ public class AuraForumControllerTest {
     @isTest
     public static void TP_NoExtraTopLevelPosts() {
         Test.startTest();
+
         Set<ID> actualIDs = new Set<ID>();
         for (Forum_Item__c post : [SELECT id FROM Forum_Item__c WHERE Depth__c = 0 AND isRemoved__c = false]) {
             actualIDs.add(post.id);
         }
 
+        Wrapper info = makeCustomerAndUser('testuser');
+        
         Boolean success = true;
-        for (Forum_Item__c post : AuraForumController.GetTopLevelPosts()) {
-            if (!actualIDs.contains(post.id)) {
-                success = false;
+        System.runAs(info.customer) {
+            for (Forum_Item__c post : AuraForumController.GetTopLevelPosts()) {
+                if (!actualIDs.contains(post.id)) {
+                    success = false;
+                }
             }
         }
+
         System.assert(success);
     }
     @isTest
     public static void TP_GetsAllTopLevelPosts() {
         Test.startTest();
-        Set<ID> returnedIDs = new Set<ID>();
-        for (Forum_Item__c post : AuraForumController.GetTopLevelPosts()) {
-            returnedIDs.add(post.Id);
-        }
 
+        Wrapper info = makeCustomerAndUser('testuser');
+        Set<ID> returnedIDs = new Set<ID>();
+
+        System.runAs(info.customer) {
+            for (Forum_Item__c post : AuraForumController.GetTopLevelPosts()) {
+                returnedIDs.add(post.Id);
+            }
+        }
+        
         Boolean success = true;
         for (Forum_Item__c post : [SELECT id FROM Forum_Item__c WHERE Depth__c = 0 AND isRemoved__c = false]) {
             if (!returnedIDs.contains(post.id)) {
@@ -48,11 +56,122 @@ public class AuraForumControllerTest {
         System.assert(success);
         Test.stopTest();
     }
+    @isTest
+    public static void TP_NoExtraPostsUnder() {
+        Test.startTest();
 
+        Forum_Item__c top = [SELECT id FROM Forum_Item__c WHERE Child_Comments__c > 2 AND Depth__c = 0 LIMIT 1];
+
+        Set<ID> actualIDs = new Set<ID>();
+        for (Forum_Item__c post : [SELECT id FROM Forum_Item__c 
+            WHERE IsRemoved__c = false AND (Top__c = :top.id OR Id = :top.id)]) {
+            actualIDs.add(post.id);
+        }
+
+        Wrapper info = makeCustomerAndUser('testuser');
+        
+        Boolean success = true;
+        System.runAs(info.customer) {
+            for (Forum_Item__c post : AuraForumController.GetPostsUnder(top.id)) {
+                if (!actualIDs.contains(post.id)) {
+                    success = false;
+                }
+            }
+        }
+
+        System.assert(success);
+    }
+    @isTest
+    public static void TP_GetsAllPostsUnder() {
+        Test.startTest();
+
+        Forum_Item__c top = [SELECT id FROM Forum_Item__c WHERE Child_Comments__c > 2 AND Depth__c = 0 LIMIT 1];
+
+        Wrapper info = makeCustomerAndUser('testuser');
+        Set<ID> returnedIDs = new Set<ID>();
+
+        System.runAs(info.customer) {
+            for (Forum_Item__c post : AuraForumController.GetPostsUnder(top.id)) {
+                returnedIDs.add(post.Id);
+            }
+        }
+        
+        Boolean success = true;
+        for (Forum_Item__c post : [SELECT id FROM Forum_Item__c 
+            WHERE IsRemoved__c = false AND (Top__c = :top.id OR Id = :top.id)]) {
+            if (!returnedIDs.contains(post.id)) {
+                success = false;
+            }
+        }
+        System.assert(success);
+        Test.stopTest();
+    }
+    @isTest
+    public static void TP_RetriveAccount() {
+        Test.startTest();
+        String name1 = 'one Name';
+        String name2 = 'two Name';
+
+        Wrapper info1 = makeCustomerAndUser(name1);
+        Wrapper info2 = makeCustomerAndUser(name2);
+
+        Account a1;
+        Account a2;
+        System.runAs(info1.customer) {
+            a1 = AuraForumController.GetMyAccount();
+        }
+        System.assertEquals(name1, a1.Name);
+
+        System.runAs(info2.customer) {
+            a2 = AuraForumController.GetMyAccount();
+        }
+        System.assertEquals(name2, a2.Name);
+
+        Test.stopTest();
+    }
+    @isTest
+    public static void TP_UploadCommentPost() {
+        Test.startTest();
+        Wrapper info = makeCustomerAndUser('testuser');
+
+        Forum_Item__c under = [SELECT id FROM Forum_Item__c WHERE IsRemoved__c = false LIMIT 1];
+
+        Forum_Item__c made;
+        System.runAs(info.customer) {
+            made = AuraForumController.UploadPost(under.id, 'post title', 'hello there', new List<string>());
+        }
+
+        System.assertNotEquals(null, made.id);
+        Forum_Item__c[] updated = [SELECT id, Parent__c FROM Forum_Item__c WHERE id = :made.id LIMIT 1];
+
+        System.assertEquals(1, updated.size());
+        System.assertEquals(under.id, updated[0].Parent__c);
+
+        Test.stopTest();
+    }
+    @isTest
+    public static void TP_UploadTopPost() {
+        Test.startTest();
+        Wrapper info = makeCustomerAndUser('testuser');
+
+        Forum_Item__c made;
+        System.runAs(info.customer) {
+            made = AuraForumController.UploadPost(null, 'post title', 'hello there', new List<string>{'topic','test'});
+        }
+
+        System.assertNotEquals(null, made.id);
+        Forum_Item__c[] updated = [SELECT id, Parent__c, Depth__c FROM Forum_Item__c WHERE id = :made.id LIMIT 1];
+
+        System.assertEquals(1, updated.size());
+        System.assertEquals(null, updated[0].Parent__c);
+        System.assertEquals(0, updated[0].Depth__c);
+
+        Test.stopTest();
+    }
     @isTest
     public static void TP_PostLikeCreated() {
         Test.startTest();
-        Wrapper info = makeCustomerAndUser();
+        Wrapper info = makeCustomerAndUser('testuser');
 
         Forum_Item__c unliked = [SELECT id FROM Forum_Item__c LIMIT 1];
         System.runAs(info.customer) {
@@ -70,7 +189,7 @@ public class AuraForumControllerTest {
     public static void TN_PostLikeCreatedTwice() {
         // test that exception is thrown if insert same like (acct/post) twice
         Test.startTest();
-        Wrapper info = makeCustomerAndUser();
+        Wrapper info = makeCustomerAndUser('testuser');
 
         boolean failed = false;
         Forum_Item__c unliked = [SELECT id FROM Forum_Item__c LIMIT 1];
@@ -95,7 +214,7 @@ public class AuraForumControllerTest {
     @isTest
     public static void TP_PostLikeDeleted() {
         Test.startTest();
-        Wrapper info = makeCustomerAndUser();
+        Wrapper info = makeCustomerAndUser('testuser');
 
         Forum_Item__c toLike = [SELECT id FROM Forum_Item__c LIMIT 1];
 
@@ -106,7 +225,7 @@ public class AuraForumControllerTest {
     public static void TP_PostLikeDeletedTwice() {
         // Test no exception is thrown
         Test.startTest();
-        Wrapper info = makeCustomerAndUser();
+        Wrapper info = makeCustomerAndUser('testuser');
 
         Forum_Item__c toLike = [SELECT id FROM Forum_Item__c LIMIT 1];
 
@@ -141,10 +260,11 @@ public class AuraForumControllerTest {
         System.assertEquals(0, after.size());
     }
     
-    private static Wrapper makeCustomerAndUser() {
+    private static Wrapper makeCustomerAndUser(String someName) {
         // Process learned from Salesforce documentations
+        // https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_testing_tools_runas.htm
         // and Lee Campbell at https://developer.salesforce.com/forums/?id=906F00000009266IAA
-        String someName = 'sdfsdfsdg';
+        // Process was modified from each source and customized for use here
 
         UserRole role = new UserRole(name='test role', PortalType = 'None' );
         Insert role;
@@ -152,8 +272,8 @@ public class AuraForumControllerTest {
         Profile pInternal = [SELECT id, name FROM Profile WHERE name = 'System Administrator' LIMIT 1];
         Profile pExternal = [SELECT id, name FROM Profile WHERE name = 'Customer Community Login User' LIMIT 1];
        
-        String usernameInternal = someName + DateTime.now().getTime() + '@testinternal.com';
-        String usernameExternal = someName + DateTime.now().getTime() + '@testexternal.com';
+        String usernameInternal = DateTime.now().getTime() + '@testinternal.com';
+        String usernameExternal = DateTime.now().getTime() + '@testexternal.com';
 
         User creator = new User(
             UserRoleId = role.Id,
@@ -172,12 +292,12 @@ public class AuraForumControllerTest {
         Wrapper result = new Wrapper();
         System.runAs (creator) {
             Account customerAcct = new Account(
-                Name = 'TestAccount',
+                Name = someName,
                 OwnerId = creator.Id
             );
             Database.insert(customerAcct);
             
-            Contact c = new Contact(lastName='testname');
+            Contact c = new Contact(lastName=someName);
             c.email = 'contact'+usernameExternal;
             c.AccountId = customerAcct.Id;
             Insert c;
@@ -188,11 +308,11 @@ public class AuraForumControllerTest {
                 Alias = 'cstmr', 
                 Email='externaluser@test.com',
                 EmailEncodingKey='UTF-8', 
-                LastName='Testing', 
+                LastName=someName, 
                 LanguageLocaleKey='en_US',
                 LocaleSidKey='en_US', 
                 TimeZoneSidKey='America/Los_Angeles',
-                CommunityNickname='test12345',
+                CommunityNickname= someName.replaceAll( '\\s+', ''),
                 ContactId = c.id
             );
             Insert customer;
