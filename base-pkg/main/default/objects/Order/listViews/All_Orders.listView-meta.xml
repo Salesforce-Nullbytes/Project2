@@ -7,6 +7,6 @@
     <columns>ORDERS.EFFECTIVE_DATE</columns>
     <columns>ORDERS.TOTAL_AMOUNT</columns>
     <columns>ORDERS.STATUS</columns>
-    <filterScope>Mine</filterScope>
+    <filterScope>Everything</filterScope>
     <label>All Orders</label>
 </ListView>
