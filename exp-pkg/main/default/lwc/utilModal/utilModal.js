@@ -12,6 +12,9 @@ export default class UtilModal extends LightningElement {
     @api
     myContent;
 
+    @api
+    showSignInButton;
+
     get cssClass() {
         return (this.show)? "modal show" : "modal hide";
     }

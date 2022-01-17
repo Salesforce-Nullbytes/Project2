@@ -6,6 +6,14 @@
                 <button onclick={closeModal}>&times;</button>
             </div>
             <div>{myContent}</div>
+            <template if:true={showSignInButton}>
+                <br />
+                <div class="signin">
+                    <a href="./login">
+                        <button>Sign In</button>
+                    </a>
+                </div>
+            </template>
         </div>
     </div>
 </template>

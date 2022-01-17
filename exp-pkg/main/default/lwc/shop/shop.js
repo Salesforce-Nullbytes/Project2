@@ -153,7 +153,8 @@ export default class Shop extends LightningElement {
             }
         })
         .catch((error) => {
-            console.log('Received an error: ' + JSON.stringify(error));
+            // Redirect to login page
+            window.open("./login", "_self");
         });
     }
     
