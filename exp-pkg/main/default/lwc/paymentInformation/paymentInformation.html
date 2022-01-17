@@ -2,6 +2,8 @@
     <div class="main box"> 
         <div class="shipping box">
             <h3>Shipping Address</h3>
+            <template if:true={blankInfo1}>*Please fill out all fields<br/></template>
+            <template if:true={validationError1}>*Please recheck your information</template>
             <div class="info">
                 <p>{accountName}</p>
                 <label for="address">Address:  </label>
@@ -10,21 +12,23 @@
                 <input type="text" id="city" name="city" size="40"><br>
                 <label for="state">State:  </label>
                 <input type="text" id="state" name="state" size="40"><br>
-                <label for="zipcode">Zip Code:  </label>
+                <template if:true={shippingZipError}><strong>*Invalid format - i.e.(12345) </strong></template><label for="zipcode">Zip Code:  </label>
                 <input type="text" id="zipcode" name="zipcode" size="40"><br>
             </div>
         </div>
         <br/>
         <div class="billing box">
             <h3>Billing Information</h3>
+            <template if:true={blankInfo2}>*Please fill out all fields<br/></template>
+            <template if:true={validationError2}>*Please recheck your information</template>
             <div class="info">
-                <label for="cardnumber">Card Number:  </label>
+                <template if:true={cardNumberError}><strong>*Invalid format - i.e.(1234123412341234) </strong></template><label for="cardnumber">Card Number:  </label>
                 <input type="text" id="cardnumber" name="cardnumber" size="40"><br>
-                <label for="exp">Exp:  </label>
+                <template if:true={expError}><strong>*Invalid format - i.e.(01/22) </strong></template><label for="exp">Exp:  </label>
                 <input type="text" id="exp" name="exp" size="40"><br>
-                <label for="cvv">CVV:  </label>
+                <template if:true={cvvError}><strong>*Invalid format - i.e.(123) </strong></template><label for="cvv">CVV:  </label>
                 <input type="text" id="cvv" name="cvv" size="40"><br>
-                <label for="billingzipcode">Billing Zip Code:  </label>
+                <template if:true={billingZipError}><strong>*Invalid format - i.e.(12345) </strong></template><label for="billingzipcode">Billing Zip Code:  </label>
                 <input type="text" id="billingzipcode" name="billingzipcode" size="40"><br>
             </div>
         </div>

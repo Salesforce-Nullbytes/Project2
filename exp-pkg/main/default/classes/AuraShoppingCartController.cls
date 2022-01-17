@@ -32,13 +32,15 @@ public without sharing class AuraShoppingCartController {
     public static void changeOrderStatus(String address, String city, String state, String zipcode, String cardnumber, String exp, String cvv, String billingzipcode) {
         account myAccount = [SELECT billingpostalcode, shippingstreet, shippingcity, shippingstate, shippingpostalcode FROM account WHERE id = :getAccountID() LIMIT 1];
 
-        myAccount.billingpostalcode = billingzipcode;
+        myAccount.Billing_Zipcode__c = billingzipcode;
         myAccount.shippingStreet = address;
         myAccount.shippingcity = city;
         myAccount.shippingstate = state;
-        myAccount.shippingpostalcode = zipcode;
+        myAccount.Shipping_Zipcode__c = zipcode;
+        myAccount.CVV__c = cvv;
+        myAccount.exp__c = exp;
+        myAccount.Card_Number__c = cardnumber;
 
-        system.debug(cardnumber + exp + cvv);
         update myAccount;
 
 
