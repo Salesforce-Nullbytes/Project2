@@ -1,4 +1,4 @@
-public with sharing class AuraForumController {
+public without sharing class AuraForumController {
     @AuraEnabled
     public static List<Forum_Item__c> GetTopLevelPosts() {
         List<Forum_Item__c> top = [
