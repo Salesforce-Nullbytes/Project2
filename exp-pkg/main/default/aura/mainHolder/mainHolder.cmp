@@ -15,6 +15,7 @@
     <!-- Cart control attributes -->
     <aura:attribute name="cartItems" type="Object[]" access="private"/>
     <aura:attribute name="cartPending" type="Boolean" access="private"/>
+    <aura:attribute name="cartEmpty1" type="Boolean" access="private" default="false"/>
     
     <!-- Cart control handlers -->
     <aura:handler name="refresh" event="c:CartEvent" action="{!c.HandleCartEvent}" />
@@ -25,9 +26,9 @@
 
     <aura:if isTrue="{!v.isHome}">
         <c:plantPeopleTitle largeHeader="true"></c:plantPeopleTitle>
-        <c:homepageQuizIcons quizNumber="1"> </c:homepageQuizIcons>
-        <c:homepageQuizIcons quizNumber="2"> </c:homepageQuizIcons>
-        <c:homepageQuizIcons quizNumber="3"> </c:homepageQuizIcons>
+        <c:homepageQuizIcons quizNumber="1" quizTitle="Find your plant match"> </c:homepageQuizIcons>
+        <c:homepageQuizIcons quizNumber="2" quizTitle="Check your seed knowledge"> </c:homepageQuizIcons>
+        <c:homepageQuizIcons quizNumber="3" quizTitle="What's your vine vibe?"> </c:homepageQuizIcons>
     </aura:if>
 
     <aura:if isTrue="{!v.isShop}">
@@ -48,7 +49,8 @@
         <c:plantPeopleTitle largeHeader="false"></c:plantPeopleTitle>
         <c:shoppingCart 
             cartData="{!v.cartItems}" 
-            pending="{!v.cartPending}">
+            pending="{!v.cartPending}"
+            cartEmpty2="{!v.cartEmpty1}">
         </c:shoppingCart>
     </aura:if>
 

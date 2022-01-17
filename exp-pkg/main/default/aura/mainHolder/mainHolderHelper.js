@@ -19,6 +19,17 @@
             if (response.getState() == 'SUCCESS') {
                 let itemList = helper.SetItems(response.getReturnValue());  
                 component.set("v.cartItems", itemList);
+
+                //determine if cart is empty
+                console.log(itemList.length);
+                if (itemList.length == 0) {
+                    component.set("v.cartEmpty1", true);
+                } else {
+                    component.set("v.cartEmpty1", false);
+                }
+
+                console.log(component.get("v.cartEmpty1"));
+
                 helper.SetShopCatalog(component, itemList);
             } else {
                 console.log("callback not set");

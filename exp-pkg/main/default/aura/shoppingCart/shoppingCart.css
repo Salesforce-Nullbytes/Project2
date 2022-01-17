@@ -7,6 +7,7 @@
     padding: 3px 10px;
     margin-right: 5px;
     cursor: pointer;
+    float: left;
 }
 
 .THIS .checkout-button {
@@ -15,5 +16,9 @@
 }
 
 .THIS .cart-items {
+    clear: both;
+}
+
+.THIS .button-bar {
     clear: both;
 }
