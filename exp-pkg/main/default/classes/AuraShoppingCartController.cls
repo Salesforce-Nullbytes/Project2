@@ -29,10 +29,6 @@ public without sharing class AuraShoppingCartController {
     @AuraEnabled
     public static void changeOrderStatus(String address, String city, String state, String zipcode, String cardnumber, String exp, String cvv, String billingzipcode) {
         account myAccount = [SELECT billingpostalcode, shippingstreet, shippingcity, shippingstate, shippingpostalcode FROM account WHERE id = :getAccountID() LIMIT 1];
-        if (myAccount == null) {
-            system.debug('No account');
-            return;
-        }
 
         myAccount.billingpostalcode = billingzipcode;
         myAccount.shippingStreet = address;
