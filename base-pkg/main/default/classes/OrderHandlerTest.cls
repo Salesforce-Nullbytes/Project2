@@ -101,5 +101,43 @@ public class OrderHandlerTest {
         }
         System.assertEquals(true, insertUnsuccessful);
         Test.stopTest();
-    }  
+    } 
+    
+    @isTest
+    public static void undeleteDraftWithExistingDraft() {
+        //Test PreventMultipleDrafts Trigger
+        Test.startTest();
+        Boolean insertUnsuccessful = false;
+
+        Account acct = new Account();
+        acct.name='Test Account';
+
+        insert acct;
+
+        Order draftOrder1 = new Order();
+        draftOrder1.accountid = acct.id;
+        draftOrder1.status = 'Draft';
+        draftOrder1.EffectiveDate = System.today();
+
+        insert draftOrder1;
+    
+        //ID toUndelete = draftOrder1.id;
+
+        delete draftOrder1;
+
+        Order draftOrder2 = new Order();
+        draftOrder2.accountid = acct.id;
+        draftOrder2.status = 'Draft';
+        draftOrder2.EffectiveDate = System.today();
+
+        insert draftOrder2;
+
+        try {
+            undelete draftOrder1;
+        } catch (Exception e) {
+            insertUnsuccessful = true;
+        }
+        System.assertEquals(true, insertUnsuccessful);
+        Test.stopTest();
+    } 
 }
