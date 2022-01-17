@@ -51,7 +51,7 @@
     <formulas>
         <name>IsTop</name>
         <dataType>Boolean</dataType>
-        <expression>{!$Record.Top__c} = Null</expression>
+        <expression>{!$Record.Parent__c} = Null</expression>
     </formulas>
     <formulas>
         <name>MustRemove</name>
