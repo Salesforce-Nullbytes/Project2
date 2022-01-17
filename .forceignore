@@ -5,6 +5,9 @@
 package.xml
 
 # **/profiles
+**/profilePasswordPolicies
+**/profileSessionPolicies
+**/profileSessionSettings
 **/profiles/Plant People Experience Profile.profile-meta.xml
 **/appMenus
 

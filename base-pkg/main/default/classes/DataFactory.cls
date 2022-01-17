@@ -19,6 +19,18 @@ public class DataFactory {
 
     private static Integer counter = 101; // For assigning uinque product codes
 
+    public static void SetUpRegistrationAccount() {
+        Account setupAccount = new Account(name = 'SETUPPLANTPEOPLE');
+        setupAccount.Restricted__c = true;
+        Insert setupAccount;
+
+        User[] admin = [SELECT id FROM User WHERE Profile.name = 'System Administrator'];
+        UserRole ownerRole = [SELECT id, name FROM UserRole WHERE Name = 'Community Owner' LIMIT 1];
+
+        admin[0].UserRoleId = ownerRole.id;
+        Update admin;
+    }
+
     public static void ProductSetup() {
         // Pricebook setup
         Pricebook2 pb = [SELECT id, name FROM Pricebook2 WHERE name = 'Standard Price Book' LIMIT 1];

@@ -22,9 +22,9 @@
     <redirectToCustomDomain>false</redirectToCustomDomain>
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>test-amkx4omgcl3x@example.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>test-amkx4omgcl3x@example.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>test-runypxlwezfc@example.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>test-runypxlwezfc@example.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>plantpeoplesetup1-developer-edition</subdomain>
+    <subdomain>drive-data-8676-dev-ed-17e65fa90c3</subdomain>
     <urlPathPrefix>main</urlPathPrefix>
 </CustomSite>
