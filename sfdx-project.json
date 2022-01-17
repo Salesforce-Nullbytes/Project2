@@ -15,7 +15,7 @@
             "default": true,
             "dependencies": [
                 {
-                    "package": "base-pkg@0.1.0-9"
+                    "package": "base-pkg@0.1.0-10"
                 }
             ]
         }
@@ -35,6 +35,7 @@
         "base-pkg@0.1.0-6": "04t5f000000aQbxAAE",
         "base-pkg@0.1.0-7": "04t5f000000aQdKAAU",
         "base-pkg@0.1.0-8": "04t5f000000aQdjAAE",
-        "base-pkg@0.1.0-9": "04t5f000000aQeXAAU"
+        "base-pkg@0.1.0-9": "04t5f000000aQeXAAU",
+        "base-pkg@0.1.0-10": "04t5f000000aQehAAE"
     }
 }

@@ -29,21 +29,21 @@
       "type" : "component"
     }, {
       "componentAttributes" : {
+        "richTextValue" : "<div style=\"text-align: center;\">\n    <a href=\"../main\"><button>Return to home</button></a></div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "2378f210-2b5b-48f9-a7a2-d75f5ac68013",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
         "headerText" : "",
         "showHeader" : false,
         "useCommunityDomainSso" : false
       },
       "componentName" : "salesforceIdentity:socialLogin2",
       "id" : "b23f6d9b-be59-4180-b750-0254a75223b4",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    }, {
-      "componentAttributes" : {
-        "employeeLoginLinkLabel" : "Are you an employee? Login here"
-      },
-      "componentName" : "salesforceIdentity:employeeLoginLink2",
-      "id" : "91e5cb41-180a-4962-a799-c8e0af265ba1",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"

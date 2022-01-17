@@ -22,13 +22,24 @@ public class DataFactory {
     public static void SetUpRegistrationAccount() {
         Account setupAccount = new Account(name = 'SETUPPLANTPEOPLE');
         setupAccount.Restricted__c = true;
+        setupAccount.Card_Number__c = '0000000000000000';
+        setupAccount.Billing_Zipcode__c = '00000';
+        setupAccount.CVV__c = '000';
+        setupAccount.exp__c = '12/31';
+        setupAccount.Shipping_Zipcode__c = '00000';
         Insert setupAccount;
 
         User[] admin = [SELECT id FROM User WHERE Profile.name = 'System Administrator'];
         UserRole ownerRole = [SELECT id, name FROM UserRole WHERE Name = 'Community Owner' LIMIT 1];
 
-        admin[0].UserRoleId = ownerRole.id;
-        Update admin;
+        updateUserRole(admin[0].id, ownerRole.id);
+    }
+
+    @future
+    public static void updateUserRole(ID user, ID role) {
+        User admin = [SELECT id FROM User WHERE id = :user];
+        admin.UserRoleId = role;
+        update admin;
     }
 
     public static void ProductSetup() {
@@ -407,7 +418,14 @@ public class DataFactory {
         
         List<Account> accts = new List<Account>();
         for (Integer i = 1; i <= NUM_ACCOUNTS; i++) {
-            accts.add(new Account(name=('Account ' + i)));
+            Account a = new Account(name=('Account ' + i));
+            a.Card_Number__c = '1234123412341234';
+            a.Billing_Zipcode__c = '12345';
+            a.CVV__c = '111';
+            a.exp__c = '01/22';
+            a.Shipping_Zipcode__c = '12345';
+
+            accts.add(a);
         }
         Insert accts;
 
