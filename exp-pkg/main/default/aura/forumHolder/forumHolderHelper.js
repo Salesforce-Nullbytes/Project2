@@ -55,6 +55,17 @@
         $A.enqueueAction(apexMethod);
     },
     ApexInsertForumItem : function(component) {
+        // Ensure user is logged in
+        let thisUser = component.get("v.thisAccount");
+        if (thisUser == null) {
+            let message = {show: true};
+            message.label="Please Sign In";
+            message.content="Only authenticated users may interact with the forum.";
+            message.signin = true;
+            component.set("v.modal1", message);
+            return;
+        }
+
         let apexMethod = component.get("c.UploadPost");
         let post = this.SetPostAttributes(component);
         let message = {show: true};
@@ -62,6 +73,7 @@
         if (!this.ValidatePost(post)) {
             message.label="Post not submitted!";
             message.content="Post must have title and content!";
+            message.signin = false;
             component.set("v.modal1", message);
             return;
         }

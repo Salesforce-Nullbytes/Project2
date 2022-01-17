@@ -43,7 +43,8 @@
             <c:utilModal oncloseModal="{!c.CloseModal}" 
                 show="{!v.modal1.show}"
                 myLabel="{!v.modal1.label}"
-                myContent="{!v.content}">
+                myContent="{!v.modal1.content}"
+                showSignInButton="{!v.modal1.signin}">
             </c:utilModal>
             <div class="forum-display">
                 <aura:if isTrue="{!v.showTop}">
