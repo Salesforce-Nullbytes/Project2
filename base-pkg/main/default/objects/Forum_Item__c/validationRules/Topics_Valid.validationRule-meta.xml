@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Topics_Valid</fullName>
+    <active>true</active>
+    <description>Topics include letters, spaces, and numbers separated by leading semicolons.
+May only exist on top-level post.</description>
+    <errorConditionFormula>NOT (
+   OR (
+      AND(Depth__c &lt;&gt; 0, ISBLANK(Topics__c) ),
+      AND (
+         Depth__c = 0,
+         OR(
+            Topics__c  = &apos;;&apos;, 
+            REGEX(Topics__c,
+               &apos;(;((\\w)|( ))*){1,}&apos;
+            )
+         )
+      )
+   )
+)</errorConditionFormula>
+    <errorDisplayField>Topics__c</errorDisplayField>
+    <errorMessage>Topics include letters, spaces, and numbers separated by leading semicolons.
+May only exist on top-level post.</errorMessage>
+</ValidationRule>

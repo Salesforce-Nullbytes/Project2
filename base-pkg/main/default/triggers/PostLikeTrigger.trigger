@@ -11,9 +11,7 @@ trigger PostLikeTrigger on Post_Like__c (before insert, before update, before de
         when AFTER_INSERT {
             PostLikeHandler.IncrementParentPostLikes(trigger.new);
         }
-        when AFTER_UPDATE {
-            PostLikeHandler.FailAll(trigger.new, 'Updates are not allowed. Only delete or insert.');
-        }
+        when AFTER_UPDATE {} // UPDATES NOT POSSIBLE
         when AFTER_DELETE {
             PostLikeHandler.DecrementParentPostLikes(trigger.old);
         }
