@@ -101,6 +101,9 @@
             case "Cart":
                 component.set("v.isCart", true);
                 break;
+            case "FAQ":
+                component.set("v.isFAQ", true);
+                break;
             default:
                 console.log("Error: Unrecognized navigation target!");
         }

@@ -11,28 +11,6 @@ public class OrderHandlerTest {
         DataFactory.AccountSetup();
     }
 
-    // @isTest
-    // public static void insertNewOrder() {
-    //     //Test SetEffectiveDate Trigger
-    //     Test.startTest();
-    //     Account acct = new Account();
-    //     acct.name='Test Account';
-
-    //     insert acct;
-
-    //     Order newOrder = new Order();
-    //     newOrder.status = 'Draft';
-    //     newOrder.accountid = acct.id;
-    //     //newOrder.EffectiveDate = System.today();
-
-    //     insert newOrder;
-
-    //     System.assertEquals(System.today(), newOrder.EffectiveDate, newOrder);
-    //     Test.stopTest();
-    // }
-
-
-
     @isTest
     public static void updateActivatedOrder() {
         //Test PreventChanges Trigger

@@ -16,10 +16,6 @@
     text-align: center;
 }
 
-.submitted {
-    background-color: #77dd77;
-}
-
 .notSubmitted {
     background-color: #ff8c8c;
 }
@@ -42,5 +38,6 @@ button {
     font-size: 14px;
     padding: 3px 10px;
     margin: 5px;
+    float: none;
 }
 

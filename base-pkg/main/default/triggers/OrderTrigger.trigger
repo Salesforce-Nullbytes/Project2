@@ -4,7 +4,7 @@ trigger OrderTrigger on Order (before insert, before update, before delete, afte
             //prevent multiple draft orders on an account
             OrderHandler.PreventMultipleDrafts(trigger.new);
 
-            //if pricebook == null, set to standard
+            //if pricebook == null, set to standard DO IT WITH A FLOW
         }
         when BEFORE_UPDATE {
             //prevent changes to an already activated order
@@ -18,7 +18,7 @@ trigger OrderTrigger on Order (before insert, before update, before delete, afte
             //prevent multiple draft orders on an account
             OrderHandler.PreventMultipleDrafts(trigger.new);
 
-            //if pricebook == null, set to standard
+            //if pricebook == null, set to standard DO IT WITH A FLOW
         }
     }
 }
