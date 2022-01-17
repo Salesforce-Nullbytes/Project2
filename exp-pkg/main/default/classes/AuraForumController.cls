@@ -1,4 +1,4 @@
-public without sharing class AuraForumController {
+public with sharing class AuraForumController {
     @AuraEnabled
     public static List<Forum_Item__c> GetTopLevelPosts() {
         List<Forum_Item__c> top = [
@@ -75,7 +75,7 @@ public without sharing class AuraForumController {
     }
 
     public static ID getAccountId() {
-        String acctName = 'Account 3';
-        return [SELECT id FROM Account WHERE name= :acctName]?.id;
+        ID currentUserId = UserInfo.getUserId();
+        return [SELECT id, Contact.AccountId FROM User WHERE id = :currentUserId]?.Contact.AccountId;
     }
 }
