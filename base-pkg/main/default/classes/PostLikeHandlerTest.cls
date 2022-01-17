@@ -35,21 +35,6 @@ public class PostLikeHandlerTest {
         Test.stopTest();        
     }
     @isTest
-    public static void TN_NoUpdates() {
-        Test.startTest();
-        Post_Like__c ref = [SELECT id FROM Post_Like__c LIMIT 1];
-        System.assertNotEquals(null, ref);
-
-        Boolean failed = false;
-        try{
-            Update ref;
-        } catch (Exception e){
-            failed = true;
-        }
-        System.assertEquals(true, failed);
-        Test.stopTest();        
-    }
-    @isTest
     public static void TN_InsertExisting() {
         Test.startTest();
         Post_Like__c ref = [SELECT id, Account__c, Forum_Item__c FROM Post_Like__c LIMIT 1];

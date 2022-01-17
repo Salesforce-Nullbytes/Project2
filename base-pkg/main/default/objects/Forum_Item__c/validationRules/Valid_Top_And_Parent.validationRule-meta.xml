@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Valid_Top_And_Parent</fullName>
+    <active>true</active>
+    <description>Depth 0 post must have neither Top nor Parent.
+Depth 1 post Parent must equal Top.
+Depth &gt; 1 post Top must equal parent top.</description>
+    <errorConditionFormula>NOT (
+   AND(
+      Depth__c  &gt;= 0,
+      IF( Depth__c  = 0,
+                  AND(
+            ISBLANK( Top__c ),
+            ISBLANK( Parent__c )
+         ),
+         AND(
+            NOT(ISNULL( Top__c )),
+            IF( Depth__c  = 1,
+               Parent__c  =  Top__c,
+               Parent__r.Top__c  =  Top__c
+            )
+         )
+      )
+   )
+)</errorConditionFormula>
+    <errorMessage>Depth 0 post must have neither Top nor Parent.
+Depth 1 post Parent must equal Top.
+Depth &gt; 1 post Top must equal parent top. fff</errorMessage>
+</ValidationRule>

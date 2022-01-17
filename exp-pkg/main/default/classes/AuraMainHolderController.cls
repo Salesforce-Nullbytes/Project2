@@ -27,7 +27,8 @@ public without sharing class AuraMainHolderController {
         return products;
     }
 
-    private static id getAccountID() {
-        return [SELECT id FROM Account WHERE name = 'Account 3']?.id;
+    public static ID getAccountId() {
+        ID currentUserId = UserInfo.getUserId();
+        return [SELECT id, Contact.AccountId FROM User WHERE id = :currentUserId]?.Contact.AccountId;
     }
 }

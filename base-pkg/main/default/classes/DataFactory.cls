@@ -19,6 +19,18 @@ public class DataFactory {
 
     private static Integer counter = 101; // For assigning uinque product codes
 
+    public static void SetUpRegistrationAccount() {
+        Account setupAccount = new Account(name = 'SETUPPLANTPEOPLE');
+        setupAccount.Restricted__c = true;
+        Insert setupAccount;
+
+        User[] admin = [SELECT id FROM User WHERE Profile.name = 'System Administrator'];
+        UserRole ownerRole = [SELECT id, name FROM UserRole WHERE Name = 'Community Owner' LIMIT 1];
+
+        admin[0].UserRoleId = ownerRole.id;
+        Update admin;
+    }
+
     public static void ProductSetup() {
         // Pricebook setup
         Pricebook2 pb = [SELECT id, name FROM Pricebook2 WHERE name = 'Standard Price Book' LIMIT 1];
@@ -476,7 +488,7 @@ public class DataFactory {
                         Forum_Item__c comment = makePost(accts[j].id, 1,
                             'Test comment ' + i + ' on ' + j, 
                             getLongContent(), 
-                            getForumTopics(postSeed)
+                            '' //getForumTopics(postSeed)
                         );
                         comment.Parent__c = posts[i].id;
                         comment.Top__c = posts[i].id;
@@ -498,7 +510,7 @@ public class DataFactory {
             Forum_Item__c comment = makePost(poster.id, 2,
                 'Test subcomment ' + i, 
                 getLongContent(), 
-                getForumTopics(postSeed)
+                '' //getForumTopics(postSeed)
             );
             comment.Parent__c = comments[i].id;
             comment.Top__c = comments[i].Top__c;
@@ -544,8 +556,9 @@ public class DataFactory {
 
         return post;
     }
-    public static void DeleteForum() {
-        Delete [SELECT id FROM Post_Like__c];
-        Delete [SELECT id FROM Forum_Item__c];
-    }
+    //// DELETING POSTS NO LONGER POSSIBLE
+    // public static void DeleteForum() {
+    //     Delete [SELECT id FROM Post_Like__c];
+    //     Delete [SELECT id FROM Forum_Item__c];
+    // }
 }
