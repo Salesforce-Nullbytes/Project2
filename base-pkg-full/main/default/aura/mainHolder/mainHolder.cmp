@@ -1,6 +1,11 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" controller="AuraMainHolderController" access="global">
     <aura:handler name="init" value="{!this}" action="{!c.Initialize}"/>
 
+    <!-- Web to Case hooks -->
+    <aura:attribute name="returnLink" type="String" access="public"/>
+    <aura:attribute name="formActionLink" type="String" access="public"/>
+    <aura:attribute name="origId" type="String" access="public"/>
+
     <!-- Conditional Rendering attributes -->
     <aura:attribute name="inputValue" type="String"/>
     <aura:attribute name="isHome" type="Boolean" default="true"/>
@@ -57,7 +62,11 @@
 
     <aura:if isTrue="{!v.isFAQ}">
         <c:plantPeopleTitle largeHeader="false"></c:plantPeopleTitle>
-        <c:faq></c:faq>
+        <c:faq
+            returnLink="{!v.returnLink}"
+            formActionLink="{!v.formActionLink}"
+            origId="{!v.origId}"
+        ></c:faq>
     </aura:if>
 
     <c:footer> </c:footer>

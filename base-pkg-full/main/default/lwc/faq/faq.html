@@ -17,10 +17,10 @@
 
     <hr>
 
-    <form action="https://customer-nosoftware-2353-dev-ed.cs40.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+    <form action={formActionLink} method="POST">
 
-        <input type=hidden name="orgid" value="00D1100000CP6Yu">
-    <input type=hidden name="retURL" value="https://sandbox-energy-computing-135-dev-ed-17e6a8a540f.cs18.force.com/main">
+        <input type=hidden name="orgid" value={origId}>
+    <input type=hidden name="retURL" value={returnLink}>
     
         <h4>Have another question?</h4>
         <h5>Let us know!</h5>

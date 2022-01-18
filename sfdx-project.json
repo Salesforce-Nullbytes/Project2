@@ -5,7 +5,7 @@
             "package": "base-pkg-full",
             "versionName": "ver 0.1",
             "versionNumber": "0.1.0.NEXT",
-            "default": false
+            "default": true
         },
         {
             "path": "exp-pkg-full",
@@ -15,7 +15,7 @@
             "default": false,
             "dependencies": [
                 {
-                    "package": "base-pkg-full@0.1.0-1"
+                    "package": "base-pkg-full@0.1.0-2"
                 }
             ]
         }
@@ -42,6 +42,7 @@
         "base-pkg-full": "0Ho5f000000XZnTCAW",
         "base-pkg-full@0.1.0-1": "04t5f000000aQhHAAU",
         "exp-pkg-full": "0Ho5f000000XZnYCAW",
-        "exp-pkg-full@0.1.0-1": "04t5f000000aQhRAAU"
+        "exp-pkg-full@0.1.0-1": "04t5f000000aQhRAAU",
+        "base-pkg-full@0.1.0-2": "04t5f000000aQiPAAU"
     }
 }

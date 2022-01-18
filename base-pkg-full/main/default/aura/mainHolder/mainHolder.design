@@ -1,3 +1,5 @@
-<design:component >
-
+<design:component label="Web-to-Case Attributes">
+    <design:attribute name="returnLink" label="Home Page Link" />
+    <design:attribute name="formActionLink" label="Form Action Link" description="Form Action from Web-to-case generator" />
+    <design:attribute name="origId" label="Origin Id" description="Origin Id from Web-to-case generator" />
 </design:component>
