@@ -4,16 +4,24 @@
   "id" : "e05e21e1-986e-4347-b47d-1c4862a5fc84",
   "label" : "Error",
   "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:plantPeopleTitle",
+      "id" : "e79fd12b-5135-4ebb-9fe1-c9c75d7499ad",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
     "id" : "4b9750cf-b643-4df0-8f74-61bf4520b3cc",
     "regionName" : "header",
     "type" : "region"
   }, {
     "components" : [ {
       "componentAttributes" : {
-        "richTextValue" : "<div style='text-align: center;'>Invalid Page</div>"
+        "richTextValue" : "<div style=\"height: 35vh;\">\n    <div style=\"text-align: center; margin-top: 32vh; font-size: 22px;\">Invalid Page</div><br/>\n    <div style=\"text-align: center;\">\n    <a href=\"../main\"><button>Return to home</button></a></div>\n</div>"
       },
-      "componentName" : "forceCommunity:richTextInline",
-      "id" : "fb20bc73-65f4-4cc9-9b8a-f2ed25447b95",
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "227ad7ee-5dcf-4192-b565-5457a7fc3a86",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
@@ -22,6 +30,14 @@
     "regionName" : "content",
     "type" : "region"
   }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:footer",
+      "id" : "ef91acdc-414a-4302-995b-5d6964f1dbc9",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
     "id" : "e3355063-1759-4c37-b7ce-2f3af0bc719e",
     "regionName" : "footer",
     "type" : "region"

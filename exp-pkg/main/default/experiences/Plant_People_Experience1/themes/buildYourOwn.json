@@ -16,6 +16,13 @@
     "id" : "d8b347a0-187c-4720-a093-c91f87bf5568",
     "label" : "Login",
     "regions" : [ {
+      "components" : [ {
+        "componentAttributes" : { },
+        "componentName" : "c:plantPeopleTitle",
+        "id" : "9dfb3572-87df-4f09-a481-0d6241b0ff87",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
       "id" : "ac709717-e154-46e8-a629-39cd8c2a57a6",
       "regionName" : "header",
       "type" : "region"
@@ -24,6 +31,13 @@
       "regionName" : "content",
       "type" : "region"
     }, {
+      "components" : [ {
+        "componentAttributes" : { },
+        "componentName" : "c:footer",
+        "id" : "15936f36-6a66-4f8f-a019-c84bd66c9ca6",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
       "id" : "ec8942de-a020-4547-a41e-866028ac267e",
       "regionName" : "footer",
       "type" : "region"

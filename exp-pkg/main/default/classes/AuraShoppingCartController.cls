@@ -9,7 +9,7 @@ public without sharing class AuraShoppingCartController {
 
     @AuraEnabled
     public static void updateCart(Id[] ListOfRemovedIds, Id[] ListOfChangedQuantityIds, Integer[] ListOfChangedQuantityInts){
-        List<orderItem> removals = [SELECT id FROM orderItem WHERE id IN : ListOfRemovedIds];
+        List<orderItem> removals = [SELECT id FROM orderItem WHERE id IN : ListOfRemovedIds AND order.AccountID = :getAccountId()];
         delete removals;
 
         List<orderItem> updates = new List<orderItem>();
@@ -18,7 +18,20 @@ public without sharing class AuraShoppingCartController {
             return;
         }
 
+        List<OrderItem> existing = [SELECT order.AccountID, quantity FROM OrderItem WHERE id IN : ListOfChangedQuantityIds AND order.AccountID = :getAccountId()];
+
+        Set<ID> existingIDs = new Set<ID>();
+
+        for (OrderItem exists : existing) {
+            existingIDs.add(exists.id);    
+        }
+
         for (integer index = 0; index < ListOfChangedQuantityIds.size(); index++) {
+            if (!existingIDs.contains(ListOfChangedQuantityIds[index])) {
+                system.debug('Error: Cannot change quantity of item not in cart');
+                return;
+            }
+
             orderItem change = new orderItem();
             change.id = ListOfChangedQuantityIds[index];
             change.quantity = ListOfChangedQuantityInts[index];

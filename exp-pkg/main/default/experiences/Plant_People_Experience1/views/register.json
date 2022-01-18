@@ -40,21 +40,21 @@
       "type" : "component"
     }, {
       "componentAttributes" : {
+        "richTextValue" : "<div style=\"text-align: center;\">\n    <a href=\"../main\"><button>Return to home</button></a>\n\t<a href=\"../login\"><button>Login</button></a>\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "2f1753d0-2e78-4cef-ac58-7c04c05ddd88",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
         "headerText" : "",
         "showHeader" : false,
         "useCommunityDomainSso" : false
       },
       "componentName" : "salesforceIdentity:socialLogin2",
       "id" : "cfce46c2-943b-454e-8571-a223b41af6b1",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    }, {
-      "componentAttributes" : {
-        "richTextValue" : "<div style=\"text-align: center;\"><a class=\"inverseTextColor\" href=\"./\">Already have an account?</a></div>"
-      },
-      "componentName" : "forceCommunity:richTextInline",
-      "id" : "d7c83aef-74b2-4348-9e58-9aa3cfe16fae",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"

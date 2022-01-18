@@ -18,15 +18,6 @@ trigger OrderItemTrigger on OrderItem (before insert, before update, before dele
         when AFTER_INSERT {} 
         when AFTER_UPDATE {}
         when AFTER_DELETE {}
-        when AFTER_UNDELETE {
-            // ensure this product is not already in cart
-            OrderItemHandler.PreventAddingExistingItem(trigger.new);
-
-            // ensure two identical items aren't added at the same time
-            OrderItemHandler.PreventAddingSameItemTwice(trigger.new);
-
-            // set the unit price = standard unit price
-            OrderItemHandler.SetUnitPrice(trigger.new);
-        }
+        when AFTER_UNDELETE {} //Order Item undeletes are not possible
     }
 }
