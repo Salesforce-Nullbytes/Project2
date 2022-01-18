@@ -1,5 +1,10 @@
 public without sharing class AuraMainHolderController {
     @AuraEnabled
+    public static Account GetMyAccount(){
+        return [SELECT Id, Name FROM Account WHERE Id = :getAccountId() LIMIT 1];
+    }
+    
+    @AuraEnabled
     public static List<orderItem> GetCartItems() {
         id acctID = getAccountID();
 

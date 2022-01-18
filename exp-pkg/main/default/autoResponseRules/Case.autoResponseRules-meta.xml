@@ -5,7 +5,7 @@
         <active>true</active>
         <ruleEntry>
             <formula>true</formula>
-            <senderEmail>rebeccahahn40@gmail.com</senderEmail>
+            <senderEmail>zelizach@gmail.com</senderEmail>
             <senderName>Plant People</senderName>
             <template>unfiled$public/CommunityWelcomeEmailTemplate</template>
         </ruleEntry>
