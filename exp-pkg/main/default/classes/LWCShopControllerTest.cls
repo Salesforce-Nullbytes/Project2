@@ -20,7 +20,7 @@ public class LWCShopControllerTest {
     public static void TS_CreateCartItemNewCart(){
         Test.startTest();
 
-        Wrapper info = makeCustomerAndUser('testuser');
+        Wrapper info = makeCustomerAndUser('testuser1');
 
         Product2[] products = [SELECT ProductCode FROM Product2 WHERE ProductCode != null];
         System.assert(products.size() > 0);
@@ -49,7 +49,7 @@ public class LWCShopControllerTest {
     public static void TN_InvalidProductCode(){
         Test.startTest();
 
-        Wrapper info = makeCustomerAndUser('testuser');
+        Wrapper info = makeCustomerAndUser('testuser2');
 
         String fake = 'not a real product code';
 
@@ -72,7 +72,7 @@ public class LWCShopControllerTest {
     public static void TN_CreateCartItemTwice(){
         Test.startTest();
 
-        Wrapper info = makeCustomerAndUser('testuser');
+        Wrapper info = makeCustomerAndUser('testuser3');
 
         Product2[] products = [SELECT ProductCode FROM Product2 WHERE ProductCode != null];
         System.assert(products.size() > 0);
@@ -107,7 +107,7 @@ public class LWCShopControllerTest {
     public static void TP_AddManyToSameCart(){
         Test.startTest();
 
-        Wrapper info = makeCustomerAndUser('testuser');
+        Wrapper info = makeCustomerAndUser('testuser4');
 
         Product2[] products = [SELECT ProductCode FROM Product2 WHERE ProductCode != null];
         System.assert(products.size() > 1);
