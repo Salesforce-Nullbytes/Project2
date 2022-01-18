@@ -125,13 +125,6 @@ public class OrderHandlerTest {
 
         delete draftOrder1;
 
-        Order draftOrder2 = new Order();
-        draftOrder2.accountid = acct.id;
-        draftOrder2.status = 'Draft';
-        draftOrder2.EffectiveDate = System.today();
-
-        insert draftOrder2;
-
         try {
             undelete draftOrder1;
         } catch (Exception e) {
