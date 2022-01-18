@@ -18,6 +18,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AuraMainHolderControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AuraShoppingCartController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -135,6 +139,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>OrderItemHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OrderItemHandlerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -476,6 +484,10 @@
     </pageAccesses>
     <tabVisibilities>
         <tab>Forum_Item__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Sales_Summary</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>

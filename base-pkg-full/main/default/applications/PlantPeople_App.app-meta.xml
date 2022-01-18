@@ -10,6 +10,7 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>PlantPeople App</label>
     <navType>Standard</navType>
+    <tabs>Sales_Summary</tabs>
     <tabs>standard-Product2</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Order</tabs>

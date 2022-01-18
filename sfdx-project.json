@@ -15,7 +15,7 @@
             "default": false,
             "dependencies": [
                 {
-                    "package": "base-pkg-full@0.1.0-4"
+                    "package": "base-pkg-full@0.1.0-5"
                 }
             ]
         }

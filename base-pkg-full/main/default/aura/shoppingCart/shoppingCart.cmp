@@ -22,7 +22,7 @@
                             <button onclick="{!c.CancelChanges}">Cancel</button>
                         </aura:if>
                         <aura:if isTrue="{!v.cannotCheckout}">
-                            <span>You have unsaved changes in your cart</span>
+                            <span class="unsaved-changes">You have unsaved changes in your cart</span>
                         </aura:if>
                         <button onclick="{!c.CheckOut}" class="checkout-button">Check Out</button>
                     </div>

@@ -11,8 +11,8 @@
     "components" : [ {
       "componentAttributes" : {
         "formActionLink" : "https://saas-computing-2708-dev-ed.cs43.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8",
-        "origId" : "00D63000000de6K",
-        "returnLink" : "https://sandbox-saas-computing-2708-dev-ed-17e6e5f188b.cs43.force.com/main"
+        "origId" : "",
+        "returnLink" : ""
       },
       "componentName" : "c:mainHolder",
       "id" : "015ad1e0-b2a9-4a66-b54e-7d9ec385256d",
