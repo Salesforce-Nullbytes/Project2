@@ -1,0 +1,9 @@
+Thank you for visiting Plant People!
+
+A case has been opened regarding: {!Case.Subject}.
+Details {!Case.Description}
+
+A representative will respond to {!Case.SuppliedPhone} or {!Case.SuppliedEmail} shortly.
+
+Thank you! Sincerely,
+Plant People

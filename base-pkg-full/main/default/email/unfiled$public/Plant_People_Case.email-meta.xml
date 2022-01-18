@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Auto-response for web-to-case</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Plant People Case</name>
+    <style>none</style>
+    <subject>Hello, {!Case.SuppliedName}</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

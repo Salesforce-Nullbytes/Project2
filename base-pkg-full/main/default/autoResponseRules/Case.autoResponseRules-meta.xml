@@ -7,7 +7,7 @@
             <formula>true</formula>
             <senderEmail>zelizach@gmail.com</senderEmail>
             <senderName>Plant People</senderName>
-            <template>unfiled$public/CommunityWelcomeEmailTemplate</template>
+            <template>unfiled$public/Plant_People_Case</template>
         </ruleEntry>
     </autoResponseRule>
 </AutoResponseRules>
