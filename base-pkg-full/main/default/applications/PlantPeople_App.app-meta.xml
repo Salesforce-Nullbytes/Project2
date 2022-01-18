@@ -14,6 +14,7 @@
     <tabs>standard-Account</tabs>
     <tabs>standard-Order</tabs>
     <tabs>Forum_Item__c</tabs>
+    <tabs>standard-Case</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>PlantPeople_App_UtilityBar</utilityBar>
 </CustomApplication>
