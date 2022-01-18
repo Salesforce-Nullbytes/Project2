@@ -1,7 +1,17 @@
-import {LightningElement} from 'lwc';
+import {LightningElement, api} from 'lwc';
 import confirmationBackgroundImage from '@salesforce/resourceUrl/confirmationBackgroundImage';
 
 export default class cartEmpty extends LightningElement {
+
+    @api
+    returnLink = '';
+
+    @api
+    formActionLink = '';
+
+    @api
+    origId = '';
+
 
     // backgroundRendered = false;
 

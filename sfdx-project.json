@@ -1,21 +1,21 @@
 {
     "packageDirectories": [
         {
-            "path": "base-pkg",
-            "package": "base-pkg",
+            "path": "base-pkg-full",
+            "package": "base-pkg-full",
             "versionName": "ver 0.1",
             "versionNumber": "0.1.0.NEXT",
-            "default": false
+            "default": true
         },
         {
-            "path": "exp-pkg",
-            "package": "exp-pkg",
+            "path": "exp-pkg-full",
+            "package": "exp-pkg-full",
             "versionName": "ver 0.1",
             "versionNumber": "0.1.0.NEXT",
-            "default": true,
+            "default": false,
             "dependencies": [
                 {
-                    "package": "base-pkg@0.1.0-11"
+                    "package": "base-pkg-full@0.1.0-2"
                 }
             ]
         }
@@ -38,6 +38,11 @@
         "base-pkg@0.1.0-9": "04t5f000000aQeXAAU",
         "base-pkg@0.1.0-10": "04t5f000000aQehAAE",
         "base-pkg@0.1.0-11": "04t5f000000aQfLAAU",
-        "exp-pkg@0.1.0-1": "04t5f000000aQfQAAU"
+        "exp-pkg@0.1.0-1": "04t5f000000aQfQAAU",
+        "base-pkg-full": "0Ho5f000000XZnTCAW",
+        "base-pkg-full@0.1.0-1": "04t5f000000aQhHAAU",
+        "exp-pkg-full": "0Ho5f000000XZnYCAW",
+        "exp-pkg-full@0.1.0-1": "04t5f000000aQhRAAU",
+        "base-pkg-full@0.1.0-2": "04t5f000000aQiPAAU"
     }
 }

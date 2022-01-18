@@ -151,7 +151,7 @@ export default class ForumItem extends LightningElement {
     }
 
     get expandLabel() {
-        return this.expanded() ? 'Collaspe -' : 'Expand +';
+        return this.expanded() ? 'Collapse -' : 'Expand +';
     }
 
     clickExpand() {
