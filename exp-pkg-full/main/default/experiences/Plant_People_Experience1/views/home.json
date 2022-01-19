@@ -10,7 +10,7 @@
   }, {
     "components" : [ {
       "componentAttributes" : {
-        "formActionLink" : "https://saas-computing-2708-dev-ed.cs43.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8",
+        "formActionLink" : "",
         "origId" : "",
         "returnLink" : ""
       },
