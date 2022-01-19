@@ -18,27 +18,26 @@
     <aura:handler name="init" value="{!this}" action="{!c.Initialize}"/>
 
     <div class="title-section" style="font-size: 22px; text-align: center;">
-        <h1>
+        <h1 class="forum-holder-heading">
             <aura:if isTrue="{!v.thisAccount != null}">
                 Hi, {!v.thisAccount.Name}!
             </aura:if>
             Let's Have a Chat
         </h1>
     </div>
-
-    <div>
-        <div class='title-bar'>
-            <div class='search-bar'>
-                <!-- Consider a 'search' type, with list attribute for suggetsed values -->
-                <input type="text" placeholder="Search for terms or topics here..." />
-                <button>Search</button>
-                <button onclick="{!c.HandleTop}" style="float:right;">All Posts</button>
-                <aura:if isTrue="{!v.hasSelection ? v.showTop ? true : false : false}">
-                    <button onclick="{!c.OpenSelected}" style="float:right;">Open Selected</button>
-                </aura:if>
-                <br />
-            </div>
+    <div class='title-bar'>
+        <div class='search-bar'>
+            <!-- Consider a 'search' type, with list attribute for suggetsed values -->
+            <input type="text" placeholder="Search for terms or topics here..." />
+            <button>Search</button>
+            <button onclick="{!c.HandleTop}" style="float:right;">All Posts</button>
+            <aura:if isTrue="{!v.hasSelection ? v.showTop ? true : false : false}">
+                <button onclick="{!c.OpenSelected}" style="float:right;">Open Selected</button>
+            </aura:if>
+            <br />
         </div>
+    </div>
+    <div>
         <div class="forum-body">
             <c:utilModal oncloseModal="{!c.CloseModal}" 
                 show="{!v.modal1.show}"
@@ -68,21 +67,22 @@
                     </aura:set>
                 </aura:if>
             </div>
-            <div class="forum-interact">
-                <div>
-                    {!v.showTop ? 'Post' : 'Comment'} Heading:
-                    <br />
-                    <input type="text" aura:id="postTitle"/>
-                </div>
-                <br />
-                {!v.showTop ? 'Post' : 'Comment'} Body:
-                <br />
-                <textarea rows="4" aura:id="postContent"/>
-                <br />
-                <button class="post" onclick="{!c.HandleNewForumItem}">
-                    {!v.showTop ? 'Post' : 'Comment'}
-                </button>
-            </div>
         </div>
     </div>
+    <div class="forum-interact">
+        <div>
+            {!v.showTop ? 'Post' : 'Comment'} Heading:
+            <br />
+            <input type="text" aura:id="postTitle"/>
+        </div>
+        <br />
+        {!v.showTop ? 'Post' : 'Comment'} Body:
+        <br />
+        <textarea rows="4" aura:id="postContent"/>
+        <br />
+        <button class="post" onclick="{!c.HandleNewForumItem}">
+            {!v.showTop ? 'Post' : 'Comment'}
+        </button>
+    </div>
+
 </aura:component>	

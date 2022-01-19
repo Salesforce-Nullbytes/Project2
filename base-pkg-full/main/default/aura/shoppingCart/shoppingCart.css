@@ -22,3 +22,7 @@
 .THIS .button-bar {
     clear: both;
 }
+
+.THIS .unsaved-changes {
+    background-color: rgb(252, 255, 184);
+}
